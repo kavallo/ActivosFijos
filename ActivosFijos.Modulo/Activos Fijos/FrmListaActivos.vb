@@ -180,8 +180,10 @@ Public Class FrmListaActivos
     Me.ListBindingSource.DataSource = GetType(Activo)
     'mActivos = ActivoList.ObtenerLista(Sistema.OperadorDatos, _filtro)
     mActivos = Me.CtlBuscaActivos1.Activos
-    Dim mitemssort As New Infoware.Reglas.SortedView(mActivos)
-    ListBindingSource.DataSource = mitemssort
+    If mActivos IsNot Nothing Then
+      Dim mitemssort As New Infoware.Reglas.SortedView(mActivos)
+      ListBindingSource.DataSource = mitemssort
+    End If
   End Sub
 
   Private Sub mActivos_AddingNew(ByVal sender As Object, ByVal e As System.ComponentModel.AddingNewEventArgs) Handles mActivos.AddingNew
@@ -211,12 +213,12 @@ Public Class FrmListaActivos
     Me.DataGridView1.BringToFront()
 
     Me.CtlBuscaActivos1.OperadorDatos = Sistema.OperadorDatos
-    Me.CtlBuscaActivos1.Llenar_Datos()
+        'Me.CtlBuscaActivos1.Llenar_Datos()
 
     ToolStripManager.Merge(Me.ToolStrip2, Me.ToolStrip1)
     Me.ToolStrip2.Visible = False
 
-    Llenar_datos()
+        'Llenar_datos()
   End Sub
 #End Region
 

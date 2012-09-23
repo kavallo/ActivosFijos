@@ -473,6 +473,17 @@ Public Class Activo
     End Get
   End Property
 
+  <Infoware.Reportes.CampoReporteAtributo("Ubicación", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 350, True)> _
+  Public ReadOnly Property UbicacionNombre() As String
+    Get
+      Dim ubicacion As WWTSParametroDet = UbicacionActual
+      If ubicacion Is Nothing Then
+        Return String.Empty
+      End If
+      Return ubicacion.DescripcionLarga
+    End Get
+  End Property
+
   Public ReadOnly Property ActivoCustodios As ActivoCustodioList
     Get
       If EsNuevo Then
@@ -493,6 +504,17 @@ Public Class Activo
         Next
       End If
       Return Nothing
+    End Get
+  End Property
+
+  <Infoware.Reportes.CampoReporteAtributo("Custodio", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 200, True)> _
+  Public ReadOnly Property CustodioNombre() As String
+    Get
+      Dim custodio As Empleado = CustodioActual
+      If custodio Is Nothing Then
+        Return String.Empty
+      End If
+      Return custodio.NombreCompleto
     End Get
   End Property
 
