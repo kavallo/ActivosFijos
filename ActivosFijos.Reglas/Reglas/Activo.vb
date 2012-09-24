@@ -883,7 +883,7 @@ Public Class ActivoList
   '4 Sin fecha de uso
   '5 Sin fecha de baja
 
-  Public Shared Function ObtenerLista(ByVal _OperadorDatos As OperadorDatos, _CodigoBarras As String, _CodigoAux As String, _Serie As String, _Descripcion As String, _Clase As WWTSParametroDet, _Marca As WWTSParametroDet, _Modelo As String, _Proveedor As Proveedor, _Factura As FacturaActivo, _Custodio As Empleado, _Ubicacion As WWTSParametroDet, _Estadoinv As WWTSParametroDet, _SoloActivos As Boolean, _RangoFecha As Integer, _Desde As Date, _Hasta As Date) As ActivoList
+  Public Shared Function ObtenerLista(ByVal _OperadorDatos As OperadorDatos, ByVal _CodigoBarras As String, ByVal _CodigoAux As String, ByVal _Serie As String, ByVal _Descripcion As String, ByVal _Clase As WWTSParametroDet, ByVal _Marca As WWTSParametroDet, ByVal _Modelo As String, ByVal _Proveedor As Proveedor, ByVal _Factura As FacturaActivo, ByVal _Custodio As Empleado, ByVal _Ubicacion As WWTSParametroDet, ByVal _Estadoinv As WWTSParametroDet, ByVal _SoloActivos As Boolean, ByVal _RangoFecha As Integer, ByVal _Desde As Date, ByVal _Hasta As Date, ByVal _TipoBaja As WWTSParametroDet) As ActivoList
     Dim oResult As New ActivoList
     Dim bReturn As Boolean
     Dim ds As DataTable = Nothing
@@ -925,6 +925,10 @@ Public Class ActivoList
       If _RangoFecha >= 0 Then
         .AgregarParametro("@FechaDesde", _Desde.Date)
         .AgregarParametro("@FechaHasta", _Hasta.Date)
+      End If
+      If _TipoBaja IsNot Nothing Then
+        .AgregarParametro("@Parame_TipoBajaActivo", _TipoBaja.Parame_Codigo)
+        .AgregarParametro("@Pardet_TipoBajaActivo", _TipoBaja.Pardet_Secuencia)
       End If
       .Procedimiento = "proc_Activo"
       bReturn = .Ejecutar(ds)

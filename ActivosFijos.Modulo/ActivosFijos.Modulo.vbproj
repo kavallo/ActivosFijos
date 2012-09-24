@@ -114,6 +114,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activos Fijos\FrmListaBajasActivo.designer.vb">
+      <DependentUpon>FrmListaBajasActivo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Activos Fijos\FrmListaBajasActivo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Activos Fijos\CtlActivo.Designer.vb">
       <DependentUpon>CtlActivo.vb</DependentUpon>
     </Compile>
@@ -603,6 +609,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Activos Fijos\FrmListaBajasActivo.resx">
+      <DependentUpon>FrmListaBajasActivo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Activos Fijos\CtlActivo.resx">
       <DependentUpon>CtlActivo.vb</DependentUpon>
     </EmbeddedResource>

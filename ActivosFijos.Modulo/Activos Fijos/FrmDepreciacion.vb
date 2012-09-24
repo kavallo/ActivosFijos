@@ -140,19 +140,11 @@ Public Class FrmDepreciacion
               _texto = ">>>Error! " + _texto + "<Error>;"
             End If
 
-            'MsgBox(String.Format("Error escribiendo archivo fila:{0} columna:{1}", fila, col), MsgBoxStyle.Critical, "Error")
             errorcont += 1
-            'If errorcont >= 3 Then
-            '  MsgBox("Superado el máximo número de errores", MsgBoxStyle.Critical, "Error")
-            '  Exit For
-            'End If
           End Try
         Next
         _texto = _texto + vbCrLf
         My.Computer.FileSystem.WriteAllText(_archivotxt, _texto, True)
-        'If errorcont >= 3 Then
-        '  Exit For
-        'End If
       Next
       Shell("Notepad " + _archivotxt, AppWinStyle.NormalFocus, False)
     End If

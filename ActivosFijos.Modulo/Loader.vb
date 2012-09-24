@@ -200,9 +200,7 @@ Public Class Loader
   End Function
 
   Function CargarBajaActivo(ByVal _Sistema As Sistema, ByVal _Restriccion As Restriccion, ByVal _Opcion As Opcion) As Infoware.Docking.IDockContent
-    Dim f As New FrmListaActivos(_Sistema, _Restriccion, False)
-    f.MostrarDarBaja = True
-    f.MultiSelect = True
+    Dim f As New FrmListaBajasActivo(_Sistema, _Restriccion, False)
     Return f
   End Function
 

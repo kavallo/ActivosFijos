@@ -66,6 +66,7 @@ Partial Class FrmListaActivos
     Me.CtlBuscaActivos1.Location = New System.Drawing.Point(5, 3)
     Me.CtlBuscaActivos1.Name = "CtlBuscaActivos1"
     Me.CtlBuscaActivos1.OperadorDatos = Nothing
+    Me.CtlBuscaActivos1.PuedeExportaryBarCode = False
     Me.CtlBuscaActivos1.Size = New System.Drawing.Size(184, 527)
     Me.CtlBuscaActivos1.TabIndex = 0
     '
@@ -87,12 +88,12 @@ Partial Class FrmListaActivos
     '
     'btnseleccionartodo
     '
-    Me.btnseleccionartodo.Image = My.Resources.select_all.ToBitmap
+    Me.btnseleccionartodo.Image = CType(resources.GetObject("btnseleccionartodo.Image"), System.Drawing.Image)
     Me.btnseleccionartodo.ImageTransparentColor = System.Drawing.Color.Magenta
     Me.btnseleccionartodo.MergeAction = System.Windows.Forms.MergeAction.Insert
     Me.btnseleccionartodo.MergeIndex = 10
     Me.btnseleccionartodo.Name = "btnseleccionartodo"
-    Me.btnseleccionartodo.Size = New System.Drawing.Size(99, 22)
+    Me.btnseleccionartodo.Size = New System.Drawing.Size(115, 22)
     Me.btnseleccionartodo.Text = "Seleccionar todo"
     '
     'btndarbaja
