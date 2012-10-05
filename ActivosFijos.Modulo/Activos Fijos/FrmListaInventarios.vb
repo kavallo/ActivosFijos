@@ -152,7 +152,7 @@ Public Class FrmListaInventarios
     MyBase.AgregarLeyenda = "Agregar un nuevo Inventario"
 
     Me.ListBindingSource.DataSource = GetType(Inventario)
-    mInventarios = InventarioList.ObtenerLista(Sistema.OperadorDatos, Usuario.PardetUbicacion, _filtro)
+    mInventarios = InventarioList.ObtenerLista(Sistema.OperadorDatos, Usuario.PardetUbicacion, Nothing, _filtro)
     Dim mitemssort As New Infoware.Reglas.SortedView(mInventarios)
     ListBindingSource.DataSource = mitemssort
   End Sub

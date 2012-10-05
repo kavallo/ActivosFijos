@@ -22,12 +22,20 @@ Public Class FrmReporteActaEntregaCustodio
       Exit Sub
     End If
     Try
+      Dim mPeriodoInventarioString As String = ""
+      Dim mPeriodoInventario As WWTSParametroDet = Nothing
+      If Me.CheckBox1.Checked Then
+        mPeriodoInventario = Me.cboPeriodoInventario.ParametroDet
+        mPeriodoInventarioString = mPeriodoInventario.Pardet_Descripcion
+      End If
+
       Dim info As New crpActaRecepcionCustodio
       info.DataDefinition.FormulaFields("Fecha").Text = String.Format("'{0}'", Me.DateTimePicker1.Value.ToLongDateString)
       info.DataDefinition.FormulaFields("Ciudad").Text = String.Format("'{0}'", Me.cbociudad.ParametroDet.Descripcion)
+      'info.DataDefinition.FormulaFields("PeriodoInventario").Text = String.Format("'{0}'", mPeriodoInventarioString)
       info.DataDefinition.FormulaFields("Empresa").Text = String.Format("'{0}'", New WWTSParametroDet(Sistema.OperadorDatos, Enumerados.EnumParametros.EmpresaActivo, 1).Descripcion)
 
-      info.SetDataSource(clsReporteActivo.RetornarActaEntregaCustodioDS(Custodio))
+      info.SetDataSource(clsReporteActivo.RetornarActaEntregaCustodioDS(Custodio, mPeriodoInventario))
       info.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA4
       'Me.CrystalReportViewer1.Zoom(1)
       Me.ReporteDatos = info
@@ -57,6 +65,9 @@ Public Class FrmReporteActaEntregaCustodio
     Me.cbociudad.Llenar_Datos()
     Me.cbociudad.SelectedValue = My.Settings.ciudadactual
 
+    Me.cboPeriodoInventario.Parametro = Enumerados.EnumParametros.PeriodoInventario
+    Me.cboPeriodoInventario.OperadorDatos = Sistema.OperadorDatos
+    Me.cboPeriodoInventario.Llenar_Datos()
 
     Me.CtlBuscaCustodio.OperadorDatos = Sistema.OperadorDatos
     Me.CtlBuscaCustodio.Llenar_Datos()
@@ -67,5 +78,9 @@ Public Class FrmReporteActaEntregaCustodio
     Me.Custodio = Me.CtlBuscaCustodio.Empleado
     My.Settings.ciudadactual = Me.cbociudad.SelectedValue
     My.Settings.Save()
+  End Sub
+
+  Private Sub CheckBox1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox1.CheckedChanged
+    Me.pnlsoloinventariados.Visible = Me.CheckBox1.Checked
   End Sub
 End Class

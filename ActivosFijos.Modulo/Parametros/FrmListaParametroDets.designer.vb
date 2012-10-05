@@ -77,7 +77,7 @@ Partial Class FrmListaParametroDets
     Me.PerformLayout()
 
   End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+  Friend WithEvents Label1 As System.Windows.Forms.Label
   Friend WithEvents ComboBoxParametro1 As ComboBoxParametro
 
 End Class

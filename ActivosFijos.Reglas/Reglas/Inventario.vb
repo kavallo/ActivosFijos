@@ -123,7 +123,7 @@ Public Class Inventario
 
   Public ReadOnly Property Descripcion As String
     Get
-      Return String.Format("{0} {1}", UbicacionString, PeriodoString)
+      Return String.Format("{0} {1}", PeriodoString, UbicacionString)
     End Get
   End Property
 
@@ -266,7 +266,7 @@ End Class
 Public Class InventarioList
   Inherits System.ComponentModel.BindingList(Of Inventario)
 
-  Public Shared Function ObtenerLista(_OperadorDatos As OperadorDatos, _Ubicacion As WWTSParametroDet, Optional ByVal _filtro As String = "") As InventarioList
+  Public Shared Function ObtenerLista(_OperadorDatos As OperadorDatos, _Ubicacion As WWTSParametroDet, _PeriodoInventario As WWTSParametroDet, Optional ByVal _filtro As String = "") As InventarioList
     Dim oResult As New InventarioList
     Dim bReturn As Boolean
     Dim ds As DataTable = Nothing
@@ -275,6 +275,10 @@ Public Class InventarioList
       If _Ubicacion IsNot Nothing Then
         .AgregarParametro("@Parame_Ubicacion", _Ubicacion.Parame_Codigo)
         .AgregarParametro("@Pardet_Ubicacion", _Ubicacion.Pardet_Secuencia)
+      End If
+      If _PeriodoInventario IsNot Nothing Then
+        .AgregarParametro("@Parame_PeriodoInventario", _PeriodoInventario.Parame_Codigo)
+        .AgregarParametro("@Pardet_PeriodoInventario", _PeriodoInventario.Pardet_Secuencia)
       End If
       .AgregarParametro("@filtro", _filtro)
       .Procedimiento = "proc_Inventario"
@@ -290,7 +294,7 @@ Public Class InventarioList
     End If
     Return oResult
   End Function
-  Public Shared Function ObtenerListaActivos(_OperadorDatos As OperadorDatos, _Ubicacion As WWTSParametroDet, Optional ByVal _filtro As String = "") As InventarioList
+  Public Shared Function ObtenerListaActivos(_OperadorDatos As OperadorDatos, _Ubicacion As WWTSParametroDet, _PeriodoInventario As WWTSParametroDet, Optional ByVal _filtro As String = "") As InventarioList
     Dim oResult As New InventarioList
     Dim bReturn As Boolean
     Dim ds As DataTable = Nothing
@@ -299,6 +303,10 @@ Public Class InventarioList
       If _Ubicacion IsNot Nothing Then
         .AgregarParametro("@Parame_Ubicacion", _Ubicacion.Parame_Codigo)
         .AgregarParametro("@Pardet_Ubicacion", _Ubicacion.Pardet_Secuencia)
+      End If
+      If _PeriodoInventario IsNot Nothing Then
+        .AgregarParametro("@Parame_PeriodoInventario", _PeriodoInventario.Parame_Codigo)
+        .AgregarParametro("@Pardet_PeriodoInventario", _PeriodoInventario.Pardet_Secuencia)
       End If
       .AgregarParametro("@Pardet_EstadoInventario", 1) 'abierto
       .AgregarParametro("@filtro", _filtro)
