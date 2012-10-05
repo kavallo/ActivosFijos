@@ -218,6 +218,11 @@
       <DependentUpon>crpReporteResumenDepreciacion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Activos Fijos\Reportes\dsFichaActivoSRI.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFichaActivoSRI.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Activos Fijos\Reportes\FrmReporteResumenDepreciacion.Designer.vb">
       <DependentUpon>FrmReporteResumenDepreciacion.vb</DependentUpon>
     </Compile>
@@ -839,6 +844,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Activos Fijos\Reportes\dsFichaActivoSRI.xsc">
+      <DependentUpon>dsFichaActivoSRI.xsd</DependentUpon>
+    </None>
+    <None Include="Activos Fijos\Reportes\dsFichaActivoSRI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFichaActivoSRI.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Activos Fijos\Reportes\dsFichaActivoSRI.xss">
+      <DependentUpon>dsFichaActivoSRI.xsd</DependentUpon>
+    </None>
     <None Include="Activos Fijos\Reportes\dsReporteActivoDepreciacion.xsc">
       <DependentUpon>dsReporteActivoDepreciacion.xsd</DependentUpon>
     </None>
