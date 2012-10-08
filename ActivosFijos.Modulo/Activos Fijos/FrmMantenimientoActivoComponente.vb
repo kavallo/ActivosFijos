@@ -51,6 +51,7 @@ Public Class FrmMantenimientoActivoComponente
     Me.CtlBuscaProveedor1.Proveedor = mActivoComponente.Proveedor
     Me.txtfactura.Text = mActivoComponente.ActCom_Factura
     Me.dtfecfactura.Value = mActivoComponente.ActCom_FechaAdquisicion
+    Me.dtfecingreso.Value = mActivoComponente.ActCom_FechaIngreso
     Me.chkerogacion.Checked = mActivoComponente.ActCom_esErogacion
     If Not mActivoComponente.EsNuevo AndAlso Me.chkerogacion.Checked Then
       Me.chkerogacion.Enabled = False
@@ -104,6 +105,7 @@ Public Class FrmMantenimientoActivoComponente
     mActivoComponente.Proveedor = Me.CtlBuscaProveedor1.Proveedor
     mActivoComponente.ActCom_Factura = Me.txtfactura.Text
     mActivoComponente.ActCom_FechaAdquisicion = Me.dtfecfactura.Value
+    mActivoComponente.ActCom_FechaIngreso = Me.dtfecingreso.Value
     mActivoComponente.ActCom_esErogacion = Me.chkerogacion.Checked
     If mActivoComponente.ActCom_esErogacion Then
       mActivoComponente.ActCom_ValorErogacion = Me.txtvalorerogacion.Value

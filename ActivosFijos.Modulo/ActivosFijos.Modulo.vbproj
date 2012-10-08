@@ -215,16 +215,22 @@
     </Compile>
     <Compile Include="Activos Fijos\Reportes\clsReporteTransaccionActivo.vb" />
     <Compile Include="Activos Fijos\Reportes\clsReporteResumenDepreciacion.vb" />
+    <Compile Include="Activos Fijos\Reportes\crpFichaCambioCustodio.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crpFichaCambioCustodio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Activos Fijos\Reportes\crpReporteResumenDepreciacion.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crpReporteResumenDepreciacion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Activos Fijos\Reportes\dsFichaActivoSRI.Designer.vb">
+    <Compile Include="Activos Fijos\Reportes\dsFichaCambioCustodio1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dsFichaActivoSRI.xsd</DependentUpon>
+      <DependentUpon>dsFichaCambioCustodio.xsd</DependentUpon>
     </Compile>
     <Compile Include="Activos Fijos\Reportes\FrmReporteResumenDepreciacion.Designer.vb">
       <DependentUpon>FrmReporteResumenDepreciacion.vb</DependentUpon>
@@ -683,6 +689,10 @@
     <EmbeddedResource Include="Activos Fijos\FrmMantenimientoFacturaActivo.resx">
       <DependentUpon>FrmMantenimientoFacturaActivo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Activos Fijos\Reportes\crpFichaCambioCustodio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crpFichaCambioCustodio.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Activos Fijos\Reportes\crpReporteResumenDepreciacion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crpReporteResumenDepreciacion.vb</LastGenOutput>
@@ -748,6 +758,7 @@
     <EmbeddedResource Include="Activos Fijos\Reportes\FrmReporteListaActivos.resx">
       <DependentUpon>FrmReporteListaActivos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Activos Fijos\Reportes\Report1.rdlc" />
     <EmbeddedResource Include="Entidad\CtlBuscaPerito.resx">
       <DependentUpon>CtlBuscaPerito.vb</DependentUpon>
     </EmbeddedResource>
@@ -847,16 +858,21 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Activos Fijos\Reportes\dsFichaActivoSRI.xsc">
-      <DependentUpon>dsFichaActivoSRI.xsd</DependentUpon>
+    <None Include="Activos Fijos\Reportes\dsFichaCambioCustodio.xsc">
+      <DependentUpon>dsFichaCambioCustodio.xsd</DependentUpon>
+    </None>
+    <None Include="Activos Fijos\Reportes\dsFichaCambioCustodio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFichaCambioCustodio1.Designer.vb</LastGenOutput>
     </None>
     <None Include="Activos Fijos\Reportes\dsFichaActivoSRI.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsFichaActivoSRI.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Activos Fijos\Reportes\dsFichaActivoSRI.xss">
-      <DependentUpon>dsFichaActivoSRI.xsd</DependentUpon>
+    <None Include="Activos Fijos\Reportes\dsFichaCambioCustodio.xss">
+      <DependentUpon>dsFichaCambioCustodio.xsd</DependentUpon>
     </None>
     <None Include="Activos Fijos\Reportes\dsReporteActivoDepreciacion.xsc">
       <DependentUpon>dsReporteActivoDepreciacion.xsd</DependentUpon>

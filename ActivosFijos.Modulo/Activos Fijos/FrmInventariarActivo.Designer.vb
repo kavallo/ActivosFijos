@@ -26,409 +26,51 @@ Partial Class FrmInventariarActivo
     Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
     Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
     Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-    Me.Panel1 = New System.Windows.Forms.Panel()
-    Me.dgActivos = New Infoware.Consola.Base.DataGridViewAutoDiscover()
-    Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-    Me.CtlBuscaActivos1 = New ActivosFijos.Modulo.CtlBuscaActivos()
-    Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-    Me.Panel2 = New System.Windows.Forms.Panel()
-    Me.CtlGrupoTipoClase = New ActivosFijos.Modulo.CtlParametroDetAnidado()
-    Me.cbomarca = New ActivosFijos.Modulo.ComboBoxParametroDet()
-    Me.Label8 = New System.Windows.Forms.Label()
-    Me.txtmodelo = New Infoware.Controles.Base.TextBoxStd()
-    Me.txtdescripcion = New Infoware.Controles.Base.TextBoxStd()
-    Me.Label7 = New System.Windows.Forms.Label()
-    Me.txtcodigoauxiliar = New Infoware.Controles.Base.TextBoxStd()
-    Me.txtcodigobarra = New Infoware.Controles.Base.TextBoxStd()
-    Me.txtserie = New Infoware.Controles.Base.TextBoxStd()
-    Me.Label28 = New System.Windows.Forms.Label()
-    Me.Label6 = New System.Windows.Forms.Label()
-    Me.Label21 = New System.Windows.Forms.Label()
-    Me.Label3 = New System.Windows.Forms.Label()
-    Me.Label2 = New System.Windows.Forms.Label()
-    Me.txtcodigo = New Infoware.Controles.Base.TextBoxCalculator()
-    Me.Label1 = New System.Windows.Forms.Label()
-    Me.Label22 = New System.Windows.Forms.Label()
-    Me.CtlUbicacionActivo1 = New ActivosFijos.Modulo.CtlParametroDetAnidado()
-    Me.CtlBuscaCustodio = New ActivosFijos.Modulo.CtlBuscaEmpleado()
-    Me.TabControl1 = New System.Windows.Forms.TabControl()
-    Me.TabPage1 = New System.Windows.Forms.TabPage()
-    Me.TabPage2 = New System.Windows.Forms.TabPage()
+    Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmInventariarActivo))
     Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+    Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+    Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+    Me.TabControl1 = New System.Windows.Forms.TabControl()
+    Me.TabPage2 = New System.Windows.Forms.TabPage()
+    Me.pnlactivo = New System.Windows.Forms.Panel()
     Me.CtlActivo1 = New ActivosFijos.Modulo.CtlActivo()
-    Me.lnkCambiarCustodioUbicacion = New System.Windows.Forms.LinkLabel()
+    Me.Panel3 = New System.Windows.Forms.Panel()
+    Me.btncancelar = New System.Windows.Forms.Button()
+    Me.btninventariar = New System.Windows.Forms.Button()
+    Me.Panel1 = New System.Windows.Forms.Panel()
+    Me.DataGridView1 = New Infoware.Consola.Base.DataGridViewAutoDiscover()
+    Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+    Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+    Me.pnlcierre = New System.Windows.Forms.Panel()
+    Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
+    Me.btnbuscaractivos = New System.Windows.Forms.ToolStripButton()
+    Me.btnnuevo = New System.Windows.Forms.ToolStripButton()
+    Me.txtserie = New Infoware.Controles.Base.TextBoxStd()
+    Me.Label2 = New System.Windows.Forms.Label()
+    Me.txtcodigobarra = New Infoware.Controles.Base.TextBoxStd()
+    Me.Label1 = New System.Windows.Forms.Label()
+    Me.CtlBuscaCustodio = New ActivosFijos.Modulo.CtlBuscaEmpleado()
+    Me.CtlUbicacionActivo1 = New ActivosFijos.Modulo.CtlParametroDetAnidado()
+    Me.Label22 = New System.Windows.Forms.Label()
+    Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+    Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
     Me.pnlcuerpo.SuspendLayout()
-    Me.Panel1.SuspendLayout()
-    CType(Me.dgActivos, System.ComponentModel.ISupportInitialize).BeginInit()
     CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-    Me.Panel2.SuspendLayout()
     Me.TabControl1.SuspendLayout()
-    Me.TabPage1.SuspendLayout()
     Me.TabPage2.SuspendLayout()
+    Me.pnlactivo.SuspendLayout()
+    Me.Panel3.SuspendLayout()
+    Me.Panel1.SuspendLayout()
+    CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+    Me.pnlcierre.SuspendLayout()
+    Me.ToolStrip2.SuspendLayout()
     Me.SuspendLayout()
     '
     'pnlcuerpo
     '
     Me.pnlcuerpo.Controls.Add(Me.TabControl1)
-    Me.pnlcuerpo.Size = New System.Drawing.Size(842, 629)
+    Me.pnlcuerpo.Size = New System.Drawing.Size(1081, 670)
     Me.pnlcuerpo.Controls.SetChildIndex(Me.TabControl1, 0)
-    '
-    'Panel1
-    '
-    Me.Panel1.Controls.Add(Me.dgActivos)
-    Me.Panel1.Controls.Add(Me.CtlBuscaActivos1)
-    Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
-    Me.Panel1.Location = New System.Drawing.Point(3, 3)
-    Me.Panel1.Name = "Panel1"
-    Me.Panel1.Size = New System.Drawing.Size(235, 572)
-    Me.Panel1.TabIndex = 3
-    '
-    'dgActivos
-    '
-    Me.dgActivos.AgruparRepetidos = False
-    Me.dgActivos.AllowUserToAddRows = False
-    Me.dgActivos.AllowUserToDeleteRows = False
-    Me.dgActivos.AutoGenerateColumns = False
-    DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-    DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-    DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-    DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-    DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-    DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-    Me.dgActivos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-    Me.dgActivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-    Me.dgActivos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
-    Me.dgActivos.DataSource = Me.BindingSource1
-    DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-    DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-    DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-    DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-    DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-    DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-    Me.dgActivos.DefaultCellStyle = DataGridViewCellStyle2
-    Me.dgActivos.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.dgActivos.Location = New System.Drawing.Point(0, 340)
-    Me.dgActivos.Name = "dgActivos"
-    Me.dgActivos.ReadOnly = True
-    DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-    DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-    DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-    DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-    DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-    DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-    Me.dgActivos.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-    Me.dgActivos.RowHeadersVisible = False
-    Me.dgActivos.Size = New System.Drawing.Size(235, 232)
-    Me.dgActivos.TabIndex = 3
-    '
-    'DataGridViewTextBoxColumn1
-    '
-    Me.DataGridViewTextBoxColumn1.HeaderText = "No existen registros a presentar"
-    Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-    '
-    'CtlBuscaActivos1
-    '
-    Me.CtlBuscaActivos1.BackColor = System.Drawing.SystemColors.Info
-    Me.CtlBuscaActivos1.Dock = System.Windows.Forms.DockStyle.Top
-    Me.CtlBuscaActivos1.Location = New System.Drawing.Point(0, 0)
-    Me.CtlBuscaActivos1.Name = "CtlBuscaActivos1"
-    Me.CtlBuscaActivos1.OperadorDatos = Nothing
-    Me.CtlBuscaActivos1.PuedeExportaryBarCode = False
-    Me.CtlBuscaActivos1.Size = New System.Drawing.Size(235, 340)
-    Me.CtlBuscaActivos1.TabIndex = 0
-    '
-    'BindingSource1
-    '
-    '
-    'Panel2
-    '
-    Me.Panel2.Controls.Add(Me.lnkCambiarCustodioUbicacion)
-    Me.Panel2.Controls.Add(Me.CtlBuscaCustodio)
-    Me.Panel2.Controls.Add(Me.Label22)
-    Me.Panel2.Controls.Add(Me.CtlUbicacionActivo1)
-    Me.Panel2.Controls.Add(Me.CtlGrupoTipoClase)
-    Me.Panel2.Controls.Add(Me.cbomarca)
-    Me.Panel2.Controls.Add(Me.Label8)
-    Me.Panel2.Controls.Add(Me.txtmodelo)
-    Me.Panel2.Controls.Add(Me.txtdescripcion)
-    Me.Panel2.Controls.Add(Me.Label7)
-    Me.Panel2.Controls.Add(Me.txtcodigoauxiliar)
-    Me.Panel2.Controls.Add(Me.txtcodigobarra)
-    Me.Panel2.Controls.Add(Me.txtserie)
-    Me.Panel2.Controls.Add(Me.Label28)
-    Me.Panel2.Controls.Add(Me.Label6)
-    Me.Panel2.Controls.Add(Me.Label21)
-    Me.Panel2.Controls.Add(Me.Label3)
-    Me.Panel2.Controls.Add(Me.Label2)
-    Me.Panel2.Controls.Add(Me.txtcodigo)
-    Me.Panel2.Controls.Add(Me.Label1)
-    Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.Panel2.Location = New System.Drawing.Point(238, 3)
-    Me.Panel2.Name = "Panel2"
-    Me.Panel2.Size = New System.Drawing.Size(593, 572)
-    Me.Panel2.TabIndex = 0
-    '
-    'CtlGrupoTipoClase
-    '
-    Me.CtlGrupoTipoClase.Enabled = False
-    Me.CtlGrupoTipoClase.Location = New System.Drawing.Point(138, 109)
-    Me.CtlGrupoTipoClase.Name = "CtlGrupoTipoClase"
-    Me.CtlGrupoTipoClase.ParametroDet = Nothing
-    Me.CtlGrupoTipoClase.ParametroEnum = ActivosFijos.Reglas.Enumerados.EnumParametros.UbicacionActivo
-    Me.CtlGrupoTipoClase.PardetRaiz = Nothing
-    Me.CtlGrupoTipoClase.Size = New System.Drawing.Size(248, 157)
-    Me.CtlGrupoTipoClase.TabIndex = 9
-    '
-    'cbomarca
-    '
-    Me.cbomarca.AbriralEntrar = False
-    Me.cbomarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-    Me.cbomarca.Enabled = False
-    Me.cbomarca.FormattingEnabled = True
-    Me.cbomarca.Location = New System.Drawing.Point(138, 295)
-    Me.cbomarca.Margin = New System.Windows.Forms.Padding(2)
-    Me.cbomarca.MostrarRutaCompleta = False
-    Me.cbomarca.Name = "cbomarca"
-    Me.cbomarca.OperadorDatos = Nothing
-    Me.cbomarca.Parametro = ActivosFijos.Reglas.Enumerados.EnumParametros.TipoEntidad
-    Me.cbomarca.ParametroDet = Nothing
-    Me.cbomarca.PuedeActualizar = True
-    Me.cbomarca.PuedeEliminar = True
-    Me.cbomarca.PuedeModificar = True
-    Me.cbomarca.PuedeNuevo = True
-    Me.cbomarca.Size = New System.Drawing.Size(248, 21)
-    Me.cbomarca.TabIndex = 13
-    '
-    'Label8
-    '
-    Me.Label8.AutoSize = True
-    Me.Label8.Location = New System.Drawing.Point(11, 298)
-    Me.Label8.Name = "Label8"
-    Me.Label8.Size = New System.Drawing.Size(40, 13)
-    Me.Label8.TabIndex = 12
-    Me.Label8.Text = "Marca:"
-    '
-    'txtmodelo
-    '
-    Me.txtmodelo.Enabled = False
-    Me.txtmodelo.Location = New System.Drawing.Point(138, 320)
-    Me.txtmodelo.Margin = New System.Windows.Forms.Padding(2)
-    Me.txtmodelo.Mensaje = ""
-    Me.txtmodelo.Name = "txtmodelo"
-    Me.txtmodelo.PromptFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.txtmodelo.PromptForeColor = System.Drawing.SystemColors.GrayText
-    Me.txtmodelo.PromptText = ""
-    Me.txtmodelo.Size = New System.Drawing.Size(248, 20)
-    Me.txtmodelo.TabIndex = 15
-    Me.txtmodelo.TipoTexto = Infoware.Controles.Base.EnumTipoTexto.Ninguno
-    '
-    'txtdescripcion
-    '
-    Me.txtdescripcion.Enabled = False
-    Me.txtdescripcion.Location = New System.Drawing.Point(138, 271)
-    Me.txtdescripcion.Margin = New System.Windows.Forms.Padding(2)
-    Me.txtdescripcion.Mensaje = ""
-    Me.txtdescripcion.Name = "txtdescripcion"
-    Me.txtdescripcion.PromptFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.txtdescripcion.PromptForeColor = System.Drawing.SystemColors.GrayText
-    Me.txtdescripcion.PromptText = ""
-    Me.txtdescripcion.Size = New System.Drawing.Size(248, 20)
-    Me.txtdescripcion.TabIndex = 11
-    Me.txtdescripcion.TipoTexto = Infoware.Controles.Base.EnumTipoTexto.Ninguno
-    '
-    'Label7
-    '
-    Me.Label7.AutoSize = True
-    Me.Label7.Location = New System.Drawing.Point(11, 323)
-    Me.Label7.Name = "Label7"
-    Me.Label7.Size = New System.Drawing.Size(45, 13)
-    Me.Label7.TabIndex = 14
-    Me.Label7.Text = "Modelo:"
-    '
-    'txtcodigoauxiliar
-    '
-    Me.txtcodigoauxiliar.Enabled = False
-    Me.txtcodigoauxiliar.Location = New System.Drawing.Point(138, 60)
-    Me.txtcodigoauxiliar.Margin = New System.Windows.Forms.Padding(2)
-    Me.txtcodigoauxiliar.Mensaje = ""
-    Me.txtcodigoauxiliar.Name = "txtcodigoauxiliar"
-    Me.txtcodigoauxiliar.PromptFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.txtcodigoauxiliar.PromptForeColor = System.Drawing.SystemColors.GrayText
-    Me.txtcodigoauxiliar.PromptText = ""
-    Me.txtcodigoauxiliar.Size = New System.Drawing.Size(248, 20)
-    Me.txtcodigoauxiliar.TabIndex = 5
-    Me.txtcodigoauxiliar.TipoTexto = Infoware.Controles.Base.EnumTipoTexto.Ninguno
-    '
-    'txtcodigobarra
-    '
-    Me.txtcodigobarra.Enabled = False
-    Me.txtcodigobarra.Location = New System.Drawing.Point(138, 36)
-    Me.txtcodigobarra.Margin = New System.Windows.Forms.Padding(2)
-    Me.txtcodigobarra.Mensaje = ""
-    Me.txtcodigobarra.Name = "txtcodigobarra"
-    Me.txtcodigobarra.PromptFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.txtcodigobarra.PromptForeColor = System.Drawing.SystemColors.GrayText
-    Me.txtcodigobarra.PromptText = ""
-    Me.txtcodigobarra.Size = New System.Drawing.Size(248, 20)
-    Me.txtcodigobarra.TabIndex = 3
-    Me.txtcodigobarra.TipoTexto = Infoware.Controles.Base.EnumTipoTexto.Ninguno
-    '
-    'txtserie
-    '
-    Me.txtserie.Enabled = False
-    Me.txtserie.Location = New System.Drawing.Point(138, 84)
-    Me.txtserie.Margin = New System.Windows.Forms.Padding(2)
-    Me.txtserie.Mensaje = ""
-    Me.txtserie.Name = "txtserie"
-    Me.txtserie.PromptFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.txtserie.PromptForeColor = System.Drawing.SystemColors.GrayText
-    Me.txtserie.PromptText = ""
-    Me.txtserie.Size = New System.Drawing.Size(248, 20)
-    Me.txtserie.TabIndex = 7
-    Me.txtserie.TipoTexto = Infoware.Controles.Base.EnumTipoTexto.Ninguno
-    '
-    'Label28
-    '
-    Me.Label28.AutoSize = True
-    Me.Label28.Location = New System.Drawing.Point(11, 63)
-    Me.Label28.Name = "Label28"
-    Me.Label28.Size = New System.Drawing.Size(78, 13)
-    Me.Label28.TabIndex = 4
-    Me.Label28.Text = "Código auxiliar:"
-    '
-    'Label6
-    '
-    Me.Label6.AutoSize = True
-    Me.Label6.Location = New System.Drawing.Point(11, 274)
-    Me.Label6.Name = "Label6"
-    Me.Label6.Size = New System.Drawing.Size(66, 13)
-    Me.Label6.TabIndex = 10
-    Me.Label6.Text = "Descripción:"
-    '
-    'Label21
-    '
-    Me.Label21.AutoSize = True
-    Me.Label21.Location = New System.Drawing.Point(11, 39)
-    Me.Label21.Name = "Label21"
-    Me.Label21.Size = New System.Drawing.Size(90, 13)
-    Me.Label21.TabIndex = 2
-    Me.Label21.Text = "Código de barras:"
-    '
-    'Label3
-    '
-    Me.Label3.AutoSize = True
-    Me.Label3.Location = New System.Drawing.Point(12, 112)
-    Me.Label3.Name = "Label3"
-    Me.Label3.Size = New System.Drawing.Size(39, 13)
-    Me.Label3.TabIndex = 8
-    Me.Label3.Text = "Grupo:"
-    '
-    'Label2
-    '
-    Me.Label2.AutoSize = True
-    Me.Label2.Location = New System.Drawing.Point(11, 87)
-    Me.Label2.Name = "Label2"
-    Me.Label2.Size = New System.Drawing.Size(34, 13)
-    Me.Label2.TabIndex = 6
-    Me.Label2.Text = "Serie:"
-    '
-    'txtcodigo
-    '
-    Me.txtcodigo.BackColor = System.Drawing.SystemColors.Window
-    Me.txtcodigo.Enabled = False
-    Me.txtcodigo.ForeColor = System.Drawing.SystemColors.WindowText
-    Me.txtcodigo.Location = New System.Drawing.Point(138, 12)
-    Me.txtcodigo.Margin = New System.Windows.Forms.Padding(2)
-    Me.txtcodigo.Mensaje = ""
-    Me.txtcodigo.Name = "txtcodigo"
-    Me.txtcodigo.PromptFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.txtcodigo.PromptForeColor = System.Drawing.SystemColors.GrayText
-    Me.txtcodigo.PromptText = ""
-    Me.txtcodigo.Size = New System.Drawing.Size(248, 20)
-    Me.txtcodigo.TabIndex = 1
-    Me.txtcodigo.Text = "0"
-    Me.txtcodigo.TipoNumero = Infoware.Controles.Base.EnumTipoNumero.EnterosPositivos
-    Me.txtcodigo.TipoTexto = Infoware.Controles.Base.EnumTipoTexto.Ninguno
-    Me.txtcodigo.Value = 0.0R
-    '
-    'Label1
-    '
-    Me.Label1.AutoSize = True
-    Me.Label1.Location = New System.Drawing.Point(11, 15)
-    Me.Label1.Name = "Label1"
-    Me.Label1.Size = New System.Drawing.Size(43, 13)
-    Me.Label1.TabIndex = 0
-    Me.Label1.Text = "Código:"
-    '
-    'Label22
-    '
-    Me.Label22.AutoSize = True
-    Me.Label22.Location = New System.Drawing.Point(11, 345)
-    Me.Label22.Name = "Label22"
-    Me.Label22.Size = New System.Drawing.Size(87, 13)
-    Me.Label22.TabIndex = 16
-    Me.Label22.Text = "Ubicación inicial:"
-    '
-    'CtlUbicacionActivo1
-    '
-    Me.CtlUbicacionActivo1.Enabled = False
-    Me.CtlUbicacionActivo1.Location = New System.Drawing.Point(138, 345)
-    Me.CtlUbicacionActivo1.Name = "CtlUbicacionActivo1"
-    Me.CtlUbicacionActivo1.ParametroDet = Nothing
-    Me.CtlUbicacionActivo1.ParametroEnum = ActivosFijos.Reglas.Enumerados.EnumParametros.UbicacionActivo
-    Me.CtlUbicacionActivo1.PardetRaiz = Nothing
-    Me.CtlUbicacionActivo1.Size = New System.Drawing.Size(248, 144)
-    Me.CtlUbicacionActivo1.TabIndex = 17
-    '
-    'CtlBuscaCustodio
-    '
-    Me.CtlBuscaCustodio.Empleado = Nothing
-    Me.CtlBuscaCustodio.EmpleadoText = "Custodio"
-    Me.CtlBuscaCustodio.Enabled = False
-    Me.CtlBuscaCustodio.ItemText = "Custodio"
-    Me.CtlBuscaCustodio.Location = New System.Drawing.Point(14, 495)
-    Me.CtlBuscaCustodio.Name = "CtlBuscaCustodio"
-    Me.CtlBuscaCustodio.Size = New System.Drawing.Size(372, 22)
-    Me.CtlBuscaCustodio.TabIndex = 18
-    Me.CtlBuscaCustodio.TipoEmpleado = Nothing
-    Me.CtlBuscaCustodio.Ubicacion = ActivosFijos.Modulo.CtlBuscaEmpleado.EnumUbicacion.Normal
-    '
-    'TabControl1
-    '
-    Me.TabControl1.Controls.Add(Me.TabPage1)
-    Me.TabControl1.Controls.Add(Me.TabPage2)
-    Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.TabControl1.Location = New System.Drawing.Point(0, 25)
-    Me.TabControl1.Name = "TabControl1"
-    Me.TabControl1.SelectedIndex = 0
-    Me.TabControl1.Size = New System.Drawing.Size(842, 604)
-    Me.TabControl1.TabIndex = 4
-    '
-    'TabPage1
-    '
-    Me.TabPage1.Controls.Add(Me.Panel2)
-    Me.TabPage1.Controls.Add(Me.Panel1)
-    Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-    Me.TabPage1.Name = "TabPage1"
-    Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-    Me.TabPage1.Size = New System.Drawing.Size(834, 578)
-    Me.TabPage1.TabIndex = 0
-    Me.TabPage1.Text = "Existente"
-    Me.TabPage1.UseVisualStyleBackColor = True
-    '
-    'TabPage2
-    '
-    Me.TabPage2.Controls.Add(Me.CtlActivo1)
-    Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-    Me.TabPage2.Name = "TabPage2"
-    Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-    Me.TabPage2.Size = New System.Drawing.Size(834, 578)
-    Me.TabPage2.TabIndex = 1
-    Me.TabPage2.Text = "Nuevo"
-    Me.TabPage2.UseVisualStyleBackColor = True
     '
     'DataGridViewTextBoxColumn2
     '
@@ -436,74 +78,332 @@ Partial Class FrmInventariarActivo
     Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
     Me.DataGridViewTextBoxColumn2.ReadOnly = True
     '
+    'BindingSource1
+    '
+    '
+    'DataGridViewTextBoxColumn1
+    '
+    Me.DataGridViewTextBoxColumn1.HeaderText = "No existen registros a presentar"
+    Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+    '
+    'TabControl1
+    '
+    Me.TabControl1.Controls.Add(Me.TabPage2)
+    Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.TabControl1.Location = New System.Drawing.Point(0, 25)
+    Me.TabControl1.Name = "TabControl1"
+    Me.TabControl1.SelectedIndex = 0
+    Me.TabControl1.Size = New System.Drawing.Size(1081, 645)
+    Me.TabControl1.TabIndex = 4
+    '
+    'TabPage2
+    '
+    Me.TabPage2.Controls.Add(Me.pnlactivo)
+    Me.TabPage2.Controls.Add(Me.Panel1)
+    Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+    Me.TabPage2.Name = "TabPage2"
+    Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+    Me.TabPage2.Size = New System.Drawing.Size(1073, 619)
+    Me.TabPage2.TabIndex = 1
+    Me.TabPage2.Text = "Nuevo"
+    Me.TabPage2.UseVisualStyleBackColor = True
+    '
+    'pnlactivo
+    '
+    Me.pnlactivo.Controls.Add(Me.CtlActivo1)
+    Me.pnlactivo.Controls.Add(Me.Panel3)
+    Me.pnlactivo.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.pnlactivo.Location = New System.Drawing.Point(276, 3)
+    Me.pnlactivo.Name = "pnlactivo"
+    Me.pnlactivo.Size = New System.Drawing.Size(794, 613)
+    Me.pnlactivo.TabIndex = 2
+    '
     'CtlActivo1
     '
     Me.CtlActivo1.Activo = Nothing
     Me.CtlActivo1.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.CtlActivo1.Location = New System.Drawing.Point(3, 3)
+    Me.CtlActivo1.Location = New System.Drawing.Point(0, 35)
     Me.CtlActivo1.Name = "CtlActivo1"
-    Me.CtlActivo1.Size = New System.Drawing.Size(828, 572)
+    Me.CtlActivo1.Size = New System.Drawing.Size(794, 578)
     Me.CtlActivo1.TabIndex = 0
     '
-    'lnkCambiarCustodioUbicacion
+    'Panel3
     '
-    Me.lnkCambiarCustodioUbicacion.AutoSize = True
-    Me.lnkCambiarCustodioUbicacion.Location = New System.Drawing.Point(135, 520)
-    Me.lnkCambiarCustodioUbicacion.Name = "lnkCambiarCustodioUbicacion"
-    Me.lnkCambiarCustodioUbicacion.Size = New System.Drawing.Size(156, 13)
-    Me.lnkCambiarCustodioUbicacion.TabIndex = 19
-    Me.lnkCambiarCustodioUbicacion.TabStop = True
-    Me.lnkCambiarCustodioUbicacion.Text = "Cambiar custodio y/o ubicación"
+    Me.Panel3.Controls.Add(Me.btncancelar)
+    Me.Panel3.Controls.Add(Me.btninventariar)
+    Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+    Me.Panel3.Location = New System.Drawing.Point(0, 0)
+    Me.Panel3.Name = "Panel3"
+    Me.Panel3.Size = New System.Drawing.Size(794, 35)
+    Me.Panel3.TabIndex = 1
+    '
+    'btncancelar
+    '
+    Me.btncancelar.Location = New System.Drawing.Point(265, 5)
+    Me.btncancelar.Name = "btncancelar"
+    Me.btncancelar.Size = New System.Drawing.Size(120, 23)
+    Me.btncancelar.TabIndex = 0
+    Me.btncancelar.Text = "Cancelar"
+    Me.btncancelar.UseVisualStyleBackColor = True
+    '
+    'btninventariar
+    '
+    Me.btninventariar.Location = New System.Drawing.Point(6, 5)
+    Me.btninventariar.Name = "btninventariar"
+    Me.btninventariar.Size = New System.Drawing.Size(253, 23)
+    Me.btninventariar.TabIndex = 0
+    Me.btninventariar.Text = "Guardar cambios e inventariar"
+    Me.btninventariar.UseVisualStyleBackColor = True
+    '
+    'Panel1
+    '
+    Me.Panel1.BackColor = System.Drawing.SystemColors.Info
+    Me.Panel1.Controls.Add(Me.DataGridView1)
+    Me.Panel1.Controls.Add(Me.pnlcierre)
+    Me.Panel1.Controls.Add(Me.txtserie)
+    Me.Panel1.Controls.Add(Me.Label2)
+    Me.Panel1.Controls.Add(Me.txtcodigobarra)
+    Me.Panel1.Controls.Add(Me.Label1)
+    Me.Panel1.Controls.Add(Me.CtlBuscaCustodio)
+    Me.Panel1.Controls.Add(Me.CtlUbicacionActivo1)
+    Me.Panel1.Controls.Add(Me.Label22)
+    Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
+    Me.Panel1.Location = New System.Drawing.Point(3, 3)
+    Me.Panel1.Name = "Panel1"
+    Me.Panel1.Padding = New System.Windows.Forms.Padding(5)
+    Me.Panel1.Size = New System.Drawing.Size(273, 613)
+    Me.Panel1.TabIndex = 1
+    '
+    'DataGridView1
+    '
+    Me.DataGridView1.AgruparRepetidos = False
+    Me.DataGridView1.AllowUserToAddRows = False
+    Me.DataGridView1.AllowUserToDeleteRows = False
+    Me.DataGridView1.AutoGenerateColumns = False
+    DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+    DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+    DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+    DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+    DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+    DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+    DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+    Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+    Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+    Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6})
+    Me.DataGridView1.DataSource = Me.BindingSource1
+    DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+    DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+    DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+    DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+    DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+    DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+    DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+    Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+    Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.DataGridView1.Location = New System.Drawing.Point(5, 385)
+    Me.DataGridView1.Name = "DataGridView1"
+    Me.DataGridView1.ReadOnly = True
+    DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+    DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+    DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+    DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+    DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+    DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+    DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+    Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+    Me.DataGridView1.Size = New System.Drawing.Size(263, 223)
+    Me.DataGridView1.TabIndex = 23
+    '
+    'DataGridViewTextBoxColumn5
+    '
+    Me.DataGridViewTextBoxColumn5.HeaderText = "No existen registros a presentar"
+    Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+    Me.DataGridViewTextBoxColumn5.ReadOnly = True
+    '
+    'DataGridViewTextBoxColumn6
+    '
+    Me.DataGridViewTextBoxColumn6.HeaderText = "No existen registros a presentar"
+    Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+    Me.DataGridViewTextBoxColumn6.ReadOnly = True
+    '
+    'pnlcierre
+    '
+    Me.pnlcierre.Controls.Add(Me.ToolStrip2)
+    Me.pnlcierre.Dock = System.Windows.Forms.DockStyle.Top
+    Me.pnlcierre.Location = New System.Drawing.Point(5, 350)
+    Me.pnlcierre.Name = "pnlcierre"
+    Me.pnlcierre.Size = New System.Drawing.Size(263, 35)
+    Me.pnlcierre.TabIndex = 22
+    '
+    'ToolStrip2
+    '
+    Me.ToolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+    Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnbuscaractivos, Me.btnnuevo})
+    Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
+    Me.ToolStrip2.Name = "ToolStrip2"
+    Me.ToolStrip2.Size = New System.Drawing.Size(263, 25)
+    Me.ToolStrip2.TabIndex = 1
+    Me.ToolStrip2.Text = "ToolStrip2"
+    '
+    'btnbuscaractivos
+    '
+    Me.btnbuscaractivos.Image = CType(resources.GetObject("btnbuscaractivos.Image"), System.Drawing.Image)
+    Me.btnbuscaractivos.ImageTransparentColor = System.Drawing.Color.Magenta
+    Me.btnbuscaractivos.Name = "btnbuscaractivos"
+    Me.btnbuscaractivos.Size = New System.Drawing.Size(62, 22)
+    Me.btnbuscaractivos.Text = "Buscar"
+    '
+    'btnnuevo
+    '
+    Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
+    Me.btnnuevo.ImageTransparentColor = System.Drawing.Color.Magenta
+    Me.btnnuevo.Name = "btnnuevo"
+    Me.btnnuevo.Size = New System.Drawing.Size(62, 22)
+    Me.btnnuevo.Text = "Nuevo"
+    '
+    'txtserie
+    '
+    Me.txtserie.Dock = System.Windows.Forms.DockStyle.Top
+    Me.txtserie.Location = New System.Drawing.Point(5, 330)
+    Me.txtserie.Margin = New System.Windows.Forms.Padding(2)
+    Me.txtserie.Mensaje = ""
+    Me.txtserie.Name = "txtserie"
+    Me.txtserie.PromptFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+    Me.txtserie.PromptForeColor = System.Drawing.SystemColors.GrayText
+    Me.txtserie.PromptText = ""
+    Me.txtserie.Size = New System.Drawing.Size(263, 20)
+    Me.txtserie.TabIndex = 9
+    Me.txtserie.TipoTexto = Infoware.Controles.Base.EnumTipoTexto.Ninguno
+    '
+    'Label2
+    '
+    Me.Label2.AutoSize = True
+    Me.Label2.Dock = System.Windows.Forms.DockStyle.Top
+    Me.Label2.Location = New System.Drawing.Point(5, 317)
+    Me.Label2.Name = "Label2"
+    Me.Label2.Size = New System.Drawing.Size(31, 13)
+    Me.Label2.TabIndex = 8
+    Me.Label2.Text = "Serie"
+    '
+    'txtcodigobarra
+    '
+    Me.txtcodigobarra.Dock = System.Windows.Forms.DockStyle.Top
+    Me.txtcodigobarra.Location = New System.Drawing.Point(5, 297)
+    Me.txtcodigobarra.Margin = New System.Windows.Forms.Padding(2)
+    Me.txtcodigobarra.Mensaje = ""
+    Me.txtcodigobarra.Name = "txtcodigobarra"
+    Me.txtcodigobarra.PromptFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+    Me.txtcodigobarra.PromptForeColor = System.Drawing.SystemColors.GrayText
+    Me.txtcodigobarra.PromptText = ""
+    Me.txtcodigobarra.Size = New System.Drawing.Size(263, 20)
+    Me.txtcodigobarra.TabIndex = 7
+    Me.txtcodigobarra.TipoTexto = Infoware.Controles.Base.EnumTipoTexto.Ninguno
+    '
+    'Label1
+    '
+    Me.Label1.AutoSize = True
+    Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
+    Me.Label1.Location = New System.Drawing.Point(5, 284)
+    Me.Label1.Name = "Label1"
+    Me.Label1.Size = New System.Drawing.Size(87, 13)
+    Me.Label1.TabIndex = 6
+    Me.Label1.Text = "Código de barras"
+    '
+    'CtlBuscaCustodio
+    '
+    Me.CtlBuscaCustodio.Dock = System.Windows.Forms.DockStyle.Top
+    Me.CtlBuscaCustodio.Empleado = Nothing
+    Me.CtlBuscaCustodio.EmpleadoText = "Custodio"
+    Me.CtlBuscaCustodio.ItemText = "Custodio"
+    Me.CtlBuscaCustodio.Location = New System.Drawing.Point(5, 237)
+    Me.CtlBuscaCustodio.Name = "CtlBuscaCustodio"
+    Me.CtlBuscaCustodio.Size = New System.Drawing.Size(263, 47)
+    Me.CtlBuscaCustodio.TabIndex = 5
+    Me.CtlBuscaCustodio.TipoEmpleado = Nothing
+    Me.CtlBuscaCustodio.Ubicacion = ActivosFijos.Modulo.CtlBuscaEmpleado.EnumUbicacion.Abajo
+    '
+    'CtlUbicacionActivo1
+    '
+    Me.CtlUbicacionActivo1.Dock = System.Windows.Forms.DockStyle.Top
+    Me.CtlUbicacionActivo1.Location = New System.Drawing.Point(5, 18)
+    Me.CtlUbicacionActivo1.Name = "CtlUbicacionActivo1"
+    Me.CtlUbicacionActivo1.ParametroDet = Nothing
+    Me.CtlUbicacionActivo1.ParametroEnum = ActivosFijos.Reglas.Enumerados.EnumParametros.UbicacionActivo
+    Me.CtlUbicacionActivo1.PardetRaiz = Nothing
+    Me.CtlUbicacionActivo1.Size = New System.Drawing.Size(263, 219)
+    Me.CtlUbicacionActivo1.TabIndex = 4
+    '
+    'Label22
+    '
+    Me.Label22.AutoSize = True
+    Me.Label22.Dock = System.Windows.Forms.DockStyle.Top
+    Me.Label22.Location = New System.Drawing.Point(5, 5)
+    Me.Label22.Name = "Label22"
+    Me.Label22.Size = New System.Drawing.Size(55, 13)
+    Me.Label22.TabIndex = 3
+    Me.Label22.Text = "Ubicación"
+    '
+    'DataGridViewTextBoxColumn4
+    '
+    Me.DataGridViewTextBoxColumn4.HeaderText = "No existen registros a presentar"
+    Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+    Me.DataGridViewTextBoxColumn4.ReadOnly = True
+    '
+    'DataGridViewTextBoxColumn3
+    '
+    Me.DataGridViewTextBoxColumn3.HeaderText = "No existen registros a presentar"
+    Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+    Me.DataGridViewTextBoxColumn3.ReadOnly = True
     '
     'FrmInventariarActivo
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-    Me.ClientSize = New System.Drawing.Size(842, 678)
+    Me.ClientSize = New System.Drawing.Size(1081, 719)
     Me.Name = "FrmInventariarActivo"
     Me.Text = "Inventariar Activo"
     Me.pnlcuerpo.ResumeLayout(False)
-    Me.Panel1.ResumeLayout(False)
-    CType(Me.dgActivos, System.ComponentModel.ISupportInitialize).EndInit()
     CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-    Me.Panel2.ResumeLayout(False)
-    Me.Panel2.PerformLayout()
     Me.TabControl1.ResumeLayout(False)
-    Me.TabPage1.ResumeLayout(False)
     Me.TabPage2.ResumeLayout(False)
+    Me.pnlactivo.ResumeLayout(False)
+    Me.Panel3.ResumeLayout(False)
+    Me.Panel1.ResumeLayout(False)
+    Me.Panel1.PerformLayout()
+    CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+    Me.pnlcierre.ResumeLayout(False)
+    Me.pnlcierre.PerformLayout()
+    Me.ToolStrip2.ResumeLayout(False)
+    Me.ToolStrip2.PerformLayout()
     Me.ResumeLayout(False)
     Me.PerformLayout()
 
   End Sub
-  Friend WithEvents Panel1 As System.Windows.Forms.Panel
-  Friend WithEvents dgActivos As Infoware.Consola.Base.DataGridViewAutoDiscover
   Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-  Friend WithEvents CtlBuscaActivos1 As ActivosFijos.Modulo.CtlBuscaActivos
   Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
-  Friend WithEvents Panel2 As System.Windows.Forms.Panel
-  Friend WithEvents CtlGrupoTipoClase As ActivosFijos.Modulo.CtlParametroDetAnidado
-  Friend WithEvents cbomarca As ActivosFijos.Modulo.ComboBoxParametroDet
-  Friend WithEvents Label8 As System.Windows.Forms.Label
-  Friend WithEvents txtmodelo As Infoware.Controles.Base.TextBoxStd
-  Friend WithEvents txtdescripcion As Infoware.Controles.Base.TextBoxStd
-  Friend WithEvents Label7 As System.Windows.Forms.Label
-  Friend WithEvents txtcodigoauxiliar As Infoware.Controles.Base.TextBoxStd
-  Friend WithEvents txtcodigobarra As Infoware.Controles.Base.TextBoxStd
-  Friend WithEvents txtserie As Infoware.Controles.Base.TextBoxStd
-  Friend WithEvents Label28 As System.Windows.Forms.Label
-  Friend WithEvents Label6 As System.Windows.Forms.Label
-  Friend WithEvents Label21 As System.Windows.Forms.Label
-  Friend WithEvents Label3 As System.Windows.Forms.Label
-  Friend WithEvents Label2 As System.Windows.Forms.Label
-  Friend WithEvents txtcodigo As Infoware.Controles.Base.TextBoxCalculator
-  Friend WithEvents Label1 As System.Windows.Forms.Label
-  Friend WithEvents Label22 As System.Windows.Forms.Label
-  Friend WithEvents CtlUbicacionActivo1 As ActivosFijos.Modulo.CtlParametroDetAnidado
-  Friend WithEvents CtlBuscaCustodio As ActivosFijos.Modulo.CtlBuscaEmpleado
   Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
-  Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
-  Friend WithEvents lnkCambiarCustodioUbicacion As System.Windows.Forms.LinkLabel
   Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
   Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
   Friend WithEvents CtlActivo1 As ActivosFijos.Modulo.CtlActivo
+  Friend WithEvents Panel1 As System.Windows.Forms.Panel
+  Friend WithEvents CtlBuscaCustodio As ActivosFijos.Modulo.CtlBuscaEmpleado
+  Friend WithEvents CtlUbicacionActivo1 As ActivosFijos.Modulo.CtlParametroDetAnidado
+  Friend WithEvents Label22 As System.Windows.Forms.Label
+  Friend WithEvents txtserie As Infoware.Controles.Base.TextBoxStd
+  Friend WithEvents Label2 As System.Windows.Forms.Label
+  Friend WithEvents txtcodigobarra As Infoware.Controles.Base.TextBoxStd
+  Friend WithEvents Label1 As System.Windows.Forms.Label
+  Friend WithEvents pnlcierre As System.Windows.Forms.Panel
+  Friend WithEvents ToolStrip2 As System.Windows.Forms.ToolStrip
+  Friend WithEvents btnbuscaractivos As System.Windows.Forms.ToolStripButton
+  Friend WithEvents DataGridView1 As Infoware.Consola.Base.DataGridViewAutoDiscover
+  Friend WithEvents pnlactivo As System.Windows.Forms.Panel
+  Friend WithEvents Panel3 As System.Windows.Forms.Panel
+  Friend WithEvents btninventariar As System.Windows.Forms.Button
+  Friend WithEvents btncancelar As System.Windows.Forms.Button
+  Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
+  Friend WithEvents btnnuevo As System.Windows.Forms.ToolStripButton
+  Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
+  Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
+  Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

@@ -158,6 +158,11 @@ Public Class ActivoComponente
     ActCom_esErogacion = CType(Fila("ActCom_esErogacion"), Boolean)
     ActCom_ValorErogacion = CType(Fila("ActCom_ValorErogacion"), Decimal)
     ActCom_FechaAdquisicion = CDate(Fila("ActCom_FechaAdquisicion"))
+    If TypeOf Fila("ActCom_FechaIngreso") Is DBNull Then
+      ActCom_FechaIngreso = Now.Date
+    Else
+      ActCom_FechaIngreso = CDate(Fila("ActCom_FechaIngreso"))
+    End If
     Entida_Proveedor = CType(Fila("Entida_Proveedor"), Integer)
     ActCom_Factura = CType(Fila("ActCom_Factura"), String)
     If TypeOf Fila("ActCom_FechaBaja") Is DBNull Then
@@ -209,6 +214,7 @@ Public Class ActivoComponente
     OperadorDatos.AgregarParametro("@ActCom_esErogacion", ActCom_esErogacion)
     OperadorDatos.AgregarParametro("@ActCom_ValorErogacion", ActCom_ValorErogacion)
     OperadorDatos.AgregarParametro("@ActCom_FechaAdquisicion", ActCom_FechaAdquisicion)
+    OperadorDatos.AgregarParametro("@ActCom_FechaIngreso", ActCom_FechaIngreso)
     OperadorDatos.AgregarParametro("@Entida_Proveedor", Entida_Proveedor)
     OperadorDatos.AgregarParametro("@ActCom_Factura", ActCom_Factura)
     If Not ActCom_Activo Then

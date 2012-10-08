@@ -41,6 +41,8 @@ Partial Class FrmMantenimientoActivoComponente
     Me.txtdescripcion = New Infoware.Controles.Base.TextBoxStd()
     Me.Label2 = New System.Windows.Forms.Label()
     Me.CtlBuscaProveedor1 = New ActivosFijos.Modulo.CtlBuscaProveedor()
+    Me.dtfecingreso = New System.Windows.Forms.DateTimePicker()
+    Me.Label6 = New System.Windows.Forms.Label()
     CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.Panel1.SuspendLayout()
     Me.pnlbaja.SuspendLayout()
@@ -53,9 +55,11 @@ Partial Class FrmMantenimientoActivoComponente
     Me.Panel1.Controls.Add(Me.pnlerogacion)
     Me.Panel1.Controls.Add(Me.chkbaja)
     Me.Panel1.Controls.Add(Me.chkerogacion)
+    Me.Panel1.Controls.Add(Me.Label6)
     Me.Panel1.Controls.Add(Me.Label13)
     Me.Panel1.Controls.Add(Me.txtfactura)
     Me.Panel1.Controls.Add(Me.txtserie)
+    Me.Panel1.Controls.Add(Me.dtfecingreso)
     Me.Panel1.Controls.Add(Me.Label4)
     Me.Panel1.Controls.Add(Me.dtfecfactura)
     Me.Panel1.Controls.Add(Me.Label1)
@@ -69,17 +73,17 @@ Partial Class FrmMantenimientoActivoComponente
     Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
     Me.Panel1.Location = New System.Drawing.Point(0, 49)
     Me.Panel1.Name = "Panel1"
-    Me.Panel1.Size = New System.Drawing.Size(521, 309)
+    Me.Panel1.Size = New System.Drawing.Size(521, 347)
     Me.Panel1.TabIndex = 0
     '
     'pnlbaja
     '
     Me.pnlbaja.Controls.Add(Me.Label5)
     Me.pnlbaja.Controls.Add(Me.dtfechabaja)
-    Me.pnlbaja.Location = New System.Drawing.Point(12, 259)
+    Me.pnlbaja.Location = New System.Drawing.Point(12, 285)
     Me.pnlbaja.Name = "pnlbaja"
     Me.pnlbaja.Size = New System.Drawing.Size(497, 28)
-    Me.pnlbaja.TabIndex = 16
+    Me.pnlbaja.TabIndex = 18
     Me.pnlbaja.Visible = False
     '
     'Label5
@@ -102,10 +106,10 @@ Partial Class FrmMantenimientoActivoComponente
     '
     Me.pnlerogacion.Controls.Add(Me.txtvalorerogacion)
     Me.pnlerogacion.Controls.Add(Me.Label3)
-    Me.pnlerogacion.Location = New System.Drawing.Point(12, 209)
+    Me.pnlerogacion.Location = New System.Drawing.Point(12, 235)
     Me.pnlerogacion.Name = "pnlerogacion"
     Me.pnlerogacion.Size = New System.Drawing.Size(497, 25)
-    Me.pnlerogacion.TabIndex = 14
+    Me.pnlerogacion.TabIndex = 16
     Me.pnlerogacion.Visible = False
     '
     'txtvalorerogacion
@@ -138,20 +142,20 @@ Partial Class FrmMantenimientoActivoComponente
     'chkbaja
     '
     Me.chkbaja.AutoSize = True
-    Me.chkbaja.Location = New System.Drawing.Point(142, 240)
+    Me.chkbaja.Location = New System.Drawing.Point(142, 266)
     Me.chkbaja.Name = "chkbaja"
     Me.chkbaja.Size = New System.Drawing.Size(64, 17)
-    Me.chkbaja.TabIndex = 15
+    Me.chkbaja.TabIndex = 17
     Me.chkbaja.Text = "De Baja"
     Me.chkbaja.UseVisualStyleBackColor = True
     '
     'chkerogacion
     '
     Me.chkerogacion.AutoSize = True
-    Me.chkerogacion.Location = New System.Drawing.Point(142, 190)
+    Me.chkerogacion.Location = New System.Drawing.Point(142, 216)
     Me.chkerogacion.Name = "chkerogacion"
     Me.chkerogacion.Size = New System.Drawing.Size(74, 17)
-    Me.chkerogacion.TabIndex = 13
+    Me.chkerogacion.TabIndex = 15
     Me.chkerogacion.Text = "Erogación"
     Me.chkerogacion.UseVisualStyleBackColor = True
     '
@@ -166,7 +170,7 @@ Partial Class FrmMantenimientoActivoComponente
     '
     'txtfactura
     '
-    Me.txtfactura.Location = New System.Drawing.Point(142, 165)
+    Me.txtfactura.Location = New System.Drawing.Point(142, 191)
     Me.txtfactura.Margin = New System.Windows.Forms.Padding(2)
     Me.txtfactura.Mensaje = ""
     Me.txtfactura.Name = "txtfactura"
@@ -174,7 +178,7 @@ Partial Class FrmMantenimientoActivoComponente
     Me.txtfactura.PromptForeColor = System.Drawing.SystemColors.GrayText
     Me.txtfactura.PromptText = ""
     Me.txtfactura.Size = New System.Drawing.Size(200, 20)
-    Me.txtfactura.TabIndex = 12
+    Me.txtfactura.TabIndex = 14
     Me.txtfactura.TipoTexto = Infoware.Controles.Base.EnumTipoTexto.Ninguno
     '
     'txtserie
@@ -193,10 +197,10 @@ Partial Class FrmMantenimientoActivoComponente
     'Label4
     '
     Me.Label4.AutoSize = True
-    Me.Label4.Location = New System.Drawing.Point(15, 168)
+    Me.Label4.Location = New System.Drawing.Point(15, 194)
     Me.Label4.Name = "Label4"
     Me.Label4.Size = New System.Drawing.Size(46, 13)
-    Me.Label4.TabIndex = 11
+    Me.Label4.TabIndex = 13
     Me.Label4.Text = "Factura:"
     '
     'dtfecfactura
@@ -298,10 +302,26 @@ Partial Class FrmMantenimientoActivoComponente
     Me.CtlBuscaProveedor1.TabIndex = 8
     Me.CtlBuscaProveedor1.Ubicacion = ActivosFijos.Modulo.CtlBuscaProveedor.EnumUbicacion.Normal
     '
+    'dtfecingreso
+    '
+    Me.dtfecingreso.Location = New System.Drawing.Point(142, 166)
+    Me.dtfecingreso.Name = "dtfecingreso"
+    Me.dtfecingreso.Size = New System.Drawing.Size(200, 20)
+    Me.dtfecingreso.TabIndex = 12
+    '
+    'Label6
+    '
+    Me.Label6.AutoSize = True
+    Me.Label6.Location = New System.Drawing.Point(15, 169)
+    Me.Label6.Name = "Label6"
+    Me.Label6.Size = New System.Drawing.Size(92, 13)
+    Me.Label6.TabIndex = 11
+    Me.Label6.Text = "Fecha de ingreso:"
+    '
     'FrmMantenimientoActivoComponente
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-    Me.ClientSize = New System.Drawing.Size(521, 358)
+    Me.ClientSize = New System.Drawing.Size(521, 396)
     Me.Controls.Add(Me.Panel1)
     Me.Name = "FrmMantenimientoActivoComponente"
     Me.PuedeGuardarcerrar = True
@@ -342,5 +362,7 @@ Partial Class FrmMantenimientoActivoComponente
   Friend WithEvents Label5 As System.Windows.Forms.Label
   Friend WithEvents dtfechabaja As System.Windows.Forms.DateTimePicker
   Friend WithEvents chkbaja As System.Windows.Forms.CheckBox
+  Friend WithEvents Label6 As System.Windows.Forms.Label
+  Friend WithEvents dtfecingreso As System.Windows.Forms.DateTimePicker
 
 End Class

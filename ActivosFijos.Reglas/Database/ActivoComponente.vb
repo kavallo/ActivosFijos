@@ -41,7 +41,9 @@ Partial Public Class ActivoComponente
 
   Private mActCom_ValorErogacion As Decimal = 0
 
-  Private mActCom_FechaAdquisicion As Date = now.date
+  Private mActCom_FechaAdquisicion As Date = Now.Date
+
+  Private mActCom_FechaIngreso As Date = Now.Date
 
   Private mEntida_Proveedor As Integer = 0
 
@@ -162,7 +164,7 @@ Partial Public Class ActivoComponente
             EsModificado = true
         End Set
     End Property
-    
+
   <XmlAttribute()> _
   Public Overridable Property ActCom_FechaAdquisicion() As Date
     Get
@@ -173,7 +175,18 @@ Partial Public Class ActivoComponente
       EsModificado = True
     End Set
   End Property
-    
+
+  <XmlAttribute()> _
+  Public Overridable Property ActCom_FechaIngreso() As Date
+    Get
+      Return Me.mActCom_FechaIngreso
+    End Get
+    Set(value As Date)
+      Me.mActCom_FechaIngreso = value
+      EsModificado = True
+    End Set
+  End Property
+
     <XmlAttribute()>  _
     Public Overridable Property Entida_Proveedor() As Integer
         Get

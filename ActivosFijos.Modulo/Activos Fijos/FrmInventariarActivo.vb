@@ -10,6 +10,8 @@ Public Class FrmInventariarActivo
     End Get
     Set(value As Inventario)
       mInventario = value
+      Me.CtlUbicacionActivo1.PardetRaiz = mInventario.PardetUbicacion
+      Me.CtlUbicacionActivo1.llenar_Datos()
     End Set
   End Property
 
@@ -27,20 +29,19 @@ Public Class FrmInventariarActivo
     If Activo Is Nothing Then
       Exit Sub
     End If
-    Me.txtcodigo.Text = Activo.Activo_Codigo
-    Me.txtcodigobarra.Text = Activo.Activo_CodigoBarra
-    Me.txtcodigoauxiliar.Text = Activo.Activo_CodigoAux
-    Me.txtserie.Text = Activo.Serie
-
-    Me.CtlGrupoTipoClase.ParametroDet = Activo.PardetClaseActivo
-    Me.txtdescripcion.Text = Activo.Activo_Descripcion
-    Me.cbomarca.ParametroDet = Activo.PardetMarca
-    Me.txtmodelo.Text = Activo.Activo_Modelo
-    Me.CtlUbicacionActivo1.ParametroDet = Activo.UbicacionActual
-    Me.CtlBuscaCustodio.Empleado = Activo.CustodioActual
+    Me.pnlactivo.Visible = True
+    If Activo.EsNuevo Then
+      Activo.Activo_CodigoBarra = Me.txtcodigobarra.Text
+      Activo.Activo_Serie = Me.txtserie.Text
+      Me.CtlActivo1.Activo = Activo
+      Me.CtlActivo1.CtlUbicacionActivo1.ParametroDet = Me.CtlUbicacionActivo1.ParametroDet
+      Me.CtlActivo1.CtlBuscaCustodio.Empleado = Me.CtlBuscaCustodio.Empleado
+    Else
+      Me.CtlActivo1.Activo = Activo
+    End If
   End Sub
 
-  Private Sub lnkCambiarCustodioUbicacion_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkCambiarCustodioUbicacion.LinkClicked
+  Private Sub lnkCambiarCustodioUbicacion_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs)
     If Activo Is Nothing Then
       Exit Sub
     End If
@@ -77,14 +78,80 @@ Public Class FrmInventariarActivo
     Me.New(_Sistema, _Sistema.Restricciones.Buscar(_OpcionActual), _OpcionNuevo)
   End Sub
 
-  Private Sub FrmInventariarActivo_Guardar(sender As Object, e As System.EventArgs) Handles Me.Guardar
+  Private Sub FrmListaActivos_Inicializar(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Inicializar
+    Me.Tabla = "Inventariar activo"
+
+    Me.CtlUbicacionActivo1.PardetRaiz = New WWTSUsuario(Sistema.OperadorDatos, Sistema.Usuario.Usuari_Codigo).PardetUbicacion
+    Me.CtlUbicacionActivo1.llenar_Datos()
+
+    Me.CtlBuscaCustodio.OperadorDatos = Sistema.OperadorDatos
+    Me.CtlBuscaCustodio.TipoEmpleado = New WWTSParametroDet(Sistema.OperadorDatos, Enumerados.EnumParametros.TipoEmpleado, Enumerados.enumTipoEmpleado.Custodio)
+    Me.CtlBuscaCustodio.Llenar_Datos()
+
+    Me.pnlactivo.Visible = False
+    Me.CtlActivo1.Activo = New Activo(Sistema.OperadorDatos, True)
+  End Sub
+#End Region
+
+  Private Sub btnbuscaractivos_Click(sender As System.Object, e As System.EventArgs) Handles btnbuscaractivos.Click
+    If Me.CtlUbicacionActivo1.ParametroDet Is Nothing OrElse Not Me.CtlUbicacionActivo1.ParametroDet.Parame_Codigo = Enumerados.EnumParametros.UbicacionActivo Then
+      MsgBox("Debe seleccionar una ubicación", MsgBoxStyle.Information, "Información")
+      Exit Sub
+    End If
+    If Me.CtlBuscaCustodio.Empleado Is Nothing Then
+      MsgBox("Debe seleccionar un custodio", MsgBoxStyle.Information, "Información")
+      Exit Sub
+    End If
+    If String.IsNullOrWhiteSpace(Me.txtcodigobarra.Text + Me.txtserie.Text) Then
+      MsgBox("Debe ingresar un código de barras o serie para continuar", MsgBoxStyle.Information, "Información")
+      Exit Sub
+    End If
+    Dim activos As ActivoList
+    activos = ActivoList.ObtenerLista(Sistema.OperadorDatos, Me.txtcodigobarra.Text, "", Me.txtserie.Text, "", Nothing, Nothing, "", Nothing, Nothing, Nothing, Nothing, Nothing, True, -1, DateTime.Now, DateTime.Now, Nothing)
+
+    If activos.Count = 0 Then
+      MsgBox("No existe el activo, Se registrará como nuevo", MsgBoxStyle.Information, "Información")
+      activos.Add(New Activo(Sistema.OperadorDatos, True))
+    End If
+
+    Me.BindingSource1.DataSource = activos
+    Me.DataGridView1.AutoDiscover()
+  End Sub
+
+  Private Sub btncancelar_Click(sender As System.Object, e As System.EventArgs) Handles btncancelar.Click
+    Me.pnlactivo.Visible = False
+  End Sub
+
+  Private Sub btninventariar_Click(sender As System.Object, e As System.EventArgs) Handles btninventariar.Click
     Dim invdet As InventarioDet = Nothing
 
-    If Me.TabControl1.SelectedIndex = 0 Then 'existente
-      If Activo Is Nothing Then
-        Exit Sub
-      End If
+    If Activo Is Nothing Then
+      Exit Sub
+    End If
+
+    If Activo.EsNuevo Then
       Try
+        Me.CtlActivo1.Mapear_datos()
+        If Me.CtlActivo1.Guardar Then
+          invdet = New InventarioDet(Sistema.OperadorDatos, True)
+          invdet.Inventario = mInventario
+          invdet.Activocustodio = Me.CtlActivo1.Activo.ActivoCustodioActual
+          invdet.Activoubicacion = Me.CtlActivo1.Activo.ActivoUbicacionActual
+          invdet.InvDet_Activo = True
+          invdet.PardetEstadoInventario = New WWTSParametroDet(Sistema.OperadorDatos, Enumerados.EnumParametros.EstadoInventarioActivo, Enumerados.enumEstadoInventarioActivo.EncontradoNuevo)
+          Me.CtlActivo1.Activo.Recargar()
+          Me.CtlActivo1.llenar_datos()
+        Else
+          MsgBox(Sistema.OperadorDatos.MsgError, MsgBoxStyle.Critical, "Error")
+          Exit Sub
+        End If
+      Catch ex As Exception
+        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Exit Sub
+      End Try
+    Else
+      Try
+        Me.CtlActivo1.Guardar()
         invdet = New InventarioDet(Sistema.OperadorDatos, mInventario.Parame_Ubicacion, mInventario.Pardet_Ubicacion, mInventario.Parame_PeriodoInventario, mInventario.Pardet_PeriodoInventario, Activo.Activo_Codigo)
         If Not invdet.Pardet_EstadoInventario = Enumerados.enumEstadoInventarioActivo.NoInventariado Then
           MsgBox("El activo ya fue inventariado", MsgBoxStyle.Critical, "Error")
@@ -99,72 +166,34 @@ Public Class FrmInventariarActivo
         invdet.InvDet_Activo = True
         invdet.PardetEstadoInventario = New WWTSParametroDet(Sistema.OperadorDatos, Enumerados.EnumParametros.EstadoInventarioActivo, Enumerados.enumEstadoInventarioActivo.EncontradoExistente)
       End Try
-
-
-    Else
-      'nuevo
-      Try
-        Me.CtlActivo1.Mapear_datos()
-        If Me.CtlActivo1.Guardar Then
-          invdet = New InventarioDet(Sistema.OperadorDatos, True)
-          invdet.Inventario = mInventario
-          invdet.Activocustodio = Me.CtlActivo1.Activo.ActivoCustodioActual
-          invdet.Activoubicacion = Me.CtlActivo1.Activo.ActivoUbicacionActual
-          invdet.InvDet_Activo = True
-          invdet.PardetEstadoInventario = New WWTSParametroDet(Sistema.OperadorDatos, Enumerados.EnumParametros.EstadoInventarioActivo, Enumerados.enumEstadoInventarioActivo.EncontradoNuevo)
-          Me.CtlActivo1.Activo.Recargar()
-          Me.CtlActivo1.llenar_datos()
-
-        Else
-          MsgBox(Sistema.OperadorDatos.MsgError, MsgBoxStyle.Critical, "Error")
-          Exit Sub
-        End If
-      Catch ex As Exception
-        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        Exit Sub
-      End Try
     End If
 
     If invdet Is Nothing Then
       Exit Sub
     End If
 
-    If invdet.Guardar Then
+    If invdet.Guardar(Me.CtlBuscaCustodio.Empleado.Entida_Codigo, Me.CtlUbicacionActivo1.ParametroDet.Parame_Codigo, Me.CtlUbicacionActivo1.ParametroDet.Pardet_Secuencia) Then
       'Me.Close()
       MsgBox("Inventario correctamente registrado", MsgBoxStyle.Information, "Información")
-      Me.CtlActivo1.Activo = New Activo(Sistema.OperadorDatos, True)
+      Me.pnlactivo.Visible = False
     Else
       MsgBox(invdet.OperadorDatos.MsgError, MsgBoxStyle.Critical, "Error")
       Exit Sub
     End If
   End Sub
 
-  Private Sub FrmListaActivos_Inicializar(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Inicializar
-    Me.Tabla = "Inventariar activo"
-    Me.CtlBuscaActivos1.OperadorDatos = Sistema.OperadorDatos
-    Me.CtlBuscaActivos1.Llenar_Datos()
-
-    Me.CtlGrupoTipoClase.ParametroEnum = Enumerados.EnumParametros.ClaseActivo
-    Me.CtlGrupoTipoClase.llenar_Datos()
-
-    Me.CtlUbicacionActivo1.PardetRaiz = New WWTSUsuario(Sistema.OperadorDatos, Sistema.Usuario.Usuari_Codigo).PardetUbicacion
-    Me.CtlUbicacionActivo1.llenar_Datos()
-
-    Me.CtlBuscaCustodio.OperadorDatos = Sistema.OperadorDatos
-    Me.CtlBuscaCustodio.TipoEmpleado = New WWTSParametroDet(Sistema.OperadorDatos, Enumerados.EnumParametros.TipoEmpleado, Enumerados.enumTipoEmpleado.Custodio)
-    Me.CtlBuscaCustodio.Llenar_Datos()
-
-    Me.cbomarca.OperadorDatos = Sistema.OperadorDatos
-    Me.cbomarca.Parametro = Enumerados.EnumParametros.MarcaActivo
-    Me.cbomarca.Llenar_Datos()
-
-    Me.CtlActivo1.Activo = New Activo(Sistema.OperadorDatos, True)
+  Private Sub btnnuevo_Click(sender As System.Object, e As System.EventArgs) Handles btnnuevo.Click
+    If Me.CtlUbicacionActivo1.ParametroDet Is Nothing OrElse Not Me.CtlUbicacionActivo1.ParametroDet.Parame_Codigo = Enumerados.EnumParametros.UbicacionActivo Then
+      MsgBox("Debe seleccionar una ubicación", MsgBoxStyle.Information, "Información")
+      Exit Sub
+    End If
+    If Me.CtlBuscaCustodio.Empleado Is Nothing Then
+      MsgBox("Debe seleccionar un custodio", MsgBoxStyle.Information, "Información")
+      Exit Sub
+    End If
+    Dim activos As New ActivoList
+    activos.Add(New Activo(Sistema.OperadorDatos, True))
+    Me.BindingSource1.DataSource = activos
+    Me.DataGridView1.AutoDiscover()
   End Sub
-#End Region
-
-  Private Sub CtlBuscaActivos1_Buscar(sender As Object, e As System.EventArgs) Handles CtlBuscaActivos1.Buscar
-    Me.BindingSource1.DataSource = Me.CtlBuscaActivos1.Activos
-    Me.dgActivos.AutoDiscover()
-  End Sub
-
 End Class

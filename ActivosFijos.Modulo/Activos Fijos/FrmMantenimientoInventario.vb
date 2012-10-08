@@ -195,6 +195,8 @@ Public Class FrmMantenimientoInventario
     If Me.cboperiodo.ParametroDet Is Nothing OrElse Me.CtlUbicacionActivo1.ParametroDet Is Nothing Then
       Exit Sub
     End If
+    mInventario.InventarioDets = Nothing
+
     If mInventario.EsNuevo Then
       Dim mdets As New InventarioDetList
       For Each _activo As Activo In ActivoList.ObtenerLista(Sistema.OperadorDatos, "", "", "", "", Nothing, Nothing, "", Nothing, Nothing, Nothing, Me.CtlUbicacionActivo1.ParametroDet, Nothing, True, -1, Nothing, Nothing, Nothing)
