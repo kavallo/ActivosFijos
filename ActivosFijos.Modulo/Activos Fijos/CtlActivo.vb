@@ -52,6 +52,21 @@ Public Class CtlActivo
 
     Me.txtcodigo.Value = mActivo.Activo_Codigo
     Me.txtcodigobarra.Text = mActivo.Activo_CodigoBarra
+
+    If Not String.IsNullOrWhiteSpace(mActivo.Activo_CodigoBarraCruce) Then
+      Me.lblmensaje.Text = "Activo cruzado con código de barras " + mActivo.Activo_CodigoBarraCruce
+      Me.lblmensaje.Visible = True
+    Else
+      Me.lblmensaje.Visible = False
+    End If
+
+    If mActivo.PardetTipoBajaActivo Is Nothing Then
+      Me.pnlcabecera.BackColor = System.Drawing.SystemColors.Control
+    Else
+      Me.pnlcabecera.BackColor = Color.Salmon
+    End If
+
+    Me.txtcodbarracruce.Text = mActivo.Activo_CodigoBarraCruce
     Me.txtcodigoauxiliar.Text = mActivo.Activo_CodigoAux
     Me.txtserie.Text = mActivo.Activo_Serie
 
@@ -180,6 +195,7 @@ Public Class CtlActivo
     mActivo.Facturaactivo = Me.CtlBuscaFactura1.FacturaActivo
     mActivo.Activo_Codigo = Me.txtcodigo.Value
     mActivo.Activo_CodigoBarra = Me.txtcodigobarra.Text
+    mActivo.Activo_CodigoBarraCruce = Me.txtcodbarracruce.Text
     Me.txtcodigoauxiliar.Text = mActivo.Activo_CodigoAux
     mActivo.Activo_Serie = Me.txtserie.Text
     If Me.CtlGrupoTipoClase.ParametroDet Is Nothing OrElse Not Me.CtlGrupoTipoClase.ParametroDet.Parame_Codigo = Enumerados.EnumParametros.ClaseActivo Then
@@ -221,7 +237,11 @@ Public Class CtlActivo
   End Sub
 
   Public Function Guardar() As Boolean
-    Return mActivo.Guardar(Me.CtlUbicacionActivo1.ParametroDet, Me.CtlBuscaCustodio.Empleado, Me.txtcostoactivo.Value, Me.txtvalorsalvamento.Value, Me.txtperiodosdepreciables.Value, Me.cboFrecuenciaDepreciacion.ParametroDet)
+    Dim result As Boolean = mActivo.Guardar(Me.CtlUbicacionActivo1.ParametroDet, Me.CtlBuscaCustodio.Empleado, Me.txtcostoactivo.Value, Me.txtvalorsalvamento.Value, Me.txtperiodosdepreciables.Value, Me.cboFrecuenciaDepreciacion.ParametroDet)
+    If result Then
+      mActivo.Recargar()
+    End If
+    Return result
   End Function
 
   Private mActivoCopiar As Activo = Nothing

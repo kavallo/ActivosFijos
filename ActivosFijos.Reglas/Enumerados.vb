@@ -32,6 +32,8 @@ Public Class Enumerados
 
     ReportesActivosFijos = 299
 
+    InventariarDesdePDA = 300
+
     Usuarios = 910
     Auditoria = 912
 

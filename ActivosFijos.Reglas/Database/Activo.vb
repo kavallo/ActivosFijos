@@ -25,6 +25,8 @@ Partial Public Class Activo
 
   Private mActivo_CodigoBarra As String = ""
 
+  Private mActivo_CodigoBarraCruce As String = ""
+
   Private mActivo_CodigoAux As String = ""
 
   Private mActivo_Serie As String = ""
@@ -93,6 +95,17 @@ Partial Public Class Activo
     End Get
     Set(value As String)
       Me.mActivo_CodigoBarra = value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property Activo_CodigoBarraCruce() As String
+    Get
+      Return Me.mActivo_CodigoBarraCruce
+    End Get
+    Set(value As String)
+      Me.mActivo_CodigoBarraCruce = value
       EsModificado = True
     End Set
   End Property

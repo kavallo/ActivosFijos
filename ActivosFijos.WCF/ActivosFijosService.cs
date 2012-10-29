@@ -91,7 +91,7 @@ namespace ActivosFijos.WCF
         {
             //mOperadorDatosList = OperadorDatosList.dexml("/Conexion.xml");
             ActivosFijos.Reglas.InventarioList list;
-            list = ActivosFijos.Reglas.InventarioList.ObtenerListaActivos(mOperadorDatosList[0], null);
+            list = ActivosFijos.Reglas.InventarioList.ObtenerListaActivos(mOperadorDatosList[0], null, null);
             Inventario[] result = new Inventario[list.Count];
             int count = 0;
             foreach (ActivosFijos.Reglas.Inventario inv in list)

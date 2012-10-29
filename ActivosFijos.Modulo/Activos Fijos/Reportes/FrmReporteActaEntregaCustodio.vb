@@ -11,9 +11,6 @@ Public Class FrmReporteActaEntregaCustodio
     End Get
     Set(value As Empleado)
       CtlBuscaCustodio.Empleado = value
-      If value IsNot Nothing Then
-        llenar_datos()
-      End If
     End Set
   End Property
 
@@ -78,6 +75,7 @@ Public Class FrmReporteActaEntregaCustodio
     Me.Custodio = Me.CtlBuscaCustodio.Empleado
     My.Settings.ciudadactual = Me.cbociudad.SelectedValue
     My.Settings.Save()
+    llenar_datos()
   End Sub
 
   Private Sub CheckBox1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox1.CheckedChanged

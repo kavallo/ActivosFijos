@@ -160,6 +160,8 @@ namespace ActivosFijosServices
         public int Pardet_Tipo { get; set; }
         [DataMember]
         public int Pardet_TipoBajaActivo { get; set; }
+        [DataMember]
+        public int Pardet_Ubicacion { get; set; }
     }
 
     [DataContract]

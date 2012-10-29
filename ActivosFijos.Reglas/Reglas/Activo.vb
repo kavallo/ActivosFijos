@@ -473,6 +473,53 @@ Public Class Activo
     End Get
   End Property
 
+  <Infoware.Reportes.CampoReporteAtributo("Proveedor", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 150, True)> _
+  Public ReadOnly Property ProveedorString() As String
+    Get
+      If Facturaactivo Is Nothing Then
+        Return String.Empty
+      End If
+      Return Facturaactivo.ProveedorString
+    End Get
+  End Property
+
+  <Infoware.Reportes.CampoReporteAtributo("Factura", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 100, True)> _
+  Public ReadOnly Property FacturaNumero() As String
+    Get
+      If Facturaactivo Is Nothing Then
+        Return String.Empty
+      End If
+      Return Facturaactivo.Factura_Numero
+    End Get
+  End Property
+
+  <Infoware.Reportes.CampoReporteAtributo("Fecha factura", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Fecha, 100, True)> _
+  Public ReadOnly Property FacturaFecha() As Date
+    Get
+      If Facturaactivo Is Nothing Then
+        Return Now.Date
+      End If
+      Return Facturaactivo.Factura_Fecha
+    End Get
+  End Property
+
+  <Infoware.Reportes.CampoReporteAtributo("Valor original", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Decimales, 100, True)> _
+  Public ReadOnly Property ValorOriginal() As Decimal
+    Get
+      If Valoraciones Is Nothing OrElse Valoraciones.Count = 0 Then
+        Return 0
+      End If
+      Dim mvalororiginal = 0
+      For Each _valor As ActivoValor In Valoraciones
+        If _valor.Pardet_TipoValoracion = Enumerados.enumTipoValoracion.Inicial Then
+          mvalororiginal = _valor.ActVal_Costo
+          Exit For
+        End If
+      Next
+      Return mvalororiginal
+    End Get
+  End Property
+
   <Infoware.Reportes.CampoReporteAtributo("Ubicación", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 350, True)> _
   Public ReadOnly Property UbicacionNombre() As String
     Get
@@ -606,6 +653,11 @@ Public Class Activo
   Public Overridable Sub MapearDataRowaObjeto(ByVal Fila As DataRow)
     Activo_Codigo = CType(Fila("Activo_Codigo"), Integer)
     Activo_CodigoBarra = CStr(Fila("Activo_CodigoBarra"))
+    If TypeOf Fila("Activo_CodigoBarraCruce") Is DBNull Then
+      Activo_CodigoBarraCruce = String.Empty
+    Else
+      Activo_CodigoBarraCruce = CStr(Fila("Activo_CodigoBarraCruce"))
+    End If
     Activo_CodigoAux = CStr(Fila("Activo_CodigoAux"))
     Activo_Serie = CType(Fila("Activo_Serie"), String)
     Parame_ClaseActivo = CType(Fila("Parame_ClaseActivo"), Integer)
@@ -704,6 +756,9 @@ Public Class Activo
     OperadorDatos.AgregarParametro("@accion", sAccion)
     OperadorDatos.AgregarParametro("@Activo_Codigo", Activo_Codigo)
     OperadorDatos.AgregarParametro("@Activo_CodigoBarra", Activo_CodigoBarra)
+    If Not String.IsNullOrWhiteSpace(Activo_CodigoBarraCruce) Then
+      OperadorDatos.AgregarParametro("@Activo_CodigoBarraCruce", Activo_CodigoBarraCruce)
+    End If
     OperadorDatos.AgregarParametro("@Activo_CodigoAux", Activo_CodigoAux)
     OperadorDatos.AgregarParametro("@Activo_Serie", Activo_Serie)
     OperadorDatos.AgregarParametro("@Parame_ClaseActivo", Parame_ClaseActivo)

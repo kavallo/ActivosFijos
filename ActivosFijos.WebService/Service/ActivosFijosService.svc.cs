@@ -36,7 +36,10 @@ namespace ActivosFijosServices
                 }
                 else
                 {
-                    this.ArmarArbol(ref list, WWTSParametroDetList.ObtenerLista(this.mOperadorDatosList[0], Enumerados.EnumParametros.Nulo, WWTSParametroDetList.enumTipoObjeto.Nada, det, ""), parame_fin);
+                    this.ArmarArbol(ref list, 
+                        WWTSParametroDetList.ObtenerLista(this.mOperadorDatosList[0], 
+                            Enumerados.EnumParametros.Nulo, WWTSParametroDetList.enumTipoObjeto.Nada, det), 
+                        parame_fin);
                 }
             }
         }
@@ -46,7 +49,8 @@ namespace ActivosFijosServices
             ActivosFijos.Reglas.Activo activo;
             try
             {
-                activo = ActivoList.ObtenerLista(this.mOperadorDatosList[0], mCodigoBarra, "", mSerie, "", null, null, "", null, null, null, null, null, true, -1, DateTime.Now, DateTime.Now, null)[0];
+                activo = ActivoList.ObtenerLista(this.mOperadorDatosList[0], mCodigoBarra, "", mSerie, 
+                    "", null, null, "", null, null, null, null, null, true, -1, DateTime.Now, DateTime.Now, null)[0];
             }
             catch
             {
@@ -96,7 +100,7 @@ namespace ActivosFijosServices
             int index = 0;
             foreach (ActivoCaracteristica caracteristica in activo.Caracteristicas)
             {
-                Caracteristica caracteristica2 = new Caracteristica
+                activo2.Caracteristicas[index] = new Caracteristica
                 {
                     Parame_Caracteristica = caracteristica.Parame_Caracteristica,
                     Pardet_Caracteristica = caracteristica.Pardet_Caracteristica,
@@ -104,7 +108,6 @@ namespace ActivosFijosServices
                     ActCar_Descripcion = caracteristica.ActCar_Descripcion,
                     esNuevo = caracteristica.EsNuevo
                 };
-                activo2.Caracteristicas[index] = caracteristica2;
                 index++;
             }
             if (activo.PardetGrupoActivo != null)
@@ -118,19 +121,21 @@ namespace ActivosFijosServices
             return activo2;
         }
 
-        public string GuardarInventarioDet(string mUsuario, Inventario mInventario, Activo mActivo, int mCustodio, int mParame_Ubicacion, int mPardet_Ubicacion)
+        public string GuardarInventarioDet(string mUsuario, Inventario mInventario, Activo mActivo, int mCustodio, 
+            int mParame_Ubicacion, int mPardet_Ubicacion)
         {
             ActivosFijos.Reglas.Activo activo;
             WWTSUsuario usuario = new WWTSUsuario(this.mOperadorDatosList[0], mUsuario);
             Restriccion restriccion = new Restriccion(this.mOperadorDatosList[0],
-                new Infoware.Reglas.General.ParametroDet(this.mOperadorDatosList[0], 
-                    new Infoware.Reglas.General.Parametro(this.mOperadorDatosList[0], 5), 300), usuario);
+                new Infoware.Reglas.General.ParametroDet(this.mOperadorDatosList[0],
+                    new Infoware.Reglas.General.Parametro(this.mOperadorDatosList[0], (int)Enumerados.EnumParametros.Opciones), 
+                    (int)Enumerados.EnumOpciones.InventariarDesdePDA), usuario);
             bool flag = false;
-            int num = 1;
+            int estadoinventario = (int)Enumerados.enumEstadoInventarioActivo.NoInventariado;
             if (mActivo.esNuevo)
             {
                 activo = new ActivosFijos.Reglas.Activo(this.mOperadorDatosList[0], true);
-                num = 4;
+                estadoinventario = (int)Enumerados.enumEstadoInventarioActivo.EncontradoNuevo;
             }
             else
             {
@@ -164,7 +169,7 @@ namespace ActivosFijosServices
             {
                 ActivoCaracteristica item = new ActivoCaracteristica(this.mOperadorDatosList[0], caracteristica.esNuevo)
                 {
-                    Parame_Caracteristica = 0x2756,
+                    Parame_Caracteristica = (int)Enumerados.EnumParametros.CaracteristicaActivo,
                     Pardet_Caracteristica = caracteristica.Pardet_Caracteristica,
                     ActCar_Descripcion = caracteristica.ActCar_Descripcion
                 };
@@ -172,20 +177,26 @@ namespace ActivosFijosServices
             }
             if (mActivo.esNuevo)
             {
-                flag = activo.Guardar(new WWTSParametroDet(this.mOperadorDatosList[0], mParame_Ubicacion, mPardet_Ubicacion), new ActivosFijos.Reglas.Empleado(this.mOperadorDatosList[0], mCustodio), 0M, 0M, 0, new WWTSParametroDet(this.mOperadorDatosList[0], 0x2747, 1));
+                flag = activo.Guardar(new WWTSParametroDet(this.mOperadorDatosList[0], mParame_Ubicacion, mPardet_Ubicacion), 
+                    new ActivosFijos.Reglas.Empleado(this.mOperadorDatosList[0], mCustodio), 0, 0, 0,
+                    new WWTSParametroDet(this.mOperadorDatosList[0], (int)Enumerados.EnumParametros.TipoEmpleado, 
+                        (int)Enumerados.enumTipoEmpleado.Custodio));
             }
             else
             {
-                flag = activo.Guardar(null, null, 0M, 0M, 0, null);
+                flag = activo.Guardar(null, null, 0, 0, 0, null);
             }
             if (flag)
             {
                 InventarioDet det;
-                Auditoria.Registrar_Auditoria(restriccion, mActivo.esNuevo ? Auditoria.enumTipoAccion.Adicion : Auditoria.enumTipoAccion.Modificacion, "Actualizaci\x00f3n activo (" + activo.CodigoBarra + ") " + activo.Descripcion);
+                Auditoria.Registrar_Auditoria(restriccion, 
+                    mActivo.esNuevo ? Auditoria.enumTipoAccion.Adicion : Auditoria.enumTipoAccion.Modificacion, 
+                    "Actualización activo (" + activo.CodigoBarra + ") " + activo.Descripcion);
                 try
                 {
-                    det = new InventarioDet(this.mOperadorDatosList[0], mInventario.Parame_Ubicacion, mInventario.Pardet_Ubicacion, mInventario.Parame_PeriodoInventario, mInventario.Pardet_PeriodoInventario, mActivo.Activo_Codigo);
-                    num = 2;
+                    det = new InventarioDet(this.mOperadorDatosList[0], mInventario.Parame_Ubicacion, mInventario.Pardet_Ubicacion, 
+                        mInventario.Parame_PeriodoInventario, mInventario.Pardet_PeriodoInventario, mActivo.Activo_Codigo);
+                    estadoinventario = (int)Enumerados.enumEstadoInventarioActivo.Inventariado;
                 }
                 catch
                 {
@@ -197,15 +208,17 @@ namespace ActivosFijosServices
                         Pardet_PeriodoInventario = mInventario.Pardet_PeriodoInventario,
                         Activo_Codigo = activo.Activo_Codigo
                     };
-                    num = 3;
+                    estadoinventario = (int)Enumerados.enumEstadoInventarioActivo.EncontradoExistente;
                 }
-                det.Parame_EstadoInventario = 0x277e;
-                det.Pardet_EstadoInventario = num;
+                det.Parame_EstadoInventario = (int)Enumerados.EnumParametros.EstadoInventarioActivo;
+                det.Pardet_EstadoInventario = estadoinventario;
                 bool esNuevo = det.EsNuevo;
                 flag = det.Guardar(mCustodio, mParame_Ubicacion, mPardet_Ubicacion);
                 if (flag)
                 {
-                    Auditoria.Registrar_Auditoria(restriccion, esNuevo ? Auditoria.enumTipoAccion.Adicion : Auditoria.enumTipoAccion.Modificacion, "Registro de inventario (" + activo.CodigoBarra + ") " + activo.Descripcion);
+                    Auditoria.Registrar_Auditoria(restriccion, 
+                        esNuevo ? Auditoria.enumTipoAccion.Adicion : Auditoria.enumTipoAccion.Modificacion, 
+                        "Registro de inventario (" + activo.CodigoBarra + ") " + activo.Descripcion);
                 }
             }
             if (!flag)
@@ -217,47 +230,62 @@ namespace ActivosFijosServices
 
         public bool IniciarSesion(string mUsuario, string mContrasena)
         {
-            bool flag = false;
+            bool result = false;
             try
             {
                 WWTSUsuario usuario = new WWTSUsuario(this.mOperadorDatosList[0], mUsuario);
-                flag = usuario.VerificarPassword(mContrasena);
-                if (flag)
+                result = usuario.VerificarPassword(mContrasena);
+                if (result)
                 {
-                    ParametroDet det = new ParametroDet(this.mOperadorDatosList[0], 5, 300);
-                    Restriccion restriccion = new Restriccion(this.mOperadorDatosList[0], det, new Usuario(this.mOperadorDatosList[0], usuario.Usuari_Codigo));
-                    flag = restriccion.Restri_Modificacion;
+                    ParametroDet det = new ParametroDet(this.mOperadorDatosList[0], 
+                        (int)Enumerados.EnumParametros.Opciones, (int)Enumerados.EnumOpciones.InventariarDesdePDA);
+                    Restriccion restriccion = new Restriccion(this.mOperadorDatosList[0], det, usuario);
+                    result = restriccion.Restri_Modificacion;
                 }
             }
             catch
             {
-                flag = false;
+                result = false;
             }
-            return flag;
+            return result;
         }
 
         public Inventario[] InventariosActivos()
         {
-            InventarioList list = InventarioList.ObtenerListaActivos(this.mOperadorDatosList[0], null, "");
-            Inventario[] inventarioArray = new Inventario[list.Count];
+            InventarioList list = InventarioList.ObtenerListaActivos(this.mOperadorDatosList[0], null, null);
+            Inventario[] result = new Inventario[list.Count];
             int index = 0;
             foreach (ActivosFijos.Reglas.Inventario inventario in list)
             {
-                inventarioArray[index] = new Inventario { Parame_PeriodoInventario = inventario.Parame_PeriodoInventario, Pardet_PeriodoInventario = inventario.Pardet_PeriodoInventario, Parame_Ubicacion = inventario.Parame_Ubicacion, Pardet_Ubicacion = inventario.Pardet_Ubicacion, Description = inventario.Descripcion, Invent_Fecha = inventario.Invent_Fecha, Parame_EstadoInventario = inventario.Parame_EstadoInventario, Pardet_EstadoInventario = inventario.Pardet_EstadoInventario };
+                result[index] = new Inventario { 
+                    Parame_PeriodoInventario = inventario.Parame_PeriodoInventario, 
+                    Pardet_PeriodoInventario = inventario.Pardet_PeriodoInventario, 
+                    Parame_Ubicacion = inventario.Parame_Ubicacion, 
+                    Pardet_Ubicacion = inventario.Pardet_Ubicacion, 
+                    Description = inventario.Descripcion, 
+                    Invent_Fecha = inventario.Invent_Fecha, 
+                    Parame_EstadoInventario = inventario.Parame_EstadoInventario, 
+                    Pardet_EstadoInventario = inventario.Pardet_EstadoInventario };
                 index++;
             }
-            return inventarioArray;
+            return result;
         }
 
         public Caracteristica[] ListaCaracteristicas(int parame_tipo, int pardet_tipo)
         {
             WWTSParametroDet det = new WWTSParametroDet(this.mOperadorDatosList[0], parame_tipo, pardet_tipo);
-            WWTSParametroDetList list = WWTSParametroDetList.ObtenerLista(this.mOperadorDatosList[0], Enumerados.EnumParametros.CaracteristicaActivo, WWTSParametroDetList.enumTipoObjeto.Nada, det, "");
+            WWTSParametroDetList list = WWTSParametroDetList.ObtenerLista(this.mOperadorDatosList[0], 
+                Enumerados.EnumParametros.CaracteristicaActivo, WWTSParametroDetList.enumTipoObjeto.Nada, det);
             Caracteristica[] caracteristicaArray = new Caracteristica[list.Count];
             int index = 0;
             foreach (WWTSParametroDet det2 in list)
             {
-                caracteristicaArray[index] = new Caracteristica { Parame_Caracteristica = det2.Parame_Codigo, Pardet_Caracteristica = det2.Pardet_Secuencia, CaracteristicaText = det2.Pardet_Descripcion, esNuevo = true, ActCar_Descripcion = "" };
+                caracteristicaArray[index] = new Caracteristica { 
+                    Parame_Caracteristica = det2.Parame_Codigo, 
+                    Pardet_Caracteristica = det2.Pardet_Secuencia, 
+                    CaracteristicaText = det2.Pardet_Descripcion, 
+                    esNuevo = true, 
+                    ActCar_Descripcion = "" };
                 index++;
             }
             return caracteristicaArray;
@@ -265,60 +293,71 @@ namespace ActivosFijosServices
 
         public Empleado[] ListaEmpleados()
         {
-            WWTSParametroDet det = new WWTSParametroDet(this.mOperadorDatosList[0], 150, 1);
+            WWTSParametroDet det = new WWTSParametroDet(this.mOperadorDatosList[0], 
+                (int)Enumerados.EnumParametros.TipoEmpleado, (int)Enumerados.enumTipoEmpleado.Custodio);
             EmpleadoList list = EmpleadoList.ObtenerLista(this.mOperadorDatosList[0], det);
-            Empleado[] empleadoArray = new Empleado[list.Count];
+            Empleado[] result = new Empleado[list.Count];
             int index = 0;
             foreach (ActivosFijos.Reglas.Empleado empleado in list)
             {
-                empleadoArray[index] = new Empleado { Emplea_Custodio = empleado.Entida_Codigo, NombreCompleto = empleado.NombreCompleto };
+                result[index] = new Empleado { 
+                    Emplea_Custodio = empleado.Entida_Codigo, 
+                    NombreCompleto = empleado.NombreCompleto };
                 index++;
             }
-            return empleadoArray;
+            return result;
         }
 
         public Factura[] ListaFacturas(int _proveedor)
         {
-            FacturaActivoList list = FacturaActivoList.ObtenerLista(new ActivosFijos.Reglas.Proveedor(this.mOperadorDatosList[0], _proveedor), "");
-            Factura[] facturaArray = new Factura[list.Count];
+            FacturaActivoList list = FacturaActivoList.ObtenerLista(new ActivosFijos.Reglas.Proveedor(this.mOperadorDatosList[0], _proveedor));
+            Factura[] result = new Factura[list.Count];
             int index = 0;
             foreach (FacturaActivo activo in list)
             {
-                facturaArray[index] = new Factura { Factura_Codigo = activo.Factura_Codigo, Proveedor = activo.FacturaNumero };
+                result[index] = new Factura { 
+                    Factura_Codigo = activo.Factura_Codigo, 
+                    Proveedor = activo.FacturaNumero };
                 index++;
             }
-            return facturaArray;
+            return result;
         }
 
         public Proveedor[] ListaProveedores()
         {
-            ProveedorList list = ProveedorList.ObtenerLista(this.mOperadorDatosList[0], "");
-            Proveedor[] proveedorArray = new Proveedor[list.Count];
+            ProveedorList list = ProveedorList.ObtenerLista(this.mOperadorDatosList[0]);
+            Proveedor[] result = new Proveedor[list.Count];
             int index = 0;
             foreach (ActivosFijos.Reglas.Proveedor proveedor in list)
             {
-                proveedorArray[index] = new Proveedor { Provee_Codigo = proveedor.Entida_Codigo, NombreCompleto = proveedor.NombreCompleto };
+                result[index] = new Proveedor { 
+                    Provee_Codigo = proveedor.Entida_Codigo, 
+                    NombreCompleto = proveedor.NombreCompleto };
                 index++;
             }
-            return proveedorArray;
+            return result;
         }
 
         public Parametro[] ParametroList(int parame_codigo, int parame_padre, int pardet_padre)
         {
-            WWTSParametroDet det = null;
+            WWTSParametroDet pardet = null;
             if ((parame_padre != 0) && (pardet_padre != 0))
             {
-                det = new WWTSParametroDet(this.mOperadorDatosList[0], parame_padre, pardet_padre);
+                pardet = new WWTSParametroDet(this.mOperadorDatosList[0], parame_padre, pardet_padre);
             }
-            WWTSParametroDetList list = WWTSParametroDetList.ObtenerLista(this.mOperadorDatosList[0], (Enumerados.EnumParametros)parame_codigo, WWTSParametroDetList.enumTipoObjeto.Nada, det, "");
-            Parametro[] parametroArray = new Parametro[list.Count];
+            WWTSParametroDetList list = WWTSParametroDetList.ObtenerLista(this.mOperadorDatosList[0], 
+                (Enumerados.EnumParametros)parame_codigo, WWTSParametroDetList.enumTipoObjeto.Nada, pardet);
+            Parametro[] result = new Parametro[list.Count];
             int index = 0;
             foreach (WWTSParametroDet det2 in list)
             {
-                parametroArray[index] = new Parametro { Parame_Codigo = det2.Parame_Codigo, Pardet_Secuencia = det2.Pardet_Secuencia, Descripcion = det2.Descripcion };
+                result[index] = new Parametro {
+                    Parame_Codigo = det2.Parame_Codigo, 
+                    Pardet_Secuencia = det2.Pardet_Secuencia, 
+                    Descripcion = det2.Descripcion };
                 index++;
             }
-            return parametroArray;
+            return result;
         }
 
         public Parametro[] ParametroTreeList(int parame_inicio, int pardet_inicio, int parame_fin)
@@ -330,18 +369,21 @@ namespace ActivosFijosServices
             }
             else
             {
-                iniciolist = WWTSParametroDetList.ObtenerLista(this.mOperadorDatosList[0], (Enumerados.EnumParametros)parame_inicio, WWTSParametroDetList.enumTipoObjeto.Nada, null, "");
+                iniciolist = WWTSParametroDetList.ObtenerLista(this.mOperadorDatosList[0], (Enumerados.EnumParametros)parame_inicio);
             }
             WWTSParametroDetList list = new WWTSParametroDetList();
             this.ArmarArbol(ref list, iniciolist, parame_fin);
-            Parametro[] parametroArray = new Parametro[list.Count];
+            Parametro[] result = new Parametro[list.Count];
             int index = 0;
             foreach (WWTSParametroDet det in list)
             {
-                parametroArray[index] = new Parametro { Parame_Codigo = det.Parame_Codigo, Pardet_Secuencia = det.Pardet_Secuencia, Descripcion = det.DescripcionLarga };
+                result[index] = new Parametro { 
+                    Parame_Codigo = det.Parame_Codigo, 
+                    Pardet_Secuencia = det.Pardet_Secuencia, 
+                    Descripcion = det.DescripcionLarga };
                 index++;
             }
-            return parametroArray;
+            return result;
         }
 
     }

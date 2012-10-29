@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -112,83 +112,18 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="bscaracteristicas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>231, 17</value>
-  </metadata>
-  <metadata name="bscustodios.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>508, 17</value>
-  </metadata>
-  <metadata name="bsubicaciones.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>371, 17</value>
-  </metadata>
-  <metadata name="bsdepreciaciones.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="bsvaloraciones.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>624, 17</value>
-  </metadata>
-  <metadata name="ToolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="mainMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnnuevovaloracion.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC9SURBVDhPtdPNCoJAFIZh7/8CuoAIK2gR/SxaNhHRpoIW
-        kVCBkFRIGBkWxnxxogFh5ujZJDwIzszLcTGe93savkIZs4990+FVBEtnNMdscfjGSyO0YX2ChQLpM6+O
-        UGBzgcUEKLINIn4SCgQxnGr1Loqcv0Mf91c4tYdTtAYTNPsKfm/snoICYQIntdyhiJ3geAMk2MD5riHB
-        BuKHhgQbSDINCTaQvjQk2ECWa0iwgfytIfG/QNWVLq6bm/kBQayLmaiiVCIAAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="bscomponentes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>162, 56</value>
+  <metadata name="$this.FormFactorShadowProperty" xml:space="preserve">
+    <value>Pocket_PC</value>
   </metadata>
-  <metadata name="ToolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>124, 17</value>
-  </metadata>
-  <data name="btnnuevocomp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC9SURBVDhPtdPNCoJAFIZh7/8CuoAIK2gR/SxaNhHRpoIW
-        kVCBkFRIGBkWxnxxogFh5ujZJDwIzszLcTGe93savkIZs4990+FVBEtnNMdscfjGSyO0YX2ChQLpM6+O
-        UGBzgcUEKLINIn4SCgQxnGr1Loqcv0Mf91c4tYdTtAYTNPsKfm/snoICYQIntdyhiJ3geAMk2MD5riHB
-        BuKHhgQbSDINCTaQvjQk2ECWa0iwgfytIfG/QNWVLq6bm/kBQayLmaiiVCIAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnmodicomp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEpSURBVDhPY2AgERyTYPgPwiRqgygHafzblfv/f7bA/2ua
-        AmiGJJ/7z4AHF1ev/f92nhdYIwivEWP+P4sB5hIiNK+8/Pv/ookz/n9dYYrQDNIHBkAGLgCyGaS559CP
-        //HL3/63y936Pyi66//s2bMhLsZnAExz75Gf/2NWfPhvWngQrHnVqlX/1177j2nAsWN7/8MwsuaoZe//
-        W5QdgNsMUoPVAGRvVBTU/G/b8xFsM0wzyOZjz/+DNeN1QXV5yP9pJY7/S+umwJ0N8jPMdXu3rsXvApAB
-        K6vc/+eHSsD9DLIZ2XacLvALjvjv5OL6PzEhEBzSyOGCzMYZBrq6uv9BhoD8+/w7xFZUm78TDgNcthLl
-        AqClYJuvvcdtM9ZYwJcP8MqRlS2RNAEASx9CKgQqsBEAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnelimcomp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB9SURBVDhPvZFLCoAwDAVzJe9/F7cuXbqszCIQa34qWAhF
-        TKbzWpGv61hkUK85CvgV4h6mJiOJU8ZleA/uhH+tmDQB2YxJefL8AquBREblq2FAASibPQMFsGPUhtCs
-        xdD8HYJQzZot9Aaxg5luCGlrmkgXi1TPCf203703hZx/woqAwdv3qQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="bspolizas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>300, 56</value>
-  </metadata>
-  <metadata name="bsinventarios.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>402, 56</value>
-  </metadata>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>Para realizar un cruce de códigos debe ingresar el código de barras del activo con el que desea cruzar, a continuación dar clic en Guardar, automáticamente se dará de baja el activo anterior y se intercambiarán los registros de depreciaciones entre los dos activos.</value>
-  </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>51</value>
+  <metadata name="$this.Skin" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
   </metadata>
 </root>
