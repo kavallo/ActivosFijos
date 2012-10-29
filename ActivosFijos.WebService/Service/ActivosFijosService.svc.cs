@@ -130,7 +130,6 @@ namespace ActivosFijosServices
                 new Infoware.Reglas.General.ParametroDet(this.mOperadorDatosList[0],
                     new Infoware.Reglas.General.Parametro(this.mOperadorDatosList[0], (int)Enumerados.EnumParametros.Opciones), 
                     (int)Enumerados.EnumOpciones.InventariarDesdePDA), usuario);
-            bool flag = false;
             int estadoinventario = (int)Enumerados.enumEstadoInventarioActivo.NoInventariado;
             if (mActivo.esNuevo)
             {
@@ -140,6 +139,7 @@ namespace ActivosFijosServices
             else
             {
                 activo = new ActivosFijos.Reglas.Activo(this.mOperadorDatosList[0], mActivo.Activo_Codigo);
+                estadoinventario = (int)Enumerados.enumEstadoInventarioActivo.EncontradoExistente;
             }
             activo.Activo_CodigoBarra = mActivo.Activo_CodigoBarra;
             activo.Activo_CodigoAux = mActivo.Activo_CodigoAux;
@@ -175,6 +175,7 @@ namespace ActivosFijosServices
                 };
                 activo.Caracteristicas.Add(item);
             }
+            bool flag = false;
             if (mActivo.esNuevo)
             {
                 flag = activo.Guardar(new WWTSParametroDet(this.mOperadorDatosList[0], mParame_Ubicacion, mPardet_Ubicacion), 
@@ -188,10 +189,10 @@ namespace ActivosFijosServices
             }
             if (flag)
             {
-                InventarioDet det;
                 Auditoria.Registrar_Auditoria(restriccion, 
                     mActivo.esNuevo ? Auditoria.enumTipoAccion.Adicion : Auditoria.enumTipoAccion.Modificacion, 
                     "Actualización activo (" + activo.CodigoBarra + ") " + activo.Descripcion);
+                InventarioDet det;
                 try
                 {
                     det = new InventarioDet(this.mOperadorDatosList[0], mInventario.Parame_Ubicacion, mInventario.Pardet_Ubicacion, 
@@ -208,7 +209,6 @@ namespace ActivosFijosServices
                         Pardet_PeriodoInventario = mInventario.Pardet_PeriodoInventario,
                         Activo_Codigo = activo.Activo_Codigo
                     };
-                    estadoinventario = (int)Enumerados.enumEstadoInventarioActivo.EncontradoExistente;
                 }
                 det.Parame_EstadoInventario = (int)Enumerados.EnumParametros.EstadoInventarioActivo;
                 det.Pardet_EstadoInventario = estadoinventario;
