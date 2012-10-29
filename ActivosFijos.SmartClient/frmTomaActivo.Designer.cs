@@ -179,7 +179,6 @@
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(169, 19);
             this.txtModelo.TabIndex = 5;
-            this.txtModelo.TextChanged += new System.EventHandler(this.txtModelo_TextChanged);
             // 
             // cboMarca
             // 
@@ -268,7 +267,6 @@
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(71, 19);
             this.lblMarca.Text = "Marca:";
-            this.lblMarca.ParentChanged += new System.EventHandler(this.lblMarca_ParentChanged);
             // 
             // lblDescripcion
             // 
@@ -328,7 +326,7 @@
             this.tabPage3.Controls.Add(this.panel8);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(232, 177);
+            this.tabPage3.Size = new System.Drawing.Size(240, 180);
             this.tabPage3.Text = "Otros";
             // 
             // panel9
@@ -340,7 +338,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(71, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(161, 177);
+            this.panel9.Size = new System.Drawing.Size(169, 180);
             // 
             // txtResponsable
             // 
@@ -348,7 +346,7 @@
             this.txtResponsable.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.txtResponsable.Location = new System.Drawing.Point(0, 59);
             this.txtResponsable.Name = "txtResponsable";
-            this.txtResponsable.Size = new System.Drawing.Size(161, 19);
+            this.txtResponsable.Size = new System.Drawing.Size(169, 19);
             this.txtResponsable.TabIndex = 3;
             // 
             // txtObservacion
@@ -357,7 +355,7 @@
             this.txtObservacion.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.txtObservacion.Location = new System.Drawing.Point(0, 40);
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(161, 19);
+            this.txtObservacion.Size = new System.Drawing.Size(169, 19);
             this.txtObservacion.TabIndex = 2;
             // 
             // cboDepreciacion
@@ -366,7 +364,7 @@
             this.cboDepreciacion.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.cboDepreciacion.Location = new System.Drawing.Point(0, 20);
             this.cboDepreciacion.Name = "cboDepreciacion";
-            this.cboDepreciacion.Size = new System.Drawing.Size(161, 20);
+            this.cboDepreciacion.Size = new System.Drawing.Size(169, 20);
             this.cboDepreciacion.TabIndex = 1;
             // 
             // cboEstadoActivo
@@ -375,7 +373,7 @@
             this.cboEstadoActivo.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.cboEstadoActivo.Location = new System.Drawing.Point(0, 0);
             this.cboEstadoActivo.Name = "cboEstadoActivo";
-            this.cboEstadoActivo.Size = new System.Drawing.Size(161, 20);
+            this.cboEstadoActivo.Size = new System.Drawing.Size(169, 20);
             this.cboEstadoActivo.TabIndex = 0;
             // 
             // panel8
@@ -387,7 +385,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(71, 177);
+            this.panel8.Size = new System.Drawing.Size(71, 180);
             // 
             // lblResponsable
             // 
@@ -450,7 +448,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(71, 18);
             this.btnCancelar.TabIndex = 1;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Limpiar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panel1
@@ -479,7 +477,6 @@
             this.txtSerie1.Name = "txtSerie1";
             this.txtSerie1.Size = new System.Drawing.Size(169, 19);
             this.txtSerie1.TabIndex = 7;
-            this.txtSerie1.TextChanged += new System.EventHandler(this.txtSerie1_TextChanged);
             this.txtSerie1.PressEnter += new System.EventHandler(this.txtSerie1_PressEnter);
             // 
             // txtActivo
@@ -490,7 +487,6 @@
             this.txtActivo.Name = "txtActivo";
             this.txtActivo.Size = new System.Drawing.Size(169, 19);
             this.txtActivo.TabIndex = 0;
-            this.txtActivo.TextChanged += new System.EventHandler(this.txtActivo_TextChanged);
             this.txtActivo.PressEnter += new System.EventHandler(this.txtActivo_PressEnter);
             // 
             // panel3

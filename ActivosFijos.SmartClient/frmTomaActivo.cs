@@ -52,6 +52,20 @@ namespace ActivosFijos
         {
             txtActivo.Text = "";
             txtSerie1.Text = "";
+            
+            cboGrupo.SelectedIndex = -1;
+            cboTipo.SelectedIndex = -1;
+            cboClase.SelectedIndex = -1;
+            txtDescripcion.Text = "";
+            cboMarca.SelectedIndex = -1;
+            txtModelo.Text = "";
+            txtSerie.Text = "";
+            cboEstadoActivo.SelectedIndex = -1;
+            cboDepreciacion.SelectedIndex = -1;
+            txtObservacion.Text = "";
+            txtResponsable.Text = "";
+            pnladic.Controls.Clear();
+
             CargarActivo();
         }
 
@@ -233,26 +247,5 @@ namespace ActivosFijos
         {
             this.Close();
         }
-
-        private void lblMarca_ParentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtModelo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtActivo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSerie1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
