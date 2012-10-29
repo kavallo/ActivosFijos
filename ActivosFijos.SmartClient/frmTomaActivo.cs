@@ -153,6 +153,7 @@ namespace ActivosFijos
         
         private void CargarActivo()
         {
+            pnladic.Controls.Clear();
             if (string.IsNullOrEmpty(txtActivo.Text) && string.IsNullOrEmpty(txtSerie1.Text))
             {
                 tabControl1.Enabled = false;
@@ -160,13 +161,7 @@ namespace ActivosFijos
             }
             else
             {
-                pnladic.Controls.Clear();
-
                 mActivo = cliente.CargarActivo(txtActivo.Text, txtSerie1.Text);
-                if (mActivo.esNuevo)
-                {
-                    MessageBox.Show("Activo nuevo", "Mensaje");
-                }
                 btnGuardar.Enabled = true;
                 tabControl1.Enabled = true;
                 cboGrupo.SelectedValue = mActivo.Pardet_Grupo;
@@ -181,11 +176,21 @@ namespace ActivosFijos
                 txtObservacion.Text = mActivo.Activo_Observacion;
                 txtResponsable.Text = mActivo.Activo_ResponsableMantenimiento;
 
-                foreach (Caracteristica carac in mActivo.Caracteristicas) {
-                    ActivosFijos.Controles.CtlAdicional ctl = new ActivosFijos.Controles.CtlAdicional();
-                    ctl.set_Caracteristica(carac);
-                    pnladic.Controls.Add(ctl);
-                    ctl.Dock = DockStyle.Top;
+                if (mActivo.esNuevo)
+                {
+                    MessageBox.Show("Activo nuevo", "Mensaje");
+                    CargarCaracteristicasporTipo();
+                }
+                else
+                {
+                    foreach (Caracteristica carac in mActivo.Caracteristicas)
+                    {
+                        ActivosFijos.Controles.CtlAdicional ctl = new ActivosFijos.Controles.CtlAdicional();
+                        ctl.set_Caracteristica(carac);
+                        pnladic.Controls.Add(ctl);
+                        ctl.Dock = DockStyle.Top;
+                        ctl.BringToFront();
+                    }
                 }
             }
         }
@@ -202,6 +207,11 @@ namespace ActivosFijos
         }
 
         private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarCaracteristicasporTipo();
+        }
+
+        private void CargarCaracteristicasporTipo()
         {
             if (cboTipo.SelectedIndex >= 0 && (int)cboTipo.SelectedValue>0)
             {
