@@ -41,28 +41,32 @@ namespace ActivosFijos
 
         private void frmIniciarToma_Load(object sender, EventArgs e)
         {
+            this.btnSeleccionar.Enabled = false;
             cliente = mConexion.Cliente();
             try
             {
-                mUbicaciones = cliente.ParametroTreeList(mInventario.Parame_Ubicacion, mInventario.Pardet_Ubicacion, 10079);
-                mEmpleados = cliente.ListaEmpleados();
-
+                mUbicaciones = cliente.ParametroTreeList(mInventario.Parame_Ubicacion, mInventario.Pardet_Ubicacion, (int)EnumParametros.UbicacionActivo);
                 cboUbicacion.Items.Clear();
                 cboUbicacion.DataSource = mUbicaciones;
                 cboUbicacion.DisplayMember = "Descripcion";
                 cboUbicacion.ValueMember = "Pardet_Secuencia";
+            }
+            catch (Exception){}
+        }
 
-                cboCustodio.Items.Clear();
+        private void CargarCustodio(String parcial)
+        {
+            this.btnSeleccionar.Enabled = false;
+            try
+            {
+                mEmpleados = cliente.ListaEmpleados(parcial);
                 cboCustodio.DataSource = mEmpleados;
                 cboCustodio.DisplayMember = "NombreCompleto";
                 cboCustodio.ValueMember = "Emplea_Custodio";
 
-                this.btnSeleccionar.Enabled = true;
+                this.btnSeleccionar.Enabled = (mEmpleados != null && mEmpleados.Length > 0);
             }
-            catch (Exception)
-            {
-                this.btnSeleccionar.Enabled = false;
-            }
+            catch (Exception){}
         }
 
         private void cboUbicacion_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,8 +77,14 @@ namespace ActivosFijos
             }
             else
             {
-                this.lblUbicacionCompleta.Text = ((Parametro)cboUbicacion.SelectedValue).Descripcion;
+                this.lblUbicacionCompleta.Text = ((Parametro)cboUbicacion.SelectedItem).Descripcion;
             }
         }
+
+        private void txtparcial_PressEnter(object sender, EventArgs e)
+        {
+            CargarCustodio(txtparcial.Text);
+        }
+
     }
 }

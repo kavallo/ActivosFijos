@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ActivosFijos.Controles;
 
 namespace ActivosFijos
 {
@@ -73,19 +74,14 @@ namespace ActivosFijos
         {
             cliente = mConexion.Cliente();
 
-            pMarca = cliente.ParametroList(MARCA, 0, 0);
-            pEstadoDepreciacion = cliente.ParametroList(ESTADODEPRECIACION, 0, 0);
-            pEstadoActivo = cliente.ParametroList(ESTADOACTIVO, 0, 0);
-            pGrupo = cliente.ParametroList(GRUPO, 0, 0);
+            pEstadoDepreciacion = cliente.ParametroList(ESTADODEPRECIACION, 0, 0, "");
+            pEstadoActivo = cliente.ParametroList(ESTADOACTIVO, 0, 0, "");
+            pGrupo = cliente.ParametroList(GRUPO, 0, 0, "");
             try
             {
                 lblUbicacion.Text += " " + pUbicacion.Descripcion;
                 lblCustodio.Text += " " + eCustodio.NombreCompleto;
 
-                cboMarca.DisplayMember = "Descripcion";
-                cboMarca.ValueMember = "Pardet_Secuencia";
-                cboMarca.DataSource = pMarca;
-               
                 cboEstadoActivo.DisplayMember = "Descripcion";
                 cboEstadoActivo.ValueMember = "Pardet_Secuencia";
                 cboEstadoActivo.DataSource = pEstadoActivo;
@@ -98,7 +94,8 @@ namespace ActivosFijos
                 cboGrupo.ValueMember = "Pardet_Secuencia";
                 cboGrupo.DataSource = pGrupo;
             }
-            catch (Exception) { }
+            catch (Exception) {}
+            this.btnGuardar.Enabled = false;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -129,16 +126,24 @@ namespace ActivosFijos
             mActivo.Pardet_Ubicacion = pUbicacion.Pardet_Secuencia;
             mActivo.Entida_Custodio = eCustodio.Emplea_Custodio;
 
-            string result = cliente.GuardarInventarioDet(mUsuario, mInventario, mActivo,
-                eCustodio.Emplea_Custodio, pUbicacion.Parame_Codigo, pUbicacion.Pardet_Secuencia);
-            if (!string.IsNullOrEmpty(result))
+            try
             {
-                MessageBox.Show("Error al registrar el inventario " + result, "Error");
+                string result = cliente.GuardarInventarioDet(mUsuario, mInventario, mActivo,
+                   eCustodio.Emplea_Custodio, pUbicacion.Parame_Codigo, pUbicacion.Pardet_Secuencia);
+                if (!string.IsNullOrEmpty(result))
+                {
+                    MessageBox.Show("Error al registrar el inventario " + result, "Error");
+                }
+                else
+                {
+                    MessageBox.Show("Registro guardado", "Mensaje");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Registro guardado", "Mensaje");
+                MessageBox.Show("Error guardando inventario, puede deberse a problemas de conexión o de concurrencia, inténtelo de nuevo");
             }
+            
         }
 
         private void txtActivo_PressEnter(object sender, EventArgs e)
@@ -150,32 +155,32 @@ namespace ActivosFijos
         {
             CargarActivo();
         }
-        
+
+        private bool CargandoArchivo = false;
+
         private void CargarActivo()
         {
+            btnGuardar.Enabled = false;
+            CargandoArchivo = true;
             pnladic.Controls.Clear();
             if (string.IsNullOrEmpty(txtActivo.Text) && string.IsNullOrEmpty(txtSerie1.Text))
             {
                 tabControl1.Enabled = false;
-                btnGuardar.Enabled = false;
             }
             else
             {
-                mActivo = cliente.CargarActivo(txtActivo.Text, txtSerie1.Text);
-                btnGuardar.Enabled = true;
-                tabControl1.Enabled = true;
-                cboGrupo.SelectedValue = mActivo.Pardet_Grupo;
-                cboTipo.SelectedValue = mActivo.Pardet_Tipo;
-                cboClase.SelectedValue = mActivo.Pardet_ClaseActivo;
-                txtDescripcion.Text = mActivo.Activo_Descripcion;
-                cboMarca.SelectedValue = mActivo.Pardet_Marca;
-                txtModelo.Text = mActivo.Activo_Modelo;
-                txtSerie.Text = mActivo.Activo_Serie;
-                cboEstadoActivo.SelectedValue = mActivo.Pardet_EstadoActivo;
-                cboDepreciacion.SelectedValue = mActivo.Pardet_EstadoDepreciacion;
-                txtObservacion.Text = mActivo.Activo_Observacion;
-                txtResponsable.Text = mActivo.Activo_ResponsableMantenimiento;
+                try
+                {
+                    mActivo = cliente.CargarActivo(txtActivo.Text, txtSerie1.Text);
+                }
+                catch
+                {
+                    tabControl1.Enabled = false;
+                    MessageBox.Show("Error cargando activo, puede deberse a problemas de conexión o de concurrencia, inténtelo de nuevo");
+                    return;
+                }
 
+                tabControl1.Enabled = true;
                 if (mActivo.esNuevo)
                 {
                     MessageBox.Show("Activo nuevo", "Mensaje");
@@ -183,23 +188,42 @@ namespace ActivosFijos
                 }
                 else
                 {
-                    foreach (Caracteristica carac in mActivo.Caracteristicas)
+                    btnGuardar.Enabled = true;
+                    cboGrupo.SelectedValue = mActivo.Pardet_Grupo;
+                    cboTipo.SelectedValue = mActivo.Pardet_Tipo;
+                    if (!mActivo.esNuevo)
                     {
-                        ActivosFijos.Controles.CtlAdicional ctl = new ActivosFijos.Controles.CtlAdicional();
-                        ctl.set_Caracteristica(carac);
-                        pnladic.Controls.Add(ctl);
-                        ctl.Dock = DockStyle.Top;
-                        ctl.BringToFront();
+                        foreach (Caracteristica carac in mActivo.Caracteristicas)
+                        {
+                            ActivosFijos.Controles.CtlAdicional ctl = new ActivosFijos.Controles.CtlAdicional();
+                            ctl.set_Caracteristica(carac);
+                            pnladic.Controls.Add(ctl);
+                            ctl.Dock = DockStyle.Top;
+                            ctl.SendToBack();
+                        }
                     }
+                    CargarCaracteristicasporTipo();
+
+                    cboClase.SelectedValue = mActivo.Pardet_ClaseActivo;
+                    txtDescripcion.Text = mActivo.Activo_Descripcion;
+                    CargarUnaMarca(mActivo.Parame_Marca, mActivo.Pardet_Marca, mActivo.Parame_Marca);
+                    cboMarca.SelectedValue = mActivo.Pardet_Marca;
+                    txtModelo.Text = mActivo.Activo_Modelo;
+                    txtSerie.Text = mActivo.Activo_Serie;
+                    cboEstadoActivo.SelectedValue = mActivo.Pardet_EstadoActivo;
+                    cboDepreciacion.SelectedValue = mActivo.Pardet_EstadoDepreciacion;
+                    txtObservacion.Text = mActivo.Activo_Observacion;
+                    txtResponsable.Text = mActivo.Activo_ResponsableMantenimiento;
                 }
             }
+            CargandoArchivo = false;
         }
 
         private void cboGrupo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboGrupo.SelectedIndex >= 0 && (int)cboGrupo.SelectedValue > 0)
             {
-                pTipo = cliente.ParametroList(TIPO, GRUPO, (int)cboGrupo.SelectedValue);
+                pTipo = cliente.ParametroList(TIPO, GRUPO, (int)cboGrupo.SelectedValue, "");
                 cboTipo.DisplayMember = "Descripcion";
                 cboTipo.ValueMember = "Pardet_Secuencia";
                 cboTipo.DataSource = pTipo;
@@ -208,25 +232,30 @@ namespace ActivosFijos
 
         private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarCaracteristicasporTipo();
+            if (!CargandoArchivo)
+            {
+                CargarCaracteristicasporTipo();
+            }
         }
 
         private void CargarCaracteristicasporTipo()
         {
             if (cboTipo.SelectedIndex >= 0 && (int)cboTipo.SelectedValue>0)
             {
-                pClase = cliente.ParametroList(CLASE, TIPO, (int)cboTipo.SelectedValue);
+                pClase = cliente.ParametroList(CLASE, TIPO, (int)cboTipo.SelectedValue, "");
                 cboClase.DisplayMember = "Descripcion";
                 cboClase.ValueMember = "Pardet_Secuencia";
                 cboClase.DataSource = pClase;
 
-                foreach (ActivosFijos.Controles.CtlAdicional ctl in pnladic.Controls) {
-                    if (ctl.get_Catacteristica().esNuevo)
+                for (int i = pnladic.Controls.Count-1; i >= 0; i--)
+                {
+                    CtlAdicional adic = (CtlAdicional)pnladic.Controls[i];
+                    if (adic.get_Catacteristica().esNuevo)
                     {
-                        pnladic.Controls.Remove(ctl);
+                        pnladic.Controls.RemoveAt(i);
                     }
                 }
-
+                
                 Caracteristica[] nuevas;
                 nuevas = cliente.ListaCaracteristicas(TIPO, (int)cboTipo.SelectedValue);
                 foreach (Caracteristica carac in nuevas)
@@ -256,6 +285,45 @@ namespace ActivosFijos
         private void btnatras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CargarUnaMarca(int Parame_Codigo, int Pardet_Secuencia, int Parame_fin)
+        {
+            try
+            {
+                pMarca = cliente.ParametroTreeList(Parame_Codigo, Pardet_Secuencia, Parame_Codigo);
+                cboMarca.DisplayMember = "Descripcion";
+                cboMarca.ValueMember = "Pardet_Secuencia";
+                cboMarca.DataSource = pMarca;
+
+                this.btnGuardar.Enabled = true;
+            }
+            catch (Exception)
+            {
+                this.btnGuardar.Enabled = false;
+            }
+        }
+
+        private void CargarMarca(String parcial)
+        {
+            try
+            {
+                pMarca = cliente.ParametroList(MARCA, 0, 0, parcial);
+                cboMarca.DisplayMember = "Descripcion";
+                cboMarca.ValueMember = "Pardet_Secuencia";
+                cboMarca.DataSource = pMarca;
+               
+                this.btnGuardar.Enabled = true;
+            }
+            catch (Exception)
+            {
+                this.btnGuardar.Enabled = false;
+            }
+        }
+
+        private void txtmarca_PressEnter(object sender, EventArgs e)
+        {
+            CargarMarca(txtmarca.Text);
         }
     }
 }

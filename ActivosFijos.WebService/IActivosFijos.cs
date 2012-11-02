@@ -22,13 +22,13 @@ namespace ActivosFijosServices
         [OperationContract]
         Caracteristica[] ListaCaracteristicas(int parame_tipo, int pardet_tipo);
         [OperationContract]
-        Empleado[] ListaEmpleados();
+        Empleado[] ListaEmpleados(String parcial);
         [OperationContract]
         Factura[] ListaFacturas(int _proveedor);
         [OperationContract]
         Proveedor[] ListaProveedores();
         [OperationContract]
-        Parametro[] ParametroList(int parame_codigo, int parame_padre, int pardet_padre);
+        Parametro[] ParametroList(int parame_codigo, int parame_padre, int pardet_padre, String filtro);
         [OperationContract]
         Parametro[] ParametroTreeList(int parame_inicio, int pardet_inicio, int parame_fin);
     }
@@ -67,7 +67,7 @@ namespace ActivosFijosServices
     {
         // Properties
         [DataMember]
-        public string Description { get; set; }
+        public string Descripcion { get; set; }
         [DataMember]
         public DateTime Invent_Fecha { get; set; }
         [DataMember]

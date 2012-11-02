@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class crpFichaCambioCustodio
+Public Class CRPsri
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class crpFichaCambioCustodio
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "crpFichaCambioCustodio.rpt"
+            Return "CRPsri.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class crpFichaCambioCustodio
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "ActivosFijos.Modulo.crpFichaCambioCustodio.rpt"
+            Return "ActivosFijos.Modulo.CRPsri.rpt"
         End Get
         Set
             'Do nothing
@@ -110,7 +110,7 @@ Public Class crpFichaCambioCustodio
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedcrpFichaCambioCustodio
+Public Class CachedCRPsri
     Inherits Component
     Implements ICachedReport
     
@@ -152,7 +152,7 @@ Public Class CachedcrpFichaCambioCustodio
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As crpFichaCambioCustodio = New crpFichaCambioCustodio()
+        Dim rpt As CRPsri = New CRPsri()
         rpt.Site = Me.Site
         Return rpt
     End Function

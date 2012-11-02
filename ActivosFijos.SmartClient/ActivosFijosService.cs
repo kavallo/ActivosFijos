@@ -24,13 +24,13 @@ public interface IActivosFijosService
     
     Caracteristica[] ListaCaracteristicas(int parame_tipo, int pardet_tipo);
     
-    Empleado[] ListaEmpleados();
+    Empleado[] ListaEmpleados(string parcial);
     
     Factura[] ListaFacturas(int _proveedor);
     
     Proveedor[] ListaProveedores();
     
-    Parametro[] ParametroList(int parame_codigo, int parame_padre, int pardet_padre);
+    Parametro[] ParametroList(int parame_codigo, int parame_padre, int pardet_padre, string filtro);
     
     Parametro[] ParametroTreeList(int parame_inicio, int pardet_inicio, int parame_fin);
 }
@@ -1352,7 +1352,7 @@ public partial class Empleado
 public partial class Inventario
 {
     
-    private string descriptionField;
+    private string descripcionField;
     
     private System.DateTime invent_FechaField;
     
@@ -1384,15 +1384,15 @@ public partial class Inventario
     
     /// <comentarios/>
     [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
-    public string Description
+    public string Descripcion
     {
         get
         {
-            return this.descriptionField;
+            return this.descripcionField;
         }
         set
         {
-            this.descriptionField = value;
+            this.descripcionField = value;
         }
     }
     
@@ -1815,8 +1815,16 @@ public partial class ListaCaracteristicasResponse
 public partial class ListaEmpleadosRequest
 {
     
+    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Namespace="http://tempuri.org/", Order=0)]
+    public string parcial;
+    
     public ListaEmpleadosRequest()
     {
+    }
+    
+    public ListaEmpleadosRequest(string parcial)
+    {
+        this.parcial = parcial;
     }
 }
 
@@ -1925,15 +1933,19 @@ public partial class ParametroListRequest
     [System.Xml.Serialization.XmlElementAttribute(Namespace="http://tempuri.org/", Order=2)]
     public int pardet_padre;
     
+    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Namespace="http://tempuri.org/", Order=3)]
+    public string filtro;
+    
     public ParametroListRequest()
     {
     }
     
-    public ParametroListRequest(int parame_codigo, int parame_padre, int pardet_padre)
+    public ParametroListRequest(int parame_codigo, int parame_padre, int pardet_padre, string filtro)
     {
         this.parame_codigo = parame_codigo;
         this.parame_padre = parame_padre;
         this.pardet_padre = pardet_padre;
+        this.filtro = filtro;
     }
 }
 
@@ -2009,7 +2021,7 @@ public partial class ParametroTreeListResponse
 public partial class ActivosFijosServiceClient : Microsoft.Tools.ServiceModel.CFClientBase<IActivosFijosService>, IActivosFijosService
 {
     
-    public static System.ServiceModel.EndpointAddress EndpointAddress = new System.ServiceModel.EndpointAddress("http://localhost:8889/Service/ActivosFijosService.svc");
+    public static System.ServiceModel.EndpointAddress EndpointAddress = new System.ServiceModel.EndpointAddress("http://localhost:8889/ActivosFijos.svc");
     
     public ActivosFijosServiceClient() : 
             this(CreateDefaultBinding(), EndpointAddress)
@@ -2123,9 +2135,9 @@ public partial class ActivosFijosServiceClient : Microsoft.Tools.ServiceModel.CF
         return retVal;
     }
     
-    public Empleado[] ListaEmpleados()
+    public Empleado[] ListaEmpleados(string parcial)
     {
-        ListaEmpleadosRequest request = new ListaEmpleadosRequest();
+        ListaEmpleadosRequest request = new ListaEmpleadosRequest(parcial);
         ListaEmpleadosResponse response = this.ListaEmpleados(request);
         return response.ListaEmpleadosResult;
     }
@@ -2177,9 +2189,9 @@ public partial class ActivosFijosServiceClient : Microsoft.Tools.ServiceModel.CF
         return retVal;
     }
     
-    public Parametro[] ParametroList(int parame_codigo, int parame_padre, int pardet_padre)
+    public Parametro[] ParametroList(int parame_codigo, int parame_padre, int pardet_padre, string filtro)
     {
-        ParametroListRequest request = new ParametroListRequest(parame_codigo, parame_padre, pardet_padre);
+        ParametroListRequest request = new ParametroListRequest(parame_codigo, parame_padre, pardet_padre, filtro);
         ParametroListResponse response = this.ParametroList(request);
         return response.ParametroListResult;
     }

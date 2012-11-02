@@ -54,7 +54,7 @@
             this.btnCerrar.Location = new System.Drawing.Point(125, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(115, 25);
-            this.btnCerrar.TabIndex = 3;
+            this.btnCerrar.TabIndex = 2;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.Click += new System.EventHandler(this.btncerrar_Click);
             // 
@@ -64,7 +64,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(0, 0);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(115, 25);
-            this.btnGuardar.TabIndex = 2;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
@@ -97,16 +97,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(240, 267);
+            this.ClientSize = new System.Drawing.Size(240, 294);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtServidor);
             this.Controls.Add(this.lblServidor);
+            this.Location = new System.Drawing.Point(0, 0);
             this.MaximizeBox = false;
             this.Menu = this.mainMenu1;
             this.MinimizeBox = false;
             this.Name = "frmConexion";
             this.Text = "Conexión";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

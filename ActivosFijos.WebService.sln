@@ -5,7 +5,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ActivosFijos.Reglas", "Acti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivosFijos.WebService", "ActivosFijos.WebService\ActivosFijos.WebService.csproj", "{D3CD2CAF-230E-46D9-A2C1-68A1A9F45894}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WebSetup1", "WebSetup1\WebSetup1.vdproj", "{83AE52B6-2763-4689-B3D5-68808EC03C3F}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupWebService", "SetupWebService\SetupWebService.vdproj", "{8976ACB9-34F3-4723-8F1D-87735D16638F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,12 +37,18 @@ Global
 		{D3CD2CAF-230E-46D9-A2C1-68A1A9F45894}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D3CD2CAF-230E-46D9-A2C1-68A1A9F45894}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D3CD2CAF-230E-46D9-A2C1-68A1A9F45894}.Release|x86.ActiveCfg = Release|Any CPU
-		{83AE52B6-2763-4689-B3D5-68808EC03C3F}.Debug|Any CPU.ActiveCfg = Debug
-		{83AE52B6-2763-4689-B3D5-68808EC03C3F}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{83AE52B6-2763-4689-B3D5-68808EC03C3F}.Debug|x86.ActiveCfg = Debug
-		{83AE52B6-2763-4689-B3D5-68808EC03C3F}.Release|Any CPU.ActiveCfg = Release
-		{83AE52B6-2763-4689-B3D5-68808EC03C3F}.Release|Mixed Platforms.ActiveCfg = Release
-		{83AE52B6-2763-4689-B3D5-68808EC03C3F}.Release|x86.ActiveCfg = Release
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Debug|Any CPU.ActiveCfg = Debug
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Debug|Any CPU.Build.0 = Debug
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Debug|Mixed Platforms.Build.0 = Debug
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Debug|x86.ActiveCfg = Debug
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Debug|x86.Build.0 = Debug
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Release|Any CPU.ActiveCfg = Release
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Release|Any CPU.Build.0 = Release
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Release|Mixed Platforms.ActiveCfg = Release
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Release|Mixed Platforms.Build.0 = Release
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Release|x86.ActiveCfg = Release
+		{8976ACB9-34F3-4723-8F1D-87735D16638F}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

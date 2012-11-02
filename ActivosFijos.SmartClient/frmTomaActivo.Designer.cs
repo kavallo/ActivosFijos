@@ -40,6 +40,7 @@
             this.txtSerie = new ActivosFijos.Controles.TextBoxStd();
             this.txtModelo = new ActivosFijos.Controles.TextBoxStd();
             this.cboMarca = new System.Windows.Forms.ComboBox();
+            this.txtmarca = new ActivosFijos.Controles.TextBoxStd();
             this.txtDescripcion = new ActivosFijos.Controles.TextBoxStd();
             this.cboClase = new System.Windows.Forms.ComboBox();
             this.cboTipo = new System.Windows.Forms.ComboBox();
@@ -47,6 +48,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblSerie = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblClase = new System.Windows.Forms.Label();
@@ -114,7 +116,7 @@
             this.label3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 19);
+            this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.Text = "Cod. Barra:";
             // 
             // tabControl1
@@ -127,15 +129,15 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 72);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(240, 203);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(240, 201);
+            this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.panel7);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(240, 180);
+            this.tabPage1.Size = new System.Drawing.Size(240, 178);
             this.tabPage1.Text = "Datos";
             // 
             // panel7
@@ -146,13 +148,12 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(240, 180);
+            this.panel7.Size = new System.Drawing.Size(240, 178);
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.txtSerie);
-            this.panel6.Controls.Add(this.txtModelo);
             this.panel6.Controls.Add(this.cboMarca);
+            this.panel6.Controls.Add(this.txtmarca);
             this.panel6.Controls.Add(this.txtDescripcion);
             this.panel6.Controls.Add(this.cboClase);
             this.panel6.Controls.Add(this.cboTipo);
@@ -160,34 +161,44 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(71, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(169, 180);
+            this.panel6.Size = new System.Drawing.Size(169, 178);
             // 
             // txtSerie
             // 
             this.txtSerie.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtSerie.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.txtSerie.Location = new System.Drawing.Point(0, 118);
+            this.txtSerie.Location = new System.Drawing.Point(0, 97);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(169, 19);
-            this.txtSerie.TabIndex = 6;
+            this.txtSerie.TabIndex = 15;
             // 
             // txtModelo
             // 
             this.txtModelo.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtModelo.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.txtModelo.Location = new System.Drawing.Point(0, 99);
+            this.txtModelo.Location = new System.Drawing.Point(0, 78);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(169, 19);
-            this.txtModelo.TabIndex = 5;
+            this.txtModelo.TabIndex = 14;
             // 
             // cboMarca
             // 
             this.cboMarca.Dock = System.Windows.Forms.DockStyle.Top;
             this.cboMarca.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.cboMarca.Location = new System.Drawing.Point(0, 79);
+            this.cboMarca.Location = new System.Drawing.Point(0, 98);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(169, 20);
-            this.cboMarca.TabIndex = 4;
+            this.cboMarca.TabIndex = 8;
+            // 
+            // txtmarca
+            // 
+            this.txtmarca.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtmarca.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.txtmarca.Location = new System.Drawing.Point(0, 79);
+            this.txtmarca.Name = "txtmarca";
+            this.txtmarca.Size = new System.Drawing.Size(169, 19);
+            this.txtmarca.TabIndex = 7;
+            this.txtmarca.PressEnter += new System.EventHandler(this.txtmarca_PressEnter);
             // 
             // txtDescripcion
             // 
@@ -196,7 +207,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(0, 60);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(169, 19);
-            this.txtDescripcion.TabIndex = 3;
+            this.txtDescripcion.TabIndex = 6;
             // 
             // cboClase
             // 
@@ -205,7 +216,7 @@
             this.cboClase.Location = new System.Drawing.Point(0, 40);
             this.cboClase.Name = "cboClase";
             this.cboClase.Size = new System.Drawing.Size(169, 20);
-            this.cboClase.TabIndex = 2;
+            this.cboClase.TabIndex = 5;
             // 
             // cboTipo
             // 
@@ -214,7 +225,7 @@
             this.cboTipo.Location = new System.Drawing.Point(0, 20);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(169, 20);
-            this.cboTipo.TabIndex = 1;
+            this.cboTipo.TabIndex = 4;
             this.cboTipo.SelectedIndexChanged += new System.EventHandler(this.cboTipo_SelectedIndexChanged);
             // 
             // cboGrupo
@@ -224,13 +235,12 @@
             this.cboGrupo.Location = new System.Drawing.Point(0, 0);
             this.cboGrupo.Name = "cboGrupo";
             this.cboGrupo.Size = new System.Drawing.Size(169, 20);
-            this.cboGrupo.TabIndex = 0;
+            this.cboGrupo.TabIndex = 3;
             this.cboGrupo.SelectedIndexChanged += new System.EventHandler(this.cboGrupo_SelectedIndexChanged);
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.lblSerie);
-            this.panel5.Controls.Add(this.label8);
+            this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.lblMarca);
             this.panel5.Controls.Add(this.lblDescripcion);
             this.panel5.Controls.Add(this.lblClase);
@@ -239,60 +249,68 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(71, 180);
+            this.panel5.Size = new System.Drawing.Size(71, 178);
             // 
             // lblSerie
             // 
             this.lblSerie.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblSerie.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.lblSerie.Location = new System.Drawing.Point(0, 114);
+            this.lblSerie.Location = new System.Drawing.Point(0, 100);
             this.lblSerie.Name = "lblSerie";
-            this.lblSerie.Size = new System.Drawing.Size(71, 19);
+            this.lblSerie.Size = new System.Drawing.Size(71, 20);
             this.lblSerie.Text = "Serie:";
             // 
             // label8
             // 
             this.label8.Dock = System.Windows.Forms.DockStyle.Top;
             this.label8.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.label8.Location = new System.Drawing.Point(0, 95);
+            this.label8.Location = new System.Drawing.Point(0, 80);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 19);
+            this.label8.Size = new System.Drawing.Size(71, 20);
             this.label8.Text = "Modelo:";
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label2.Location = new System.Drawing.Point(0, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 20);
             // 
             // lblMarca
             // 
             this.lblMarca.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblMarca.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.lblMarca.Location = new System.Drawing.Point(0, 76);
+            this.lblMarca.Location = new System.Drawing.Point(0, 80);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(71, 19);
+            this.lblMarca.Size = new System.Drawing.Size(71, 20);
             this.lblMarca.Text = "Marca:";
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDescripcion.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.lblDescripcion.Location = new System.Drawing.Point(0, 57);
+            this.lblDescripcion.Location = new System.Drawing.Point(0, 60);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(71, 19);
+            this.lblDescripcion.Size = new System.Drawing.Size(71, 20);
             this.lblDescripcion.Text = "Descripción:";
             // 
             // lblClase
             // 
             this.lblClase.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblClase.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.lblClase.Location = new System.Drawing.Point(0, 38);
+            this.lblClase.Location = new System.Drawing.Point(0, 40);
             this.lblClase.Name = "lblClase";
-            this.lblClase.Size = new System.Drawing.Size(71, 19);
+            this.lblClase.Size = new System.Drawing.Size(71, 20);
             this.lblClase.Text = "Clase:";
             // 
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
             this.label4.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.label4.Location = new System.Drawing.Point(0, 19);
+            this.label4.Location = new System.Drawing.Point(0, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 19);
+            this.label4.Size = new System.Drawing.Size(71, 20);
             this.label4.Text = "Tipo:";
             // 
             // label12
@@ -301,7 +319,7 @@
             this.label12.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.label12.Location = new System.Drawing.Point(0, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 19);
+            this.label12.Size = new System.Drawing.Size(71, 20);
             this.label12.Text = "Grupo:";
             // 
             // tabPage2
@@ -309,7 +327,7 @@
             this.tabPage2.Controls.Add(this.pnladic);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(232, 177);
+            this.tabPage2.Size = new System.Drawing.Size(232, 175);
             this.tabPage2.Text = "Adic";
             // 
             // pnladic
@@ -318,7 +336,7 @@
             this.pnladic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnladic.Location = new System.Drawing.Point(0, 0);
             this.pnladic.Name = "pnladic";
-            this.pnladic.Size = new System.Drawing.Size(232, 177);
+            this.pnladic.Size = new System.Drawing.Size(232, 175);
             // 
             // tabPage3
             // 
@@ -326,11 +344,13 @@
             this.tabPage3.Controls.Add(this.panel8);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(240, 180);
+            this.tabPage3.Size = new System.Drawing.Size(240, 178);
             this.tabPage3.Text = "Otros";
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.txtSerie);
+            this.panel9.Controls.Add(this.txtModelo);
             this.panel9.Controls.Add(this.txtResponsable);
             this.panel9.Controls.Add(this.txtObservacion);
             this.panel9.Controls.Add(this.cboDepreciacion);
@@ -338,7 +358,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(71, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(169, 180);
+            this.panel9.Size = new System.Drawing.Size(169, 178);
             // 
             // txtResponsable
             // 
@@ -347,7 +367,7 @@
             this.txtResponsable.Location = new System.Drawing.Point(0, 59);
             this.txtResponsable.Name = "txtResponsable";
             this.txtResponsable.Size = new System.Drawing.Size(169, 19);
-            this.txtResponsable.TabIndex = 3;
+            this.txtResponsable.TabIndex = 13;
             // 
             // txtObservacion
             // 
@@ -356,7 +376,7 @@
             this.txtObservacion.Location = new System.Drawing.Point(0, 40);
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(169, 19);
-            this.txtObservacion.TabIndex = 2;
+            this.txtObservacion.TabIndex = 12;
             // 
             // cboDepreciacion
             // 
@@ -365,7 +385,7 @@
             this.cboDepreciacion.Location = new System.Drawing.Point(0, 20);
             this.cboDepreciacion.Name = "cboDepreciacion";
             this.cboDepreciacion.Size = new System.Drawing.Size(169, 20);
-            this.cboDepreciacion.TabIndex = 1;
+            this.cboDepreciacion.TabIndex = 11;
             // 
             // cboEstadoActivo
             // 
@@ -374,10 +394,12 @@
             this.cboEstadoActivo.Location = new System.Drawing.Point(0, 0);
             this.cboEstadoActivo.Name = "cboEstadoActivo";
             this.cboEstadoActivo.Size = new System.Drawing.Size(169, 20);
-            this.cboEstadoActivo.TabIndex = 0;
+            this.cboEstadoActivo.TabIndex = 10;
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.lblSerie);
+            this.panel8.Controls.Add(this.label8);
             this.panel8.Controls.Add(this.lblResponsable);
             this.panel8.Controls.Add(this.lblObservacion);
             this.panel8.Controls.Add(this.lblDepreciacion);
@@ -385,33 +407,33 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(71, 180);
+            this.panel8.Size = new System.Drawing.Size(71, 178);
             // 
             // lblResponsable
             // 
             this.lblResponsable.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblResponsable.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.lblResponsable.Location = new System.Drawing.Point(0, 57);
+            this.lblResponsable.Location = new System.Drawing.Point(0, 60);
             this.lblResponsable.Name = "lblResponsable";
-            this.lblResponsable.Size = new System.Drawing.Size(71, 19);
+            this.lblResponsable.Size = new System.Drawing.Size(71, 20);
             this.lblResponsable.Text = "Responsable:";
             // 
             // lblObservacion
             // 
             this.lblObservacion.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblObservacion.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.lblObservacion.Location = new System.Drawing.Point(0, 38);
+            this.lblObservacion.Location = new System.Drawing.Point(0, 40);
             this.lblObservacion.Name = "lblObservacion";
-            this.lblObservacion.Size = new System.Drawing.Size(71, 19);
+            this.lblObservacion.Size = new System.Drawing.Size(71, 20);
             this.lblObservacion.Text = "Observación:";
             // 
             // lblDepreciacion
             // 
             this.lblDepreciacion.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDepreciacion.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.lblDepreciacion.Location = new System.Drawing.Point(0, 19);
+            this.lblDepreciacion.Location = new System.Drawing.Point(0, 20);
             this.lblDepreciacion.Name = "lblDepreciacion";
-            this.lblDepreciacion.Size = new System.Drawing.Size(71, 19);
+            this.lblDepreciacion.Size = new System.Drawing.Size(71, 20);
             this.lblDepreciacion.Text = "Deprec:";
             // 
             // lblEstadoActivo
@@ -420,7 +442,7 @@
             this.lblEstadoActivo.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.lblEstadoActivo.Location = new System.Drawing.Point(0, 0);
             this.lblEstadoActivo.Name = "lblEstadoActivo";
-            this.lblEstadoActivo.Size = new System.Drawing.Size(71, 19);
+            this.lblEstadoActivo.Size = new System.Drawing.Size(71, 20);
             this.lblEstadoActivo.Text = "Estado:";
             // 
             // btnGuardar
@@ -429,7 +451,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(7, 1);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(71, 18);
-            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.TabIndex = 14;
             this.btnGuardar.Text = "Invent.";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -438,7 +460,7 @@
             this.btnatras.Location = new System.Drawing.Point(161, 1);
             this.btnatras.Name = "btnatras";
             this.btnatras.Size = new System.Drawing.Size(71, 18);
-            this.btnatras.TabIndex = 2;
+            this.btnatras.TabIndex = 16;
             this.btnatras.Text = "< Atrás";
             this.btnatras.Click += new System.EventHandler(this.btnatras_Click);
             // 
@@ -447,7 +469,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(84, 1);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(71, 18);
-            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Limpiar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -476,7 +498,7 @@
             this.txtSerie1.Location = new System.Drawing.Point(0, 19);
             this.txtSerie1.Name = "txtSerie1";
             this.txtSerie1.Size = new System.Drawing.Size(169, 19);
-            this.txtSerie1.TabIndex = 7;
+            this.txtSerie1.TabIndex = 1;
             this.txtSerie1.PressEnter += new System.EventHandler(this.txtSerie1_PressEnter);
             // 
             // txtActivo
@@ -502,9 +524,9 @@
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.label1.Location = new System.Drawing.Point(0, 19);
+            this.label1.Location = new System.Drawing.Point(0, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 19);
+            this.label1.Size = new System.Drawing.Size(71, 20);
             this.label1.Text = "Serie:";
             // 
             // panel2
@@ -513,7 +535,7 @@
             this.panel2.Controls.Add(this.btnCancelar);
             this.panel2.Controls.Add(this.btnatras);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 275);
+            this.panel2.Location = new System.Drawing.Point(0, 273);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(240, 21);
             // 
@@ -522,17 +544,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(240, 296);
+            this.ClientSize = new System.Drawing.Size(240, 294);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblCustodio);
             this.Controls.Add(this.lblUbicacion);
+            this.Location = new System.Drawing.Point(0, 0);
             this.MaximizeBox = false;
             this.Menu = this.mainMenu1;
             this.MinimizeBox = false;
             this.Name = "frmTomaActivo";
             this.Text = "Toma Activo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmTomaActivo_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -598,5 +622,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
+        private ActivosFijos.Controles.TextBoxStd txtmarca;
+        private System.Windows.Forms.Label label2;
     }
 }

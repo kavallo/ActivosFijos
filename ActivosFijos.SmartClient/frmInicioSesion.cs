@@ -30,16 +30,21 @@ namespace ActivosFijos
 
         private void btniniciar_Click(object sender, EventArgs e)
         {
-            bool result = cliente.IniciarSesion(txtUsuario.Text, txtContrasena.Text);
-            if (result)
+            bool result = false;
+            try
             {
-                frmInventario f = new frmInventario(txtUsuario.Text);
-                f.ShowDialog();
+                result = cliente.IniciarSesion(txtUsuario.Text, txtContrasena.Text);
+                if (result)
+                {
+                    frmInventario f = new frmInventario(txtUsuario.Text);
+                    f.ShowDialog();
+                    this.Close();
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Error al iniciar sesión, revise que el usuario y contraseña sean correctos y que tenga permisos suficientes", "Error");
             }
+            MessageBox.Show("Error al iniciar sesión, revise que el usuario y contraseña sean correctos y que tenga permisos suficientes", "Error");
         }
 
         private void frmInicioSesion_Load(object sender, EventArgs e)
@@ -57,14 +62,7 @@ namespace ActivosFijos
                 mConexion.Reload();
                 cliente = mConexion.Cliente();
             }
-            try
-            {
-                this.btnSeleccionar.Enabled = true;
-            }
-            catch (Exception)
-            {
-                this.btnSeleccionar.Enabled = false;
-            }
+            this.btnSeleccionar.Enabled = true;
         }
 
         private void menuItem1_Click(object sender, EventArgs e)

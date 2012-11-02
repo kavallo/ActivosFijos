@@ -43,6 +43,7 @@ namespace ActivosFijos
 
         private void Connect()
         {
+            this.btnSeleccionar.Enabled = false;
             cliente = mConexion.Cliente();
             while (!File.Exists(mConexion.ArchivoConfiguracion) | cliente == null)
             {
@@ -58,12 +59,9 @@ namespace ActivosFijos
                 cboInventarios.DataSource = mInventarios;
                 cboInventarios.DisplayMember = "Descripcion";
 
-                this.btnSeleccionar.Enabled = true;
+                this.btnSeleccionar.Enabled = (mInventarios != null && mInventarios.Length > 0);
             }
-            catch (Exception)
-            {
-                this.btnSeleccionar.Enabled = false;
-            }
+            catch (Exception){}
         }
 
         private void menuItem1_Click(object sender, EventArgs e)

@@ -977,13 +977,14 @@ Public Class EmpleadoList
     Return oResult
   End Function
 
-  Public Shared Function ObtenerLista(ByVal _OperadorDatos As OperadorDatos, ByVal _TipoEmpleado As WWTSParametroDet) As EmpleadoList
+  Public Shared Function ObtenerLista(ByVal _OperadorDatos As OperadorDatos, ByVal _TipoEmpleado As WWTSParametroDet, Optional ByVal _Nombre As String = "") As EmpleadoList
     Dim oResult As EmpleadoList = New EmpleadoList
     Dim bReturn As Boolean
     Dim ds As DataTable = Nothing
     With _OperadorDatos
       .AgregarParametro("@Accion", "F")
       .AgregarParametro("@Pardet_Tipoempleado", _TipoEmpleado.Pardet_Secuencia)
+      .AgregarParametro("@filtro", _Nombre)
       .Procedimiento = "proc_Empleado"
       bReturn = .Ejecutar(ds)
       .LimpiarParametros()

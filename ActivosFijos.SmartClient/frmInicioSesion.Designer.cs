@@ -128,16 +128,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(240, 267);
+            this.ClientSize = new System.Drawing.Size(240, 294);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblInventarios);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
             this.Name = "frmInicioSesion";
             this.Text = "Iniciar Sesión";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

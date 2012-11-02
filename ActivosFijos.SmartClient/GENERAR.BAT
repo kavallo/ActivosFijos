@@ -1,2 +1,2 @@
-NetCFSvcUtil.exe http://localhost:8889/Service/ActivosFijosService.svc
+NetCFSvcUtil.exe http://localhost:8889/ActivosFijos.svc
 pause

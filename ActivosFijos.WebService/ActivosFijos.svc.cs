@@ -16,6 +16,7 @@ using Infoware.Reglas.General;
 
 namespace ActivosFijosServices
 {
+    [ServiceBehavior(ConcurrencyMode=ConcurrencyMode.Multiple, InstanceContextMode=InstanceContextMode.PerSession)]
     public class ActivosFijosService : IActivosFijosService
     {
         // Fields
@@ -262,7 +263,7 @@ namespace ActivosFijosServices
                     Pardet_PeriodoInventario = inventario.Pardet_PeriodoInventario, 
                     Parame_Ubicacion = inventario.Parame_Ubicacion, 
                     Pardet_Ubicacion = inventario.Pardet_Ubicacion, 
-                    Description = inventario.Descripcion, 
+                    Descripcion = inventario.Descripcion, 
                     Invent_Fecha = inventario.Invent_Fecha, 
                     Parame_EstadoInventario = inventario.Parame_EstadoInventario, 
                     Pardet_EstadoInventario = inventario.Pardet_EstadoInventario };
@@ -291,11 +292,11 @@ namespace ActivosFijosServices
             return caracteristicaArray;
         }
 
-        public Empleado[] ListaEmpleados()
+        public Empleado[] ListaEmpleados(String parcial)
         {
             WWTSParametroDet det = new WWTSParametroDet(this.mOperadorDatosList[0], 
                 (int)Enumerados.EnumParametros.TipoEmpleado, (int)Enumerados.enumTipoEmpleado.Custodio);
-            EmpleadoList list = EmpleadoList.ObtenerLista(this.mOperadorDatosList[0], det);
+            EmpleadoList list = EmpleadoList.ObtenerLista(this.mOperadorDatosList[0], det, parcial);
             Empleado[] result = new Empleado[list.Count];
             int index = 0;
             foreach (ActivosFijos.Reglas.Empleado empleado in list)
@@ -338,7 +339,7 @@ namespace ActivosFijosServices
             return result;
         }
 
-        public Parametro[] ParametroList(int parame_codigo, int parame_padre, int pardet_padre)
+        public Parametro[] ParametroList(int parame_codigo, int parame_padre, int pardet_padre, String filtro)
         {
             WWTSParametroDet pardet = null;
             if ((parame_padre != 0) && (pardet_padre != 0))
@@ -346,7 +347,7 @@ namespace ActivosFijosServices
                 pardet = new WWTSParametroDet(this.mOperadorDatosList[0], parame_padre, pardet_padre);
             }
             WWTSParametroDetList list = WWTSParametroDetList.ObtenerLista(this.mOperadorDatosList[0], 
-                (Enumerados.EnumParametros)parame_codigo, WWTSParametroDetList.enumTipoObjeto.Nada, pardet);
+                (Enumerados.EnumParametros)parame_codigo, WWTSParametroDetList.enumTipoObjeto.Nada, pardet, filtro);
             Parametro[] result = new Parametro[list.Count];
             int index = 0;
             foreach (WWTSParametroDet det2 in list)
