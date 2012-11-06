@@ -20,12 +20,12 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("dsSRI"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("dsSriActaRecepcion"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class dsSRI
+Partial Public Class dsSriActaRecepcion
     Inherits Global.System.Data.DataSet
     
-    Private tablevw_FichaCambioCustodio As vw_FichaCambioCustodioDataTable
+    Private tablevw_SRIActaConstatacion As vw_SRIActaConstatacionDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class dsSRI
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("vw_FichaCambioCustodio")) Is Nothing) Then
-                MyBase.Tables.Add(New vw_FichaCambioCustodioDataTable(ds.Tables("vw_FichaCambioCustodio")))
+            If (Not (ds.Tables("vw_SRIActaConstatacion")) Is Nothing) Then
+                MyBase.Tables.Add(New vw_SRIActaConstatacionDataTable(ds.Tables("vw_SRIActaConstatacion")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class dsSRI
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property vw_FichaCambioCustodio() As vw_FichaCambioCustodioDataTable
+    Public ReadOnly Property vw_SRIActaConstatacion() As vw_SRIActaConstatacionDataTable
         Get
-            Return Me.tablevw_FichaCambioCustodio
+            Return Me.tablevw_SRIActaConstatacion
         End Get
     End Property
     
@@ -128,7 +128,7 @@ Partial Public Class dsSRI
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As dsSRI = CType(MyBase.Clone,dsSRI)
+        Dim cln As dsSriActaRecepcion = CType(MyBase.Clone,dsSriActaRecepcion)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -153,8 +153,8 @@ Partial Public Class dsSRI
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("vw_FichaCambioCustodio")) Is Nothing) Then
-                MyBase.Tables.Add(New vw_FichaCambioCustodioDataTable(ds.Tables("vw_FichaCambioCustodio")))
+            If (Not (ds.Tables("vw_SRIActaConstatacion")) Is Nothing) Then
+                MyBase.Tables.Add(New vw_SRIActaConstatacionDataTable(ds.Tables("vw_SRIActaConstatacion")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class dsSRI
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tablevw_FichaCambioCustodio = CType(MyBase.Tables("vw_FichaCambioCustodio"),vw_FichaCambioCustodioDataTable)
+        Me.tablevw_SRIActaConstatacion = CType(MyBase.Tables("vw_SRIActaConstatacion"),vw_SRIActaConstatacionDataTable)
         If (initTable = true) Then
-            If (Not (Me.tablevw_FichaCambioCustodio) Is Nothing) Then
-                Me.tablevw_FichaCambioCustodio.InitVars
+            If (Not (Me.tablevw_SRIActaConstatacion) Is Nothing) Then
+                Me.tablevw_SRIActaConstatacion.InitVars
             End If
         End If
     End Sub
@@ -199,18 +199,18 @@ Partial Public Class dsSRI
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "dsSRI"
+        Me.DataSetName = "dsSriActaRecepcion"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/dsSRI.xsd"
+        Me.Namespace = "http://tempuri.org/dsSriActaRecepcion.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tablevw_FichaCambioCustodio = New vw_FichaCambioCustodioDataTable()
-        MyBase.Tables.Add(Me.tablevw_FichaCambioCustodio)
+        Me.tablevw_SRIActaConstatacion = New vw_SRIActaConstatacionDataTable()
+        MyBase.Tables.Add(Me.tablevw_SRIActaConstatacion)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializevw_FichaCambioCustodio() As Boolean
+    Private Function ShouldSerializevw_SRIActaConstatacion() As Boolean
         Return false
     End Function
     
@@ -225,7 +225,7 @@ Partial Public Class dsSRI
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As dsSRI = New dsSRI()
+        Dim ds As dsSriActaRecepcion = New dsSriActaRecepcion()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -273,61 +273,61 @@ Partial Public Class dsSRI
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub vw_FichaCambioCustodioRowChangeEventHandler(ByVal sender As Object, ByVal e As vw_FichaCambioCustodioRowChangeEvent)
+    Public Delegate Sub vw_SRIActaConstatacionRowChangeEventHandler(ByVal sender As Object, ByVal e As vw_SRIActaConstatacionRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class vw_FichaCambioCustodioDataTable
-        Inherits Global.System.Data.TypedTableBase(Of vw_FichaCambioCustodioRow)
+    Partial Public Class vw_SRIActaConstatacionDataTable
+        Inherits Global.System.Data.TypedTableBase(Of vw_SRIActaConstatacionRow)
         
-        Private columnCodigo As Global.System.Data.DataColumn
+        Private columnActivo_Codigo As Global.System.Data.DataColumn
+        
+        Private columnEstadoInv As Global.System.Data.DataColumn
+        
+        Private columnCustodio As Global.System.Data.DataColumn
+        
+        Private columnUbicacion As Global.System.Data.DataColumn
+        
+        Private columnDescrpicion As Global.System.Data.DataColumn
         
         Private columnCodigoBarras As Global.System.Data.DataColumn
-        
-        Private columnCodigoTipo As Global.System.Data.DataColumn
-        
-        Private columnDescripcion As Global.System.Data.DataColumn
         
         Private columnMarca As Global.System.Data.DataColumn
         
         Private columnModelo As Global.System.Data.DataColumn
         
-        Private columnCustodioActual As Global.System.Data.DataColumn
+        Private columnSerie As Global.System.Data.DataColumn
         
-        Private columnCustodioAnterior As Global.System.Data.DataColumn
+        Private columnArea As Global.System.Data.DataColumn
         
-        Private columnBueno As Global.System.Data.DataColumn
-        
-        Private columnRegular As Global.System.Data.DataColumn
-        
-        Private columnMalo As Global.System.Data.DataColumn
-        
-        Private columnSujetoControl As Global.System.Data.DataColumn
-        
-        Private columnActivoFijo As Global.System.Data.DataColumn
-        
-        Private columnFechaCambio As Global.System.Data.DataColumn
+        Private columnDepartamento As Global.System.Data.DataColumn
         
         Private columnCiudad As Global.System.Data.DataColumn
         
-        Private columnSerie As Global.System.Data.DataColumn
+        Private columnEstado As Global.System.Data.DataColumn
+        
+        Private columnLlaves As Global.System.Data.DataColumn
+        
+        Private columnRegional As Global.System.Data.DataColumn
+        
+        Private columnDireccion As Global.System.Data.DataColumn
+        
+        Private columnIdentificacion As Global.System.Data.DataColumn
+        
+        Private columnActivo_FechaBaja As Global.System.Data.DataColumn
         
         Private columnUbicacionActual As Global.System.Data.DataColumn
         
-        Private columnObservacion As Global.System.Data.DataColumn
-        
-        Private columnCustodioActId As Global.System.Data.DataColumn
-        
-        Private columnCustodioAntId As Global.System.Data.DataColumn
+        Private columnResponsableReg As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "vw_FichaCambioCustodio"
+            Me.TableName = "vw_SRIActaConstatacion"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -360,9 +360,41 @@ Partial Public Class dsSRI
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CodigoColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Activo_CodigoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCodigo
+                Return Me.columnActivo_Codigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property EstadoInvColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEstadoInv
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CustodioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCustodio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UbicacionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUbicacion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DescrpicionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDescrpicion
             End Get
         End Property
         
@@ -371,22 +403,6 @@ Partial Public Class dsSRI
         Public ReadOnly Property CodigoBarrasColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCodigoBarras
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CodigoTipoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCodigoTipo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DescripcionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDescripcion
             End Get
         End Property
         
@@ -408,65 +424,25 @@ Partial Public Class dsSRI
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CustodioActualColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property SerieColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCustodioActual
+                Return Me.columnSerie
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CustodioAnteriorColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property AreaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCustodioAnterior
+                Return Me.columnArea
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property BuenoColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property DepartamentoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnBueno
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RegularColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRegular
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property MaloColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnMalo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property SujetoControlColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSujetoControl
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ActivoFijoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnActivoFijo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FechaCambioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFechaCambio
+                Return Me.columnDepartamento
             End Get
         End Property
         
@@ -480,9 +456,49 @@ Partial Public Class dsSRI
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property SerieColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property EstadoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnSerie
+                Return Me.columnEstado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LlavesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLlaves
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RegionalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRegional
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DireccionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDireccion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdentificacionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIdentificacion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Activo_FechaBajaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnActivo_FechaBaja
             End Get
         End Property
         
@@ -496,25 +512,9 @@ Partial Public Class dsSRI
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ObservacionColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ResponsableRegColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnObservacion
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CustodioActIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCustodioActId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CustodioAntIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCustodioAntId
+                Return Me.columnResponsableReg
             End Get
         End Property
         
@@ -529,70 +529,64 @@ Partial Public Class dsSRI
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As vw_FichaCambioCustodioRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As vw_SRIActaConstatacionRow
             Get
-                Return CType(Me.Rows(index),vw_FichaCambioCustodioRow)
+                Return CType(Me.Rows(index),vw_SRIActaConstatacionRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event vw_FichaCambioCustodioRowChanging As vw_FichaCambioCustodioRowChangeEventHandler
+        Public Event vw_SRIActaConstatacionRowChanging As vw_SRIActaConstatacionRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event vw_FichaCambioCustodioRowChanged As vw_FichaCambioCustodioRowChangeEventHandler
+        Public Event vw_SRIActaConstatacionRowChanged As vw_SRIActaConstatacionRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event vw_FichaCambioCustodioRowDeleting As vw_FichaCambioCustodioRowChangeEventHandler
+        Public Event vw_SRIActaConstatacionRowDeleting As vw_SRIActaConstatacionRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event vw_FichaCambioCustodioRowDeleted As vw_FichaCambioCustodioRowChangeEventHandler
+        Public Event vw_SRIActaConstatacionRowDeleted As vw_SRIActaConstatacionRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub Addvw_FichaCambioCustodioRow(ByVal row As vw_FichaCambioCustodioRow)
+        Public Overloads Sub Addvw_SRIActaConstatacionRow(ByVal row As vw_SRIActaConstatacionRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addvw_FichaCambioCustodioRow( _
-                    ByVal Codigo As Integer,  _
+        Public Overloads Function Addvw_SRIActaConstatacionRow( _
+                    ByVal Activo_Codigo As Integer,  _
+                    ByVal EstadoInv As String,  _
+                    ByVal Custodio As String,  _
+                    ByVal Ubicacion As String,  _
+                    ByVal Descrpicion As String,  _
                     ByVal CodigoBarras As String,  _
-                    ByVal CodigoTipo As Integer,  _
-                    ByVal Descripcion As String,  _
                     ByVal Marca As String,  _
                     ByVal Modelo As String,  _
-                    ByVal CustodioActual As String,  _
-                    ByVal CustodioAnterior As String,  _
-                    ByVal Bueno As String,  _
-                    ByVal Regular As String,  _
-                    ByVal Malo As String,  _
-                    ByVal SujetoControl As String,  _
-                    ByVal ActivoFijo As String,  _
-                    ByVal FechaCambio As Date,  _
-                    ByVal Ciudad As String,  _
                     ByVal Serie As String,  _
+                    ByVal Area As String,  _
+                    ByVal Departamento As String,  _
+                    ByVal Ciudad As String,  _
+                    ByVal Estado As String,  _
+                    ByVal Llaves As String,  _
+                    ByVal Regional As String,  _
+                    ByVal Direccion As String,  _
+                    ByVal Identificacion As String,  _
+                    ByVal Activo_FechaBaja As Date,  _
                     ByVal UbicacionActual As String,  _
-                    ByVal Observacion As String,  _
-                    ByVal CustodioActId As String,  _
-                    ByVal CustodioAntId As String) As vw_FichaCambioCustodioRow
-            Dim rowvw_FichaCambioCustodioRow As vw_FichaCambioCustodioRow = CType(Me.NewRow,vw_FichaCambioCustodioRow)
-            Dim columnValuesArray() As Object = New Object() {Codigo, CodigoBarras, CodigoTipo, Descripcion, Marca, Modelo, CustodioActual, CustodioAnterior, Bueno, Regular, Malo, SujetoControl, ActivoFijo, FechaCambio, Ciudad, Serie, UbicacionActual, Observacion, CustodioActId, CustodioAntId}
-            rowvw_FichaCambioCustodioRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowvw_FichaCambioCustodioRow)
-            Return rowvw_FichaCambioCustodioRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByCodigo(ByVal Codigo As Integer) As vw_FichaCambioCustodioRow
-            Return CType(Me.Rows.Find(New Object() {Codigo}),vw_FichaCambioCustodioRow)
+                    ByVal ResponsableReg As String) As vw_SRIActaConstatacionRow
+            Dim rowvw_SRIActaConstatacionRow As vw_SRIActaConstatacionRow = CType(Me.NewRow,vw_SRIActaConstatacionRow)
+            Dim columnValuesArray() As Object = New Object() {Activo_Codigo, EstadoInv, Custodio, Ubicacion, Descrpicion, CodigoBarras, Marca, Modelo, Serie, Area, Departamento, Ciudad, Estado, Llaves, Regional, Direccion, Identificacion, Activo_FechaBaja, UbicacionActual, ResponsableReg}
+            rowvw_SRIActaConstatacionRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowvw_SRIActaConstatacionRow)
+            Return rowvw_SRIActaConstatacionRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As vw_FichaCambioCustodioDataTable = CType(MyBase.Clone,vw_FichaCambioCustodioDataTable)
+            Dim cln As vw_SRIActaConstatacionDataTable = CType(MyBase.Clone,vw_SRIActaConstatacionDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -600,141 +594,139 @@ Partial Public Class dsSRI
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New vw_FichaCambioCustodioDataTable()
+            Return New vw_SRIActaConstatacionDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnCodigo = MyBase.Columns("Codigo")
+            Me.columnActivo_Codigo = MyBase.Columns("Activo_Codigo")
+            Me.columnEstadoInv = MyBase.Columns("EstadoInv")
+            Me.columnCustodio = MyBase.Columns("Custodio")
+            Me.columnUbicacion = MyBase.Columns("Ubicacion")
+            Me.columnDescrpicion = MyBase.Columns("Descrpicion")
             Me.columnCodigoBarras = MyBase.Columns("CodigoBarras")
-            Me.columnCodigoTipo = MyBase.Columns("CodigoTipo")
-            Me.columnDescripcion = MyBase.Columns("Descripcion")
             Me.columnMarca = MyBase.Columns("Marca")
             Me.columnModelo = MyBase.Columns("Modelo")
-            Me.columnCustodioActual = MyBase.Columns("CustodioActual")
-            Me.columnCustodioAnterior = MyBase.Columns("CustodioAnterior")
-            Me.columnBueno = MyBase.Columns("Bueno")
-            Me.columnRegular = MyBase.Columns("Regular")
-            Me.columnMalo = MyBase.Columns("Malo")
-            Me.columnSujetoControl = MyBase.Columns("SujetoControl")
-            Me.columnActivoFijo = MyBase.Columns("ActivoFijo")
-            Me.columnFechaCambio = MyBase.Columns("FechaCambio")
-            Me.columnCiudad = MyBase.Columns("Ciudad")
             Me.columnSerie = MyBase.Columns("Serie")
+            Me.columnArea = MyBase.Columns("Area")
+            Me.columnDepartamento = MyBase.Columns("Departamento")
+            Me.columnCiudad = MyBase.Columns("Ciudad")
+            Me.columnEstado = MyBase.Columns("Estado")
+            Me.columnLlaves = MyBase.Columns("Llaves")
+            Me.columnRegional = MyBase.Columns("Regional")
+            Me.columnDireccion = MyBase.Columns("Direccion")
+            Me.columnIdentificacion = MyBase.Columns("Identificacion")
+            Me.columnActivo_FechaBaja = MyBase.Columns("Activo_FechaBaja")
             Me.columnUbicacionActual = MyBase.Columns("UbicacionActual")
-            Me.columnObservacion = MyBase.Columns("Observacion")
-            Me.columnCustodioActId = MyBase.Columns("CustodioActId")
-            Me.columnCustodioAntId = MyBase.Columns("CustodioAntId")
+            Me.columnResponsableReg = MyBase.Columns("ResponsableReg")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnCodigo = New Global.System.Data.DataColumn("Codigo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCodigo)
+            Me.columnActivo_Codigo = New Global.System.Data.DataColumn("Activo_Codigo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnActivo_Codigo)
+            Me.columnEstadoInv = New Global.System.Data.DataColumn("EstadoInv", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstadoInv)
+            Me.columnCustodio = New Global.System.Data.DataColumn("Custodio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCustodio)
+            Me.columnUbicacion = New Global.System.Data.DataColumn("Ubicacion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUbicacion)
+            Me.columnDescrpicion = New Global.System.Data.DataColumn("Descrpicion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDescrpicion)
             Me.columnCodigoBarras = New Global.System.Data.DataColumn("CodigoBarras", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCodigoBarras)
-            Me.columnCodigoTipo = New Global.System.Data.DataColumn("CodigoTipo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCodigoTipo)
-            Me.columnDescripcion = New Global.System.Data.DataColumn("Descripcion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDescripcion)
             Me.columnMarca = New Global.System.Data.DataColumn("Marca", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMarca)
             Me.columnModelo = New Global.System.Data.DataColumn("Modelo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnModelo)
-            Me.columnCustodioActual = New Global.System.Data.DataColumn("CustodioActual", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCustodioActual)
-            Me.columnCustodioAnterior = New Global.System.Data.DataColumn("CustodioAnterior", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCustodioAnterior)
-            Me.columnBueno = New Global.System.Data.DataColumn("Bueno", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBueno)
-            Me.columnRegular = New Global.System.Data.DataColumn("Regular", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRegular)
-            Me.columnMalo = New Global.System.Data.DataColumn("Malo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMalo)
-            Me.columnSujetoControl = New Global.System.Data.DataColumn("SujetoControl", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSujetoControl)
-            Me.columnActivoFijo = New Global.System.Data.DataColumn("ActivoFijo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnActivoFijo)
-            Me.columnFechaCambio = New Global.System.Data.DataColumn("FechaCambio", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFechaCambio)
-            Me.columnCiudad = New Global.System.Data.DataColumn("Ciudad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCiudad)
             Me.columnSerie = New Global.System.Data.DataColumn("Serie", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSerie)
+            Me.columnArea = New Global.System.Data.DataColumn("Area", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnArea)
+            Me.columnDepartamento = New Global.System.Data.DataColumn("Departamento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDepartamento)
+            Me.columnCiudad = New Global.System.Data.DataColumn("Ciudad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCiudad)
+            Me.columnEstado = New Global.System.Data.DataColumn("Estado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstado)
+            Me.columnLlaves = New Global.System.Data.DataColumn("Llaves", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLlaves)
+            Me.columnRegional = New Global.System.Data.DataColumn("Regional", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRegional)
+            Me.columnDireccion = New Global.System.Data.DataColumn("Direccion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDireccion)
+            Me.columnIdentificacion = New Global.System.Data.DataColumn("Identificacion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdentificacion)
+            Me.columnActivo_FechaBaja = New Global.System.Data.DataColumn("Activo_FechaBaja", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnActivo_FechaBaja)
             Me.columnUbicacionActual = New Global.System.Data.DataColumn("UbicacionActual", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUbicacionActual)
-            Me.columnObservacion = New Global.System.Data.DataColumn("Observacion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnObservacion)
-            Me.columnCustodioActId = New Global.System.Data.DataColumn("CustodioActId", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCustodioActId)
-            Me.columnCustodioAntId = New Global.System.Data.DataColumn("CustodioAntId", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCustodioAntId)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCodigo}, true))
-            Me.columnCodigo.AllowDBNull = false
-            Me.columnCodigo.Unique = true
+            Me.columnResponsableReg = New Global.System.Data.DataColumn("ResponsableReg", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnResponsableReg)
+            Me.columnActivo_Codigo.AllowDBNull = false
+            Me.columnEstadoInv.ReadOnly = true
+            Me.columnEstadoInv.MaxLength = 42
+            Me.columnCustodio.ReadOnly = true
+            Me.columnCustodio.MaxLength = 2147483647
+            Me.columnUbicacion.ReadOnly = true
+            Me.columnUbicacion.MaxLength = 2147483647
+            Me.columnDescrpicion.AllowDBNull = false
+            Me.columnDescrpicion.MaxLength = 150
             Me.columnCodigoBarras.AllowDBNull = false
             Me.columnCodigoBarras.MaxLength = 50
-            Me.columnDescripcion.AllowDBNull = false
-            Me.columnDescripcion.MaxLength = 150
             Me.columnMarca.AllowDBNull = false
             Me.columnMarca.MaxLength = 150
             Me.columnModelo.AllowDBNull = false
             Me.columnModelo.MaxLength = 150
-            Me.columnCustodioActual.ReadOnly = true
-            Me.columnCustodioActual.MaxLength = 2147483647
-            Me.columnCustodioAnterior.ReadOnly = true
-            Me.columnCustodioAnterior.MaxLength = 2147483647
-            Me.columnBueno.ReadOnly = true
-            Me.columnBueno.MaxLength = 1
-            Me.columnRegular.ReadOnly = true
-            Me.columnRegular.MaxLength = 1
-            Me.columnMalo.ReadOnly = true
-            Me.columnMalo.MaxLength = 1
-            Me.columnSujetoControl.ReadOnly = true
-            Me.columnSujetoControl.MaxLength = 1
-            Me.columnActivoFijo.ReadOnly = true
-            Me.columnActivoFijo.MaxLength = 1
-            Me.columnFechaCambio.AllowDBNull = false
-            Me.columnCiudad.AllowDBNull = false
-            Me.columnCiudad.MaxLength = 150
             Me.columnSerie.AllowDBNull = false
             Me.columnSerie.MaxLength = 50
+            Me.columnArea.AllowDBNull = false
+            Me.columnArea.MaxLength = 150
+            Me.columnDepartamento.AllowDBNull = false
+            Me.columnDepartamento.MaxLength = 150
+            Me.columnCiudad.AllowDBNull = false
+            Me.columnCiudad.MaxLength = 150
+            Me.columnEstado.ReadOnly = true
+            Me.columnEstado.MaxLength = 7
+            Me.columnLlaves.AllowDBNull = false
+            Me.columnLlaves.MaxLength = 350
+            Me.columnRegional.AllowDBNull = false
+            Me.columnRegional.MaxLength = 150
+            Me.columnDireccion.AllowDBNull = false
+            Me.columnDireccion.MaxLength = 200
+            Me.columnIdentificacion.AllowDBNull = false
+            Me.columnIdentificacion.MaxLength = 50
             Me.columnUbicacionActual.ReadOnly = true
             Me.columnUbicacionActual.MaxLength = 2147483647
-            Me.columnObservacion.AllowDBNull = false
-            Me.columnObservacion.MaxLength = 350
-            Me.columnCustodioActId.ReadOnly = true
-            Me.columnCustodioActId.MaxLength = 2147483647
-            Me.columnCustodioAntId.ReadOnly = true
-            Me.columnCustodioAntId.MaxLength = 2147483647
+            Me.columnResponsableReg.MaxLength = 1500
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Newvw_FichaCambioCustodioRow() As vw_FichaCambioCustodioRow
-            Return CType(Me.NewRow,vw_FichaCambioCustodioRow)
+        Public Function Newvw_SRIActaConstatacionRow() As vw_SRIActaConstatacionRow
+            Return CType(Me.NewRow,vw_SRIActaConstatacionRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New vw_FichaCambioCustodioRow(builder)
+            Return New vw_SRIActaConstatacionRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(vw_FichaCambioCustodioRow)
+            Return GetType(vw_SRIActaConstatacionRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.vw_FichaCambioCustodioRowChangedEvent) Is Nothing) Then
-                RaiseEvent vw_FichaCambioCustodioRowChanged(Me, New vw_FichaCambioCustodioRowChangeEvent(CType(e.Row,vw_FichaCambioCustodioRow), e.Action))
+            If (Not (Me.vw_SRIActaConstatacionRowChangedEvent) Is Nothing) Then
+                RaiseEvent vw_SRIActaConstatacionRowChanged(Me, New vw_SRIActaConstatacionRowChangeEvent(CType(e.Row,vw_SRIActaConstatacionRow), e.Action))
             End If
         End Sub
         
@@ -742,8 +734,8 @@ Partial Public Class dsSRI
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.vw_FichaCambioCustodioRowChangingEvent) Is Nothing) Then
-                RaiseEvent vw_FichaCambioCustodioRowChanging(Me, New vw_FichaCambioCustodioRowChangeEvent(CType(e.Row,vw_FichaCambioCustodioRow), e.Action))
+            If (Not (Me.vw_SRIActaConstatacionRowChangingEvent) Is Nothing) Then
+                RaiseEvent vw_SRIActaConstatacionRowChanging(Me, New vw_SRIActaConstatacionRowChangeEvent(CType(e.Row,vw_SRIActaConstatacionRow), e.Action))
             End If
         End Sub
         
@@ -751,8 +743,8 @@ Partial Public Class dsSRI
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.vw_FichaCambioCustodioRowDeletedEvent) Is Nothing) Then
-                RaiseEvent vw_FichaCambioCustodioRowDeleted(Me, New vw_FichaCambioCustodioRowChangeEvent(CType(e.Row,vw_FichaCambioCustodioRow), e.Action))
+            If (Not (Me.vw_SRIActaConstatacionRowDeletedEvent) Is Nothing) Then
+                RaiseEvent vw_SRIActaConstatacionRowDeleted(Me, New vw_SRIActaConstatacionRowChangeEvent(CType(e.Row,vw_SRIActaConstatacionRow), e.Action))
             End If
         End Sub
         
@@ -760,14 +752,14 @@ Partial Public Class dsSRI
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.vw_FichaCambioCustodioRowDeletingEvent) Is Nothing) Then
-                RaiseEvent vw_FichaCambioCustodioRowDeleting(Me, New vw_FichaCambioCustodioRowChangeEvent(CType(e.Row,vw_FichaCambioCustodioRow), e.Action))
+            If (Not (Me.vw_SRIActaConstatacionRowDeletingEvent) Is Nothing) Then
+                RaiseEvent vw_SRIActaConstatacionRowDeleting(Me, New vw_SRIActaConstatacionRowChangeEvent(CType(e.Row,vw_SRIActaConstatacionRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Removevw_FichaCambioCustodioRow(ByVal row As vw_FichaCambioCustodioRow)
+        Public Sub Removevw_SRIActaConstatacionRow(ByVal row As vw_SRIActaConstatacionRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -776,7 +768,7 @@ Partial Public Class dsSRI
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As dsSRI = New dsSRI()
+            Dim ds As dsSriActaRecepcion = New dsSriActaRecepcion()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -794,7 +786,7 @@ Partial Public Class dsSRI
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "vw_FichaCambioCustodioDataTable"
+            attribute2.FixedValue = "vw_SRIActaConstatacionDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -841,26 +833,82 @@ Partial Public Class dsSRI
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class vw_FichaCambioCustodioRow
+    Partial Public Class vw_SRIActaConstatacionRow
         Inherits Global.System.Data.DataRow
         
-        Private tablevw_FichaCambioCustodio As vw_FichaCambioCustodioDataTable
+        Private tablevw_SRIActaConstatacion As vw_SRIActaConstatacionDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tablevw_FichaCambioCustodio = CType(Me.Table,vw_FichaCambioCustodioDataTable)
+            Me.tablevw_SRIActaConstatacion = CType(Me.Table,vw_SRIActaConstatacionDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Codigo() As Integer
+        Public Property Activo_Codigo() As Integer
             Get
-                Return CType(Me(Me.tablevw_FichaCambioCustodio.CodigoColumn),Integer)
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.Activo_CodigoColumn),Integer)
             End Get
             Set
-                Me(Me.tablevw_FichaCambioCustodio.CodigoColumn) = value
+                Me(Me.tablevw_SRIActaConstatacion.Activo_CodigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property EstadoInv() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablevw_SRIActaConstatacion.EstadoInvColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'EstadoInv' in table 'vw_SRIActaConstatacion' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.EstadoInvColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Custodio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablevw_SRIActaConstatacion.CustodioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Custodio' in table 'vw_SRIActaConstatacion' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.CustodioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Ubicacion() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablevw_SRIActaConstatacion.UbicacionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Ubicacion' in table 'vw_SRIActaConstatacion' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.UbicacionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Descrpicion() As String
+            Get
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.DescrpicionColumn),String)
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.DescrpicionColumn) = value
             End Set
         End Property
         
@@ -868,36 +916,10 @@ Partial Public Class dsSRI
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property CodigoBarras() As String
             Get
-                Return CType(Me(Me.tablevw_FichaCambioCustodio.CodigoBarrasColumn),String)
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.CodigoBarrasColumn),String)
             End Get
             Set
-                Me(Me.tablevw_FichaCambioCustodio.CodigoBarrasColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CodigoTipo() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.CodigoTipoColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CodigoTipo' in table 'vw_FichaCambioCustodio' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.CodigoTipoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Descripcion() As String
-            Get
-                Return CType(Me(Me.tablevw_FichaCambioCustodio.DescripcionColumn),String)
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.DescripcionColumn) = value
+                Me(Me.tablevw_SRIActaConstatacion.CodigoBarrasColumn) = value
             End Set
         End Property
         
@@ -905,10 +927,10 @@ Partial Public Class dsSRI
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Marca() As String
             Get
-                Return CType(Me(Me.tablevw_FichaCambioCustodio.MarcaColumn),String)
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.MarcaColumn),String)
             End Get
             Set
-                Me(Me.tablevw_FichaCambioCustodio.MarcaColumn) = value
+                Me(Me.tablevw_SRIActaConstatacion.MarcaColumn) = value
             End Set
         End Property
         
@@ -916,140 +938,10 @@ Partial Public Class dsSRI
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Modelo() As String
             Get
-                Return CType(Me(Me.tablevw_FichaCambioCustodio.ModeloColumn),String)
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.ModeloColumn),String)
             End Get
             Set
-                Me(Me.tablevw_FichaCambioCustodio.ModeloColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CustodioActual() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.CustodioActualColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CustodioActual' in table 'vw_FichaCambioCustodio' is DBNull"& _ 
-                            ".", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.CustodioActualColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CustodioAnterior() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.CustodioAnteriorColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CustodioAnterior' in table 'vw_FichaCambioCustodio' is DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.CustodioAnteriorColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Bueno() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.BuenoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Bueno' in table 'vw_FichaCambioCustodio' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.BuenoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Regular() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.RegularColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Regular' in table 'vw_FichaCambioCustodio' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.RegularColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Malo() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.MaloColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Malo' in table 'vw_FichaCambioCustodio' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.MaloColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property SujetoControl() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.SujetoControlColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SujetoControl' in table 'vw_FichaCambioCustodio' is DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.SujetoControlColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ActivoFijo() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.ActivoFijoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ActivoFijo' in table 'vw_FichaCambioCustodio' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.ActivoFijoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property FechaCambio() As Date
-            Get
-                Return CType(Me(Me.tablevw_FichaCambioCustodio.FechaCambioColumn),Date)
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.FechaCambioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Ciudad() As String
-            Get
-                Return CType(Me(Me.tablevw_FichaCambioCustodio.CiudadColumn),String)
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.CiudadColumn) = value
+                Me(Me.tablevw_SRIActaConstatacion.ModeloColumn) = value
             End Set
         End Property
         
@@ -1057,10 +949,118 @@ Partial Public Class dsSRI
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Serie() As String
             Get
-                Return CType(Me(Me.tablevw_FichaCambioCustodio.SerieColumn),String)
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.SerieColumn),String)
             End Get
             Set
-                Me(Me.tablevw_FichaCambioCustodio.SerieColumn) = value
+                Me(Me.tablevw_SRIActaConstatacion.SerieColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Area() As String
+            Get
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.AreaColumn),String)
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.AreaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Departamento() As String
+            Get
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.DepartamentoColumn),String)
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.DepartamentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Ciudad() As String
+            Get
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.CiudadColumn),String)
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.CiudadColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Estado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablevw_SRIActaConstatacion.EstadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Estado' in table 'vw_SRIActaConstatacion' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.EstadoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Llaves() As String
+            Get
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.LlavesColumn),String)
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.LlavesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Regional() As String
+            Get
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.RegionalColumn),String)
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.RegionalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Direccion() As String
+            Get
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.DireccionColumn),String)
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.DireccionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Identificacion() As String
+            Get
+                Return CType(Me(Me.tablevw_SRIActaConstatacion.IdentificacionColumn),String)
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.IdentificacionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Activo_FechaBaja() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tablevw_SRIActaConstatacion.Activo_FechaBajaColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Activo_FechaBaja' in table 'vw_SRIActaConstatacion' is DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablevw_SRIActaConstatacion.Activo_FechaBajaColumn) = value
             End Set
         End Property
         
@@ -1069,190 +1069,115 @@ Partial Public Class dsSRI
         Public Property UbicacionActual() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.UbicacionActualColumn),String)
+                    Return CType(Me(Me.tablevw_SRIActaConstatacion.UbicacionActualColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'UbicacionActual' in table 'vw_FichaCambioCustodio' is DBNul"& _ 
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'UbicacionActual' in table 'vw_SRIActaConstatacion' is DBNul"& _ 
                             "l.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablevw_FichaCambioCustodio.UbicacionActualColumn) = value
+                Me(Me.tablevw_SRIActaConstatacion.UbicacionActualColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Observacion() As String
-            Get
-                Return CType(Me(Me.tablevw_FichaCambioCustodio.ObservacionColumn),String)
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.ObservacionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CustodioActId() As String
+        Public Property ResponsableReg() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.CustodioActIdColumn),String)
+                    Return CType(Me(Me.tablevw_SRIActaConstatacion.ResponsableRegColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CustodioActId' in table 'vw_FichaCambioCustodio' is DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ResponsableReg' in table 'vw_SRIActaConstatacion' is DBNull"& _ 
+                            ".", e)
                 End Try
             End Get
             Set
-                Me(Me.tablevw_FichaCambioCustodio.CustodioActIdColumn) = value
+                Me(Me.tablevw_SRIActaConstatacion.ResponsableRegColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CustodioAntId() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_FichaCambioCustodio.CustodioAntIdColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CustodioAntId' in table 'vw_FichaCambioCustodio' is DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_FichaCambioCustodio.CustodioAntIdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCodigoTipoNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.CodigoTipoColumn)
+        Public Function IsEstadoInvNull() As Boolean
+            Return Me.IsNull(Me.tablevw_SRIActaConstatacion.EstadoInvColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCodigoTipoNull()
-            Me(Me.tablevw_FichaCambioCustodio.CodigoTipoColumn) = Global.System.Convert.DBNull
+        Public Sub SetEstadoInvNull()
+            Me(Me.tablevw_SRIActaConstatacion.EstadoInvColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCustodioActualNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.CustodioActualColumn)
+        Public Function IsCustodioNull() As Boolean
+            Return Me.IsNull(Me.tablevw_SRIActaConstatacion.CustodioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCustodioActualNull()
-            Me(Me.tablevw_FichaCambioCustodio.CustodioActualColumn) = Global.System.Convert.DBNull
+        Public Sub SetCustodioNull()
+            Me(Me.tablevw_SRIActaConstatacion.CustodioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCustodioAnteriorNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.CustodioAnteriorColumn)
+        Public Function IsUbicacionNull() As Boolean
+            Return Me.IsNull(Me.tablevw_SRIActaConstatacion.UbicacionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCustodioAnteriorNull()
-            Me(Me.tablevw_FichaCambioCustodio.CustodioAnteriorColumn) = Global.System.Convert.DBNull
+        Public Sub SetUbicacionNull()
+            Me(Me.tablevw_SRIActaConstatacion.UbicacionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsBuenoNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.BuenoColumn)
+        Public Function IsEstadoNull() As Boolean
+            Return Me.IsNull(Me.tablevw_SRIActaConstatacion.EstadoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetBuenoNull()
-            Me(Me.tablevw_FichaCambioCustodio.BuenoColumn) = Global.System.Convert.DBNull
+        Public Sub SetEstadoNull()
+            Me(Me.tablevw_SRIActaConstatacion.EstadoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsRegularNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.RegularColumn)
+        Public Function IsActivo_FechaBajaNull() As Boolean
+            Return Me.IsNull(Me.tablevw_SRIActaConstatacion.Activo_FechaBajaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetRegularNull()
-            Me(Me.tablevw_FichaCambioCustodio.RegularColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsMaloNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.MaloColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetMaloNull()
-            Me(Me.tablevw_FichaCambioCustodio.MaloColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsSujetoControlNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.SujetoControlColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetSujetoControlNull()
-            Me(Me.tablevw_FichaCambioCustodio.SujetoControlColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsActivoFijoNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.ActivoFijoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetActivoFijoNull()
-            Me(Me.tablevw_FichaCambioCustodio.ActivoFijoColumn) = Global.System.Convert.DBNull
+        Public Sub SetActivo_FechaBajaNull()
+            Me(Me.tablevw_SRIActaConstatacion.Activo_FechaBajaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsUbicacionActualNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.UbicacionActualColumn)
+            Return Me.IsNull(Me.tablevw_SRIActaConstatacion.UbicacionActualColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetUbicacionActualNull()
-            Me(Me.tablevw_FichaCambioCustodio.UbicacionActualColumn) = Global.System.Convert.DBNull
+            Me(Me.tablevw_SRIActaConstatacion.UbicacionActualColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCustodioActIdNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.CustodioActIdColumn)
+        Public Function IsResponsableRegNull() As Boolean
+            Return Me.IsNull(Me.tablevw_SRIActaConstatacion.ResponsableRegColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCustodioActIdNull()
-            Me(Me.tablevw_FichaCambioCustodio.CustodioActIdColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCustodioAntIdNull() As Boolean
-            Return Me.IsNull(Me.tablevw_FichaCambioCustodio.CustodioAntIdColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCustodioAntIdNull()
-            Me(Me.tablevw_FichaCambioCustodio.CustodioAntIdColumn) = Global.System.Convert.DBNull
+        Public Sub SetResponsableRegNull()
+            Me(Me.tablevw_SRIActaConstatacion.ResponsableRegColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1260,16 +1185,16 @@ Partial Public Class dsSRI
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class vw_FichaCambioCustodioRowChangeEvent
+    Public Class vw_SRIActaConstatacionRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As vw_FichaCambioCustodioRow
+        Private eventRow As vw_SRIActaConstatacionRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As vw_FichaCambioCustodioRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As vw_SRIActaConstatacionRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1277,7 +1202,7 @@ Partial Public Class dsSRI
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As vw_FichaCambioCustodioRow
+        Public ReadOnly Property Row() As vw_SRIActaConstatacionRow
             Get
                 Return Me.eventRow
             End Get
@@ -1293,7 +1218,7 @@ Partial Public Class dsSRI
     End Class
 End Class
 
-Namespace dsSRITableAdapters
+Namespace dsSriActaRecepcionTableAdapters
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -1304,7 +1229,7 @@ Namespace dsSRITableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class vw_FichaCambioCustodioTableAdapter
+    Partial Public Class vw_SRIActaConstatacionTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -1421,27 +1346,27 @@ Namespace dsSRITableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "vw_FichaCambioCustodio"
-            tableMapping.ColumnMappings.Add("Codigo", "Codigo")
+            tableMapping.DataSetTable = "vw_SRIActaConstatacion"
+            tableMapping.ColumnMappings.Add("Activo_Codigo", "Activo_Codigo")
+            tableMapping.ColumnMappings.Add("EstadoInv", "EstadoInv")
+            tableMapping.ColumnMappings.Add("Custodio", "Custodio")
+            tableMapping.ColumnMappings.Add("Ubicacion", "Ubicacion")
+            tableMapping.ColumnMappings.Add("Descrpicion", "Descrpicion")
             tableMapping.ColumnMappings.Add("CodigoBarras", "CodigoBarras")
-            tableMapping.ColumnMappings.Add("CodigoTipo", "CodigoTipo")
-            tableMapping.ColumnMappings.Add("Descripcion", "Descripcion")
             tableMapping.ColumnMappings.Add("Marca", "Marca")
             tableMapping.ColumnMappings.Add("Modelo", "Modelo")
-            tableMapping.ColumnMappings.Add("CustodioActual", "CustodioActual")
-            tableMapping.ColumnMappings.Add("CustodioAnterior", "CustodioAnterior")
-            tableMapping.ColumnMappings.Add("Bueno", "Bueno")
-            tableMapping.ColumnMappings.Add("Regular", "Regular")
-            tableMapping.ColumnMappings.Add("Malo", "Malo")
-            tableMapping.ColumnMappings.Add("SujetoControl", "SujetoControl")
-            tableMapping.ColumnMappings.Add("ActivoFijo", "ActivoFijo")
-            tableMapping.ColumnMappings.Add("FechaCambio", "FechaCambio")
-            tableMapping.ColumnMappings.Add("Ciudad", "Ciudad")
             tableMapping.ColumnMappings.Add("Serie", "Serie")
+            tableMapping.ColumnMappings.Add("Area", "Area")
+            tableMapping.ColumnMappings.Add("Departamento", "Departamento")
+            tableMapping.ColumnMappings.Add("Ciudad", "Ciudad")
+            tableMapping.ColumnMappings.Add("Estado", "Estado")
+            tableMapping.ColumnMappings.Add("Llaves", "Llaves")
+            tableMapping.ColumnMappings.Add("Regional", "Regional")
+            tableMapping.ColumnMappings.Add("Direccion", "Direccion")
+            tableMapping.ColumnMappings.Add("Identificacion", "Identificacion")
+            tableMapping.ColumnMappings.Add("Activo_FechaBaja", "Activo_FechaBaja")
             tableMapping.ColumnMappings.Add("UbicacionActual", "UbicacionActual")
-            tableMapping.ColumnMappings.Add("Observacion", "Observacion")
-            tableMapping.ColumnMappings.Add("CustodioActId", "CustodioActId")
-            tableMapping.ColumnMappings.Add("CustodioAntId", "CustodioAntId")
+            tableMapping.ColumnMappings.Add("ResponsableReg", "ResponsableReg")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1449,7 +1374,7 @@ Namespace dsSRITableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.ActivosFijos.Modulo.My.MySettings.Default.AF_SRI_Inventario2012ConnectionString
+            Me._connection.ConnectionString = Global.ActivosFijos.Modulo.My.MySettings.Default.AF_SRI_InvIniciadoConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1458,10 +1383,10 @@ Namespace dsSRITableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Codigo, CodigoBarras, CodigoTipo, Descripcion, Marca, Modelo, CustodioActu"& _ 
-                "al, CustodioAnterior, Bueno, Regular, Malo, SujetoControl, ActivoFijo, FechaCamb"& _ 
-                "io, Ciudad, Serie, UbicacionActual, Observacion, CustodioActId, CustodioAntId FR"& _ 
-                "OM dbo.vw_FichaCambioCustodio"
+            Me._commandCollection(0).CommandText = "SELECT Activo_Codigo, EstadoInv, Custodio, Ubicacion, Descrpicion, CodigoBarras, "& _ 
+                "Marca, Modelo, Serie, Area, Departamento, Ciudad, Estado, Llaves, Regional, Dire"& _ 
+                "ccion, Identificacion, Activo_FechaBaja, UbicacionActual, ResponsableReg FROM db"& _ 
+                "o.vw_SRIActaConstatacion"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1469,7 +1394,7 @@ Namespace dsSRITableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As dsSRI.vw_FichaCambioCustodioDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As dsSriActaRecepcion.vw_SRIActaConstatacionDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1482,9 +1407,9 @@ Namespace dsSRITableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As dsSRI.vw_FichaCambioCustodioDataTable
+        Public Overloads Overridable Function GetData() As dsSriActaRecepcion.vw_SRIActaConstatacionDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As dsSRI.vw_FichaCambioCustodioDataTable = New dsSRI.vw_FichaCambioCustodioDataTable()
+            Dim dataTable As dsSriActaRecepcion.vw_SRIActaConstatacionDataTable = New dsSriActaRecepcion.vw_SRIActaConstatacionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -1559,7 +1484,7 @@ Namespace dsSRITableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Function UpdateUpdatedRows(ByVal dataSet As dsSRI, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateUpdatedRows(ByVal dataSet As dsSriActaRecepcion, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1569,7 +1494,7 @@ Namespace dsSRITableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Function UpdateInsertedRows(ByVal dataSet As dsSRI, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateInsertedRows(ByVal dataSet As dsSriActaRecepcion, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1579,7 +1504,7 @@ Namespace dsSRITableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Function UpdateDeletedRows(ByVal dataSet As dsSRI, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateDeletedRows(ByVal dataSet As dsSriActaRecepcion, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1615,7 +1540,7 @@ Namespace dsSRITableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overridable Function UpdateAll(ByVal dataSet As dsSRI) As Integer
+        Public Overridable Function UpdateAll(ByVal dataSet As dsSriActaRecepcion) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If

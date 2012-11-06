@@ -29,6 +29,7 @@ Public Class Enumerados
     ReporteResumenDepreciacion = 211
     DarBajaActivo = 212
     InventarioActivo = 214
+    ResumenDepreciacionPorTipo = 216
 
     ReportesActivosFijos = 299
 

@@ -126,6 +126,8 @@ Public Class Loader
               _opciones.Add(New Opcion(_restriccion, AddressOf CargarBajaActivo))
             Case Enumerados.EnumOpciones.InventarioActivo
               _opciones.Add(New Opcion(_restriccion, AddressOf CargarInventarioActivo))
+            Case Enumerados.EnumOpciones.ResumenDepreciacionPorTipo
+              _opciones.Add(New Opcion(_restriccion, AddressOf CargarResumenDepreciacionPorTipo))
               '  Case Enumerados.EnumOpciones.Seleccion
               '    _opciones.Add(New Opcion(_restriccion, AddressOf CargarSeleccion))
               '  Case Enumerados.EnumOpciones.TestxArea
@@ -209,6 +211,10 @@ Public Class Loader
     Return f
   End Function
 
+  Function CargarResumenDepreciacionPorTipo(ByVal _Sistema As Sistema, ByVal _Restriccion As Restriccion, ByVal _Opcion As Opcion) As Infoware.Docking.IDockContent
+    Dim f As New FrmResumenDepreciacionPorTipo(_Sistema, _Restriccion)
+    Return f
+  End Function
 #End Region
 
 #Region "Seguridad"

@@ -153,6 +153,16 @@ Namespace My
                 Return CType(Me("AF_SRI_Inventario2012ConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=INTERPROF8;Initial Catalog=AF_SRI_InvIniciado;User ID=sa")>  _
+        Public ReadOnly Property AF_SRI_InvIniciadoConnectionString() As String
+            Get
+                Return CType(Me("AF_SRI_InvIniciadoConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

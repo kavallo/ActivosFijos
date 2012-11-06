@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class CRPsri
+Public Class crpResumenDepreciacionPorTipo
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class CRPsri
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "CRPsri.rpt"
+            Return "crpResumenDepreciacionPorTipo.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class CRPsri
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "ActivosFijos.Modulo.CRPsri.rpt"
+            Return "ActivosFijos.Modulo.crpResumenDepreciacionPorTipo.rpt"
         End Get
         Set
             'Do nothing
@@ -70,7 +70,7 @@ Public Class CRPsri
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property GroupHeaderSection1() As CrystalDecisions.CrystalReports.Engine.Section
+    Public ReadOnly Property Section3() As CrystalDecisions.CrystalReports.Engine.Section
         Get
             Return Me.ReportDefinition.Sections(2)
         End Get
@@ -78,7 +78,7 @@ Public Class CRPsri
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Section3() As CrystalDecisions.CrystalReports.Engine.Section
+    Public ReadOnly Property Section4() As CrystalDecisions.CrystalReports.Engine.Section
         Get
             Return Me.ReportDefinition.Sections(3)
         End Get
@@ -86,31 +86,15 @@ Public Class CRPsri
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property GroupFooterSection1() As CrystalDecisions.CrystalReports.Engine.Section
-        Get
-            Return Me.ReportDefinition.Sections(4)
-        End Get
-    End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Section4() As CrystalDecisions.CrystalReports.Engine.Section
-        Get
-            Return Me.ReportDefinition.Sections(5)
-        End Get
-    End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
     Public ReadOnly Property Section5() As CrystalDecisions.CrystalReports.Engine.Section
         Get
-            Return Me.ReportDefinition.Sections(6)
+            Return Me.ReportDefinition.Sections(4)
         End Get
     End Property
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedCRPsri
+Public Class CachedcrpResumenDepreciacionPorTipo
     Inherits Component
     Implements ICachedReport
     
@@ -152,7 +136,7 @@ Public Class CachedCRPsri
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As CRPsri = New CRPsri()
+        Dim rpt As crpResumenDepreciacionPorTipo = New crpResumenDepreciacionPorTipo()
         rpt.Site = Me.Site
         Return rpt
     End Function

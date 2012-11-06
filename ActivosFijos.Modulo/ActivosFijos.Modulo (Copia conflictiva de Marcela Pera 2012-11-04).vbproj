@@ -215,29 +215,10 @@
     </Compile>
     <Compile Include="Activos Fijos\Reportes\clsReporteTransaccionActivo.vb" />
     <Compile Include="Activos Fijos\Reportes\clsReporteResumenDepreciacion.vb" />
-    <Compile Include="Activos Fijos\Reportes\clsResumenDepreciacionPorTipo.vb" />
-    <Compile Include="Activos Fijos\Reportes\clsReporteSRIActaRecepcion.vb" />
-    <Compile Include="Activos Fijos\Reportes\crpSriActaRecepcion1.vb">
+    <Compile Include="Activos Fijos\Reportes\crpSriActaRecepcion.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crpSriActaRecepcion.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Activos Fijos\Reportes\dsSriActaRecepcion.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsSriActaRecepcion.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Activos Fijos\Reportes\FrmResumenDepreciacionPorTipo.Designer.vb">
-      <DependentUpon>FrmResumenDepreciacionPorTipo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Activos Fijos\Reportes\FrmResumenDepreciacionPorTipo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Activos Fijos\Reportes\crpResumenDepreciacionPorTipo.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>crpResumenDepreciacionPorTipo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Activos Fijos\Reportes\crpsSRIcambioCustodio.vb">
@@ -258,6 +239,12 @@
       <DependentUpon>crpReporteResumenDepreciacion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Activos Fijos\Reportes\CRPsri.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRPsri.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Activos Fijos\Reportes\dsFichaActivoSRI.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -268,10 +255,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFichaCambioCustodio.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Activos Fijos\Reportes\dsResumenDepreciacionPorTipo.Designer.vb">
+    <Compile Include="Activos Fijos\Reportes\dsSriActaRecepcion.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dsResumenDepreciacionPorTipo.xsd</DependentUpon>
+      <DependentUpon>dsSriActaRecepcion.xsd</DependentUpon>
     </Compile>
     <Compile Include="Activos Fijos\Reportes\FrmReporteResumenDepreciacion.Designer.vb">
       <DependentUpon>FrmReporteResumenDepreciacion.vb</DependentUpon>
@@ -732,14 +719,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Activos Fijos\Reportes\crpSriActaRecepcion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crpSriActaRecepcion1.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Activos Fijos\Reportes\FrmResumenDepreciacionPorTipo.resx">
-      <DependentUpon>FrmResumenDepreciacionPorTipo.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Activos Fijos\Reportes\crpResumenDepreciacionPorTipo.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crpResumenDepreciacionPorTipo.vb</LastGenOutput>
+      <LastGenOutput>crpSriActaRecepcion.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Activos Fijos\Reportes\crpsSRIcambioCustodio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -752,6 +732,10 @@
     <EmbeddedResource Include="Activos Fijos\Reportes\crpReporteResumenDepreciacion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crpReporteResumenDepreciacion.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Activos Fijos\Reportes\CRPsri.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRPsri.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Activos Fijos\Reportes\FrmReporteResumenDepreciacion.resx">
       <DependentUpon>FrmReporteResumenDepreciacion.vb</DependentUpon>
@@ -999,24 +983,13 @@
     <None Include="Activos Fijos\Reportes\dsReporteTransaccion.xss">
       <DependentUpon>dsReporteTransaccion.xsd</DependentUpon>
     </None>
-    <None Include="Activos Fijos\Reportes\dsResumenDepreciacionPorTipo.xsc">
-      <DependentUpon>dsResumenDepreciacionPorTipo.xsd</DependentUpon>
-    </None>
-    <None Include="Activos Fijos\Reportes\dsResumenDepreciacionPorTipo.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsResumenDepreciacionPorTipo.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="Activos Fijos\Reportes\dsResumenDepreciacionPorTipo.xss">
-      <DependentUpon>dsResumenDepreciacionPorTipo.xsd</DependentUpon>
-    </None>
     <None Include="Activos Fijos\Reportes\dsSriActaRecepcion.xsc">
       <DependentUpon>dsSriActaRecepcion.xsd</DependentUpon>
     </None>
     <None Include="Activos Fijos\Reportes\dsSriActaRecepcion.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsSriActaRecepcion.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Activos Fijos\Reportes\dsSriActaRecepcion.xss">
       <DependentUpon>dsSriActaRecepcion.xsd</DependentUpon>

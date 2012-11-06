@@ -53,11 +53,16 @@ namespace ActivosFijos
         {
             txtActivo.Text = "";
             txtSerie1.Text = "";
-            
-            cboGrupo.SelectedIndex = -1;
+            LimpiarCampos();
+            CargarActivo();
+        }
+
+        private void LimpiarCampos()
+        {
             cboTipo.SelectedIndex = -1;
             cboClase.SelectedIndex = -1;
             txtDescripcion.Text = "";
+            txtmarca.Text = "";
             cboMarca.SelectedIndex = -1;
             txtModelo.Text = "";
             txtSerie.Text = "";
@@ -66,8 +71,6 @@ namespace ActivosFijos
             txtObservacion.Text = "";
             txtResponsable.Text = "";
             pnladic.Controls.Clear();
-
-            CargarActivo();
         }
 
         private void frmTomaActivo_Load(object sender, EventArgs e)
@@ -180,10 +183,13 @@ namespace ActivosFijos
                     return;
                 }
 
+                txtmarca.Text = "";
+
                 tabControl1.Enabled = true;
                 if (mActivo.esNuevo)
                 {
                     MessageBox.Show("Activo nuevo", "Mensaje");
+                    LimpiarCampos();
                     CargarCaracteristicasporTipo();
                 }
                 else

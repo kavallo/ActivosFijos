@@ -26,12 +26,14 @@ Partial Class FrmReporteActaEntregaCustodio
     Me.btnmostrar = New System.Windows.Forms.Button()
     Me.Label1 = New System.Windows.Forms.Label()
     Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-    Me.cbociudad = New ActivosFijos.Modulo.ComboBoxParametroDet()
-    Me.CtlBuscaCustodio = New ActivosFijos.Modulo.CtlBuscaEmpleado()
     Me.CheckBox1 = New System.Windows.Forms.CheckBox()
     Me.pnlsoloinventariados = New System.Windows.Forms.Panel()
-    Me.cboPeriodoInventario = New ActivosFijos.Modulo.ComboBoxParametroDet()
     Me.Label2 = New System.Windows.Forms.Label()
+    Me.btnActaConstatacion = New System.Windows.Forms.Button()
+    Me.btnCambioCustodioSRI = New System.Windows.Forms.Button()
+    Me.cboPeriodoInventario = New ActivosFijos.Modulo.ComboBoxParametroDet()
+    Me.cbociudad = New ActivosFijos.Modulo.ComboBoxParametroDet()
+    Me.CtlBuscaCustodio = New ActivosFijos.Modulo.CtlBuscaEmpleado()
     CType(Me.ListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.pnlcuerpo.SuspendLayout()
     Me.Panel1.SuspendLayout()
@@ -65,11 +67,11 @@ Partial Class FrmReporteActaEntregaCustodio
     '
     'btnmostrar
     '
-    Me.btnmostrar.Location = New System.Drawing.Point(134, 107)
+    Me.btnmostrar.Location = New System.Drawing.Point(134, 106)
     Me.btnmostrar.Name = "btnmostrar"
-    Me.btnmostrar.Size = New System.Drawing.Size(75, 23)
+    Me.btnmostrar.Size = New System.Drawing.Size(158, 23)
     Me.btnmostrar.TabIndex = 5
-    Me.btnmostrar.Text = "Mostrar"
+    Me.btnmostrar.Text = "Acta de entrega"
     Me.btnmostrar.UseVisualStyleBackColor = True
     '
     'Label1
@@ -87,6 +89,74 @@ Partial Class FrmReporteActaEntregaCustodio
     Me.DateTimePicker1.Name = "DateTimePicker1"
     Me.DateTimePicker1.Size = New System.Drawing.Size(250, 20)
     Me.DateTimePicker1.TabIndex = 4
+    '
+    'CheckBox1
+    '
+    Me.CheckBox1.AutoSize = True
+    Me.CheckBox1.Location = New System.Drawing.Point(435, 17)
+    Me.CheckBox1.Name = "CheckBox1"
+    Me.CheckBox1.Size = New System.Drawing.Size(165, 17)
+    Me.CheckBox1.TabIndex = 6
+    Me.CheckBox1.Text = "Solo activos inventariados en"
+    Me.CheckBox1.UseVisualStyleBackColor = True
+    '
+    'pnlsoloinventariados
+    '
+    Me.pnlsoloinventariados.Controls.Add(Me.cboPeriodoInventario)
+    Me.pnlsoloinventariados.Controls.Add(Me.Label2)
+    Me.pnlsoloinventariados.Controls.Add(Me.btnActaConstatacion)
+    Me.pnlsoloinventariados.Controls.Add(Me.btnCambioCustodioSRI)
+    Me.pnlsoloinventariados.Location = New System.Drawing.Point(457, 37)
+    Me.pnlsoloinventariados.Name = "pnlsoloinventariados"
+    Me.pnlsoloinventariados.Size = New System.Drawing.Size(634, 95)
+    Me.pnlsoloinventariados.TabIndex = 7
+    Me.pnlsoloinventariados.Visible = False
+    '
+    'Label2
+    '
+    Me.Label2.AutoSize = True
+    Me.Label2.Location = New System.Drawing.Point(7, 10)
+    Me.Label2.Name = "Label2"
+    Me.Label2.Size = New System.Drawing.Size(95, 13)
+    Me.Label2.TabIndex = 3
+    Me.Label2.Text = "Periodo inventario:"
+    '
+    'btnActaConstatacion
+    '
+    Me.btnActaConstatacion.Location = New System.Drawing.Point(10, 69)
+    Me.btnActaConstatacion.Name = "btnActaConstatacion"
+    Me.btnActaConstatacion.Size = New System.Drawing.Size(158, 23)
+    Me.btnActaConstatacion.TabIndex = 5
+    Me.btnActaConstatacion.Text = "Acta de constatación SRI"
+    Me.btnActaConstatacion.UseVisualStyleBackColor = True
+    '
+    'btnCambioCustodioSRI
+    '
+    Me.btnCambioCustodioSRI.Location = New System.Drawing.Point(174, 69)
+    Me.btnCambioCustodioSRI.Name = "btnCambioCustodioSRI"
+    Me.btnCambioCustodioSRI.Size = New System.Drawing.Size(222, 23)
+    Me.btnCambioCustodioSRI.TabIndex = 5
+    Me.btnCambioCustodioSRI.Text = "Cambio Custodio por Constatación SRI"
+    Me.btnCambioCustodioSRI.UseVisualStyleBackColor = True
+    '
+    'cboPeriodoInventario
+    '
+    Me.cboPeriodoInventario.AbriralEntrar = False
+    Me.cboPeriodoInventario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+    Me.cboPeriodoInventario.FormattingEnabled = True
+    Me.cboPeriodoInventario.Location = New System.Drawing.Point(129, 7)
+    Me.cboPeriodoInventario.Margin = New System.Windows.Forms.Padding(2)
+    Me.cboPeriodoInventario.MostrarRutaCompleta = False
+    Me.cboPeriodoInventario.Name = "cboPeriodoInventario"
+    Me.cboPeriodoInventario.OperadorDatos = Nothing
+    Me.cboPeriodoInventario.Parametro = ActivosFijos.Reglas.Enumerados.EnumParametros.TipoEntidad
+    Me.cboPeriodoInventario.ParametroDet = Nothing
+    Me.cboPeriodoInventario.PuedeActualizar = True
+    Me.cboPeriodoInventario.PuedeEliminar = True
+    Me.cboPeriodoInventario.PuedeModificar = True
+    Me.cboPeriodoInventario.PuedeNuevo = True
+    Me.cboPeriodoInventario.Size = New System.Drawing.Size(451, 21)
+    Me.cboPeriodoInventario.TabIndex = 4
     '
     'cbociudad
     '
@@ -119,54 +189,6 @@ Partial Class FrmReporteActaEntregaCustodio
     Me.CtlBuscaCustodio.TipoEmpleado = Nothing
     Me.CtlBuscaCustodio.Ubicacion = ActivosFijos.Modulo.CtlBuscaEmpleado.EnumUbicacion.Normal
     '
-    'CheckBox1
-    '
-    Me.CheckBox1.AutoSize = True
-    Me.CheckBox1.Location = New System.Drawing.Point(435, 17)
-    Me.CheckBox1.Name = "CheckBox1"
-    Me.CheckBox1.Size = New System.Drawing.Size(165, 17)
-    Me.CheckBox1.TabIndex = 6
-    Me.CheckBox1.Text = "Solo activos inventariados en"
-    Me.CheckBox1.UseVisualStyleBackColor = True
-    '
-    'pnlsoloinventariados
-    '
-    Me.pnlsoloinventariados.Controls.Add(Me.cboPeriodoInventario)
-    Me.pnlsoloinventariados.Controls.Add(Me.Label2)
-    Me.pnlsoloinventariados.Location = New System.Drawing.Point(457, 37)
-    Me.pnlsoloinventariados.Name = "pnlsoloinventariados"
-    Me.pnlsoloinventariados.Size = New System.Drawing.Size(634, 61)
-    Me.pnlsoloinventariados.TabIndex = 7
-    Me.pnlsoloinventariados.Visible = False
-    '
-    'cboPeriodoInventario
-    '
-    Me.cboPeriodoInventario.AbriralEntrar = False
-    Me.cboPeriodoInventario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-    Me.cboPeriodoInventario.FormattingEnabled = True
-    Me.cboPeriodoInventario.Location = New System.Drawing.Point(129, 7)
-    Me.cboPeriodoInventario.Margin = New System.Windows.Forms.Padding(2)
-    Me.cboPeriodoInventario.MostrarRutaCompleta = False
-    Me.cboPeriodoInventario.Name = "cboPeriodoInventario"
-    Me.cboPeriodoInventario.OperadorDatos = Nothing
-    Me.cboPeriodoInventario.Parametro = ActivosFijos.Reglas.Enumerados.EnumParametros.TipoEntidad
-    Me.cboPeriodoInventario.ParametroDet = Nothing
-    Me.cboPeriodoInventario.PuedeActualizar = True
-    Me.cboPeriodoInventario.PuedeEliminar = True
-    Me.cboPeriodoInventario.PuedeModificar = True
-    Me.cboPeriodoInventario.PuedeNuevo = True
-    Me.cboPeriodoInventario.Size = New System.Drawing.Size(451, 21)
-    Me.cboPeriodoInventario.TabIndex = 4
-    '
-    'Label2
-    '
-    Me.Label2.AutoSize = True
-    Me.Label2.Location = New System.Drawing.Point(7, 10)
-    Me.Label2.Name = "Label2"
-    Me.Label2.Size = New System.Drawing.Size(95, 13)
-    Me.Label2.TabIndex = 3
-    Me.Label2.Text = "Periodo inventario:"
-    '
     'FrmReporteActaEntregaCustodio
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -195,4 +217,6 @@ Partial Class FrmReporteActaEntregaCustodio
   Friend WithEvents cboPeriodoInventario As ActivosFijos.Modulo.ComboBoxParametroDet
   Friend WithEvents Label2 As System.Windows.Forms.Label
   Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+  Friend WithEvents btnActaConstatacion As System.Windows.Forms.Button
+  Friend WithEvents btnCambioCustodioSRI As System.Windows.Forms.Button
 End Class
