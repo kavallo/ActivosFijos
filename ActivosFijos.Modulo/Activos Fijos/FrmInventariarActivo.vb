@@ -196,4 +196,25 @@ Public Class FrmInventariarActivo
     Me.BindingSource1.DataSource = activos
     Me.DataGridView1.AutoDiscover()
   End Sub
+
+  Private Sub btnNoInventariado_Click(sender As System.Object, e As System.EventArgs) Handles btnNoInventariado.Click
+    Dim invdet As InventarioDet = Nothing
+    Try
+      invdet = New InventarioDet(Sistema.OperadorDatos, mInventario.Parame_Ubicacion, mInventario.Pardet_Ubicacion, mInventario.Parame_PeriodoInventario, mInventario.Pardet_PeriodoInventario, Activo.Activo_Codigo)
+      If invdet.Pardet_EstadoInventario = Enumerados.enumEstadoInventarioActivo.NoInventariado Then
+        MsgBox("El activo ya tiene el estado No Inventariado", MsgBoxStyle.Critical, "Error")
+        Exit Sub
+      End If
+      invdet.PardetEstadoInventario = New WWTSParametroDet(Sistema.OperadorDatos, Enumerados.EnumParametros.EstadoInventarioActivo, Enumerados.enumEstadoInventarioActivo.NoInventariado)
+      If invdet.Guardar() Then
+        MsgBox("Activo fue No Inventariado con éxito", MsgBoxStyle.Information, "Información")
+      Else
+        MsgBox(invdet.OperadorDatos.MsgError, MsgBoxStyle.Critical, "Error")
+      End If
+    Catch ex As Exception
+      MsgBox("No existe el activo en el inventario actual", MsgBoxStyle.Critical, "Error")
+      Exit Sub
+    End Try
+
+  End Sub
 End Class

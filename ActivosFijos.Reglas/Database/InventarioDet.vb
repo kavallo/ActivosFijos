@@ -19,205 +19,218 @@ Imports System.Xml.Serialization
 
 #Region "InventarioDet"
 Partial Public Class InventarioDet
-    Inherits _Database
-    
-    Private mParame_Ubicacion As Integer = 0
-    
-    Private mPardet_Ubicacion As Integer = 0
-    
-    Private mParame_PeriodoInventario As Integer = 0
-    
-    Private mPardet_PeriodoInventario As Integer = 0
-    
-    Private mActivo_Codigo As Integer = 0
-    
-    Private mInvDet_Observacion As String = ""
-    
-    Private mInvDet_esCambioUbicacion As Boolean = true
-    
-    Private mActUbi_SecuenciaAnterior As Integer = 0
-    
-    Private mActUbi_SecuenciaActual As Integer = 0
-    
-    Private mInvDet_esCambioCustodio As Boolean = true
-    
-    Private mActCus_SecuenciaAnterior As Integer = 0
-    
-    Private mActCus_SecuenciaActual As Integer = 0
-    
-    Private mParame_EstadoInventario As Integer = 0
-    
-    Private mPardet_EstadoInventario As Integer = 0
-    
-    Private mInvDet_Activo As Boolean = true
-    
-    Public Sub New()
-        MyBase.New
-    End Sub
-    
-    <XmlAttribute()>  _
-    Public Overridable Property Parame_Ubicacion() As Integer
-        Get
-            Return Me.mParame_Ubicacion
-        End Get
-        Set
-            Me.mParame_Ubicacion = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property Pardet_Ubicacion() As Integer
-        Get
-            Return Me.mPardet_Ubicacion
-        End Get
-        Set
-            Me.mPardet_Ubicacion = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property Parame_PeriodoInventario() As Integer
-        Get
-            Return Me.mParame_PeriodoInventario
-        End Get
-        Set
-            Me.mParame_PeriodoInventario = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property Pardet_PeriodoInventario() As Integer
-        Get
-            Return Me.mPardet_PeriodoInventario
-        End Get
-        Set
-            Me.mPardet_PeriodoInventario = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property Activo_Codigo() As Integer
-        Get
-            Return Me.mActivo_Codigo
-        End Get
-        Set
-            Me.mActivo_Codigo = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property InvDet_Observacion() As String
-        Get
-            Return Me.mInvDet_Observacion
-        End Get
-        Set
-            Me.mInvDet_Observacion = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property InvDet_esCambioUbicacion() As Boolean
-        Get
-            Return Me.mInvDet_esCambioUbicacion
-        End Get
-        Set
-            Me.mInvDet_esCambioUbicacion = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property ActUbi_SecuenciaAnterior() As Integer
-        Get
-            Return Me.mActUbi_SecuenciaAnterior
-        End Get
-        Set
-            Me.mActUbi_SecuenciaAnterior = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property ActUbi_SecuenciaActual() As Integer
-        Get
-            Return Me.mActUbi_SecuenciaActual
-        End Get
-        Set
-            Me.mActUbi_SecuenciaActual = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property InvDet_esCambioCustodio() As Boolean
-        Get
-            Return Me.mInvDet_esCambioCustodio
-        End Get
-        Set
-            Me.mInvDet_esCambioCustodio = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property ActCus_SecuenciaAnterior() As Integer
-        Get
-            Return Me.mActCus_SecuenciaAnterior
-        End Get
-        Set
-            Me.mActCus_SecuenciaAnterior = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property ActCus_SecuenciaActual() As Integer
-        Get
-            Return Me.mActCus_SecuenciaActual
-        End Get
-        Set
-            Me.mActCus_SecuenciaActual = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property Parame_EstadoInventario() As Integer
-        Get
-            Return Me.mParame_EstadoInventario
-        End Get
-        Set
-            Me.mParame_EstadoInventario = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property Pardet_EstadoInventario() As Integer
-        Get
-            Return Me.mPardet_EstadoInventario
-        End Get
-        Set
-            Me.mPardet_EstadoInventario = value
-            EsModificado = true
-        End Set
-    End Property
-    
-    <XmlAttribute()>  _
-    Public Overridable Property InvDet_Activo() As Boolean
-        Get
-            Return Me.mInvDet_Activo
-        End Get
-        Set
-            Me.mInvDet_Activo = value
-            EsModificado = true
-        End Set
-    End Property
+  Inherits _Database
+
+  Private mParame_Ubicacion As Integer = 0
+
+  Private mPardet_Ubicacion As Integer = 0
+
+  Private mParame_PeriodoInventario As Integer = 0
+
+  Private mPardet_PeriodoInventario As Integer = 0
+
+  Private mActivo_Codigo As Integer = 0
+
+  Private mInvDet_Observacion As String = ""
+
+  Private mInvDet_esCambioUbicacion As Boolean = False
+
+  Private mActUbi_SecuenciaAnterior As Integer = 0
+
+  Private mActUbi_SecuenciaActual As Integer = 0
+
+  Private mInvDet_esCambioCustodio As Boolean = False
+
+  Private mActCus_SecuenciaAnterior As Integer = 0
+
+  Private mActCus_SecuenciaActual As Integer = 0
+
+  Private mParame_EstadoInventario As Integer = 0
+
+  Private mPardet_EstadoInventario As Integer = 0
+
+  Private mInvDet_Activo As Boolean = True
+
+  Private mUsuari_CodigoPDA As String = String.Empty
+
+  Public Sub New()
+    MyBase.New()
+  End Sub
+
+  <XmlAttribute()> _
+  Public Overridable Property Parame_Ubicacion() As Integer
+    Get
+      Return Me.mParame_Ubicacion
+    End Get
+    Set(value As Integer)
+      Me.mParame_Ubicacion = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property Pardet_Ubicacion() As Integer
+    Get
+      Return Me.mPardet_Ubicacion
+    End Get
+    Set(value As Integer)
+      Me.mPardet_Ubicacion = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property Parame_PeriodoInventario() As Integer
+    Get
+      Return Me.mParame_PeriodoInventario
+    End Get
+    Set(value As Integer)
+      Me.mParame_PeriodoInventario = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property Pardet_PeriodoInventario() As Integer
+    Get
+      Return Me.mPardet_PeriodoInventario
+    End Get
+    Set(value As Integer)
+      Me.mPardet_PeriodoInventario = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property Activo_Codigo() As Integer
+    Get
+      Return Me.mActivo_Codigo
+    End Get
+    Set(value As Integer)
+      Me.mActivo_Codigo = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property InvDet_Observacion() As String
+    Get
+      Return Me.mInvDet_Observacion
+    End Get
+    Set(value As String)
+      Me.mInvDet_Observacion = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property InvDet_esCambioUbicacion() As Boolean
+    Get
+      Return Me.mInvDet_esCambioUbicacion
+    End Get
+    Set(value As Boolean)
+      Me.mInvDet_esCambioUbicacion = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property ActUbi_SecuenciaAnterior() As Integer
+    Get
+      Return Me.mActUbi_SecuenciaAnterior
+    End Get
+    Set(value As Integer)
+      Me.mActUbi_SecuenciaAnterior = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property ActUbi_SecuenciaActual() As Integer
+    Get
+      Return Me.mActUbi_SecuenciaActual
+    End Get
+    Set(value As Integer)
+      Me.mActUbi_SecuenciaActual = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property InvDet_esCambioCustodio() As Boolean
+    Get
+      Return Me.mInvDet_esCambioCustodio
+    End Get
+    Set(value As Boolean)
+      Me.mInvDet_esCambioCustodio = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property ActCus_SecuenciaAnterior() As Integer
+    Get
+      Return Me.mActCus_SecuenciaAnterior
+    End Get
+    Set(value As Integer)
+      Me.mActCus_SecuenciaAnterior = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property ActCus_SecuenciaActual() As Integer
+    Get
+      Return Me.mActCus_SecuenciaActual
+    End Get
+    Set(value As Integer)
+      Me.mActCus_SecuenciaActual = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property Parame_EstadoInventario() As Integer
+    Get
+      Return Me.mParame_EstadoInventario
+    End Get
+    Set(value As Integer)
+      Me.mParame_EstadoInventario = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property Pardet_EstadoInventario() As Integer
+    Get
+      Return Me.mPardet_EstadoInventario
+    End Get
+    Set(value As Integer)
+      Me.mPardet_EstadoInventario = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property InvDet_Activo() As Boolean
+    Get
+      Return Me.mInvDet_Activo
+    End Get
+    Set(value As Boolean)
+      Me.mInvDet_Activo = Value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property Usuari_CodigoPDA() As String
+    Get
+      Return Me.mUsuari_CodigoPDA
+    End Get
+    Set(value As String)
+      Me.mUsuari_CodigoPDA = value
+      EsModificado = True
+    End Set
+  End Property
 End Class
 #End Region

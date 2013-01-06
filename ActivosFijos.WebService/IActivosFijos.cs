@@ -14,6 +14,8 @@ namespace ActivosFijosServices
         [OperationContract]
         Activo CargarActivo(string Activo_Codigo, string Serie);
         [OperationContract]
+        bool ActivoInventariado(int Activo_Codigo, int Parame_PeriodoInventario, int Pardet_PeriodoInventario);
+        [OperationContract]
         string GuardarInventarioDet(string mUsuario, Inventario mInventario, Activo mActivo, int mCustodio, int mParame_Ubicacion, int mPardet_Ubicacion);
         [OperationContract]
         bool IniciarSesion(string mUsuario, string mContrasena);

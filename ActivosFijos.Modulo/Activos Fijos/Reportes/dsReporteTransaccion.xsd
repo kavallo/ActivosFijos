@@ -14,7 +14,7 @@
   <xs:element name="dsReporteTransaccion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReporteTransaccion" msprop:Generator_UserDSName="dsReporteTransaccion">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="vw_TransaccionActivo" msprop:Generator_TableClassName="vw_TransaccionActivoDataTable" msprop:Generator_TableVarName="tablevw_TransaccionActivo" msprop:Generator_TablePropName="vw_TransaccionActivo" msprop:Generator_RowDeletingName="vw_TransaccionActivoRowDeleting" msprop:Generator_UserTableName="vw_TransaccionActivo" msprop:Generator_RowChangingName="vw_TransaccionActivoRowChanging" msprop:Generator_RowEvHandlerName="vw_TransaccionActivoRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_TransaccionActivoRowDeleted" msprop:Generator_RowEvArgName="vw_TransaccionActivoRowChangeEvent" msprop:Generator_RowChangedName="vw_TransaccionActivoRowChanged" msprop:Generator_RowClassName="vw_TransaccionActivoRow">
+        <xs:element name="vw_TransaccionActivo" msprop:Generator_TableClassName="vw_TransaccionActivoDataTable" msprop:Generator_TableVarName="tablevw_TransaccionActivo" msprop:Generator_RowChangedName="vw_TransaccionActivoRowChanged" msprop:Generator_TablePropName="vw_TransaccionActivo" msprop:Generator_RowDeletingName="vw_TransaccionActivoRowDeleting" msprop:Generator_RowChangingName="vw_TransaccionActivoRowChanging" msprop:Generator_RowEvHandlerName="vw_TransaccionActivoRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_TransaccionActivoRowDeleted" msprop:Generator_RowClassName="vw_TransaccionActivoRow" msprop:Generator_UserTableName="vw_TransaccionActivo" msprop:Generator_RowEvArgName="vw_TransaccionActivoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Transa_Codigo" msprop:Generator_ColumnVarNameInTable="columnTransa_Codigo" msprop:Generator_ColumnPropNameInRow="Transa_Codigo" msprop:Generator_ColumnPropNameInTable="Transa_CodigoColumn" msprop:Generator_UserColumnName="Transa_Codigo" type="xs:int" />
@@ -57,6 +57,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Activo_CodigoBarra" msprop:Generator_ColumnVarNameInTable="columnActivo_CodigoBarra" msprop:Generator_ColumnPropNameInRow="Activo_CodigoBarra" msprop:Generator_ColumnPropNameInTable="Activo_CodigoBarraColumn" msprop:Generator_UserColumnName="Activo_CodigoBarra" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

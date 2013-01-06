@@ -37,8 +37,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.txtSerie = new ActivosFijos.Controles.TextBoxStd();
-            this.txtModelo = new ActivosFijos.Controles.TextBoxStd();
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.txtmarca = new ActivosFijos.Controles.TextBoxStd();
             this.txtDescripcion = new ActivosFijos.Controles.TextBoxStd();
@@ -46,8 +44,6 @@
             this.cboTipo = new System.Windows.Forms.ComboBox();
             this.cboGrupo = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.lblSerie = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -58,11 +54,15 @@
             this.pnladic = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.txtSerie = new ActivosFijos.Controles.TextBoxStd();
+            this.txtModelo = new ActivosFijos.Controles.TextBoxStd();
             this.txtResponsable = new ActivosFijos.Controles.TextBoxStd();
             this.txtObservacion = new ActivosFijos.Controles.TextBoxStd();
             this.cboDepreciacion = new System.Windows.Forms.ComboBox();
             this.cboEstadoActivo = new System.Windows.Forms.ComboBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.lblSerie = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.lblResponsable = new System.Windows.Forms.Label();
             this.lblObservacion = new System.Windows.Forms.Label();
             this.lblDepreciacion = new System.Windows.Forms.Label();
@@ -70,7 +70,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnatras = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtSerie1 = new ActivosFijos.Controles.TextBoxStd();
             this.txtActivo = new ActivosFijos.Controles.TextBoxStd();
@@ -86,7 +86,7 @@
             this.tabPage3.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlBusqueda.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -163,24 +163,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(169, 178);
             // 
-            // txtSerie
-            // 
-            this.txtSerie.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtSerie.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.txtSerie.Location = new System.Drawing.Point(0, 97);
-            this.txtSerie.Name = "txtSerie";
-            this.txtSerie.Size = new System.Drawing.Size(169, 19);
-            this.txtSerie.TabIndex = 15;
-            // 
-            // txtModelo
-            // 
-            this.txtModelo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtModelo.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.txtModelo.Location = new System.Drawing.Point(0, 78);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(169, 19);
-            this.txtModelo.TabIndex = 14;
-            // 
             // cboMarca
             // 
             this.cboMarca.Dock = System.Windows.Forms.DockStyle.Top;
@@ -250,24 +232,6 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(71, 178);
-            // 
-            // lblSerie
-            // 
-            this.lblSerie.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSerie.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.lblSerie.Location = new System.Drawing.Point(0, 100);
-            this.lblSerie.Name = "lblSerie";
-            this.lblSerie.Size = new System.Drawing.Size(71, 20);
-            this.lblSerie.Text = "Serie:";
-            // 
-            // label8
-            // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.label8.Location = new System.Drawing.Point(0, 80);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 20);
-            this.label8.Text = "Modelo:";
             // 
             // label2
             // 
@@ -344,7 +308,7 @@
             this.tabPage3.Controls.Add(this.panel8);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(240, 178);
+            this.tabPage3.Size = new System.Drawing.Size(232, 175);
             this.tabPage3.Text = "Otros";
             // 
             // panel9
@@ -358,7 +322,25 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(71, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(169, 178);
+            this.panel9.Size = new System.Drawing.Size(161, 175);
+            // 
+            // txtSerie
+            // 
+            this.txtSerie.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtSerie.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.txtSerie.Location = new System.Drawing.Point(0, 97);
+            this.txtSerie.Name = "txtSerie";
+            this.txtSerie.Size = new System.Drawing.Size(161, 19);
+            this.txtSerie.TabIndex = 15;
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtModelo.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.txtModelo.Location = new System.Drawing.Point(0, 78);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(161, 19);
+            this.txtModelo.TabIndex = 14;
             // 
             // txtResponsable
             // 
@@ -366,7 +348,7 @@
             this.txtResponsable.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.txtResponsable.Location = new System.Drawing.Point(0, 59);
             this.txtResponsable.Name = "txtResponsable";
-            this.txtResponsable.Size = new System.Drawing.Size(169, 19);
+            this.txtResponsable.Size = new System.Drawing.Size(161, 19);
             this.txtResponsable.TabIndex = 13;
             // 
             // txtObservacion
@@ -375,7 +357,7 @@
             this.txtObservacion.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.txtObservacion.Location = new System.Drawing.Point(0, 40);
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(169, 19);
+            this.txtObservacion.Size = new System.Drawing.Size(161, 19);
             this.txtObservacion.TabIndex = 12;
             // 
             // cboDepreciacion
@@ -384,7 +366,7 @@
             this.cboDepreciacion.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.cboDepreciacion.Location = new System.Drawing.Point(0, 20);
             this.cboDepreciacion.Name = "cboDepreciacion";
-            this.cboDepreciacion.Size = new System.Drawing.Size(169, 20);
+            this.cboDepreciacion.Size = new System.Drawing.Size(161, 20);
             this.cboDepreciacion.TabIndex = 11;
             // 
             // cboEstadoActivo
@@ -393,7 +375,7 @@
             this.cboEstadoActivo.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.cboEstadoActivo.Location = new System.Drawing.Point(0, 0);
             this.cboEstadoActivo.Name = "cboEstadoActivo";
-            this.cboEstadoActivo.Size = new System.Drawing.Size(169, 20);
+            this.cboEstadoActivo.Size = new System.Drawing.Size(161, 20);
             this.cboEstadoActivo.TabIndex = 10;
             // 
             // panel8
@@ -407,7 +389,25 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(71, 178);
+            this.panel8.Size = new System.Drawing.Size(71, 175);
+            // 
+            // lblSerie
+            // 
+            this.lblSerie.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSerie.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.lblSerie.Location = new System.Drawing.Point(0, 100);
+            this.lblSerie.Name = "lblSerie";
+            this.lblSerie.Size = new System.Drawing.Size(71, 20);
+            this.lblSerie.Text = "Serie:";
+            // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.label8.Location = new System.Drawing.Point(0, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 20);
+            this.label8.Text = "Modelo:";
             // 
             // lblResponsable
             // 
@@ -473,14 +473,14 @@
             this.btnCancelar.Text = "Limpiar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // panel1
+            // pnlBusqueda
             // 
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(240, 42);
+            this.pnlBusqueda.Controls.Add(this.panel4);
+            this.pnlBusqueda.Controls.Add(this.panel3);
+            this.pnlBusqueda.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBusqueda.Location = new System.Drawing.Point(0, 30);
+            this.pnlBusqueda.Name = "pnlBusqueda";
+            this.pnlBusqueda.Size = new System.Drawing.Size(240, 42);
             // 
             // panel4
             // 
@@ -499,6 +499,7 @@
             this.txtSerie1.Name = "txtSerie1";
             this.txtSerie1.Size = new System.Drawing.Size(169, 19);
             this.txtSerie1.TabIndex = 1;
+            this.txtSerie1.TextChanged += new System.EventHandler(this.txtSerie1_TextChanged);
             this.txtSerie1.PressEnter += new System.EventHandler(this.txtSerie1_PressEnter);
             // 
             // txtActivo
@@ -547,7 +548,7 @@
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.lblCustodio);
             this.Controls.Add(this.lblUbicacion);
             this.Location = new System.Drawing.Point(0, 0);
@@ -567,7 +568,7 @@
             this.tabPage3.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.pnlBusqueda.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -606,7 +607,7 @@
         private System.Windows.Forms.Label lblDepreciacion;
         private System.Windows.Forms.ComboBox cboEstadoActivo;
         private System.Windows.Forms.Label lblEstadoActivo;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private ActivosFijos.Controles.TextBoxStd txtModelo;

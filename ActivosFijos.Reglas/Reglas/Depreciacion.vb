@@ -79,6 +79,7 @@ Public Class Depreciacion
     Pardet_TipoDepreciacion = CType(Fila("Pardet_TipoDepreciacion"), Integer)
     Deprec_Codigo = CType(Fila("Deprec_Codigo"), String)
     Deprec_Observacion = CType(Fila("Deprec_Observacion"), String)
+    Deprec_esProyeccion = CBool(Fila("Deprec_esProyeccion"))
     mPardetFrecuenciaDepreciacion = Nothing
     mPardetTipoDepreciacion = Nothing
   End Sub
@@ -119,6 +120,7 @@ Public Class Depreciacion
     OperadorDatos.AgregarParametro("@Pardet_TipoDepreciacion", Pardet_TipoDepreciacion)
     OperadorDatos.AgregarParametro("@Deprec_Codigo", Deprec_Codigo)
     OperadorDatos.AgregarParametro("@Deprec_Observacion", Deprec_Observacion)
+    OperadorDatos.AgregarParametro("@Deprec_esProyeccion", Deprec_esProyeccion)
     OperadorDatos.Procedimiento = _Procedimiento
     bReturn = OperadorDatos.Ejecutar(Result)
     OperadorDatos.LimpiarParametros()
@@ -136,25 +138,26 @@ Public Class Depreciacion
     EsModificado = False
   End Sub
 
-  Public Overridable Function UltimoPeriodo() As Boolean
-    Dim Result As Integer
+  Public Overridable Function UltimoPeriodo() As String
+    Dim Result As String = String.Empty
     Dim bReturn As Boolean = True
     OperadorDatos.AgregarParametro("@accion", "Up")
     OperadorDatos.AgregarParametro("@Parame_FrecuenciaDepreciacion", Parame_FrecuenciaDepreciacion)
     OperadorDatos.AgregarParametro("@Pardet_FrecuenciaDepreciacion", Pardet_FrecuenciaDepreciacion)
     OperadorDatos.AgregarParametro("@Parame_TipoDepreciacion", Parame_TipoDepreciacion)
     OperadorDatos.AgregarParametro("@Pardet_TipoDepreciacion", Pardet_TipoDepreciacion)
-    OperadorDatos.AgregarParametro("@Deprec_Codigo", Deprec_Codigo)
+    'OperadorDatos.AgregarParametro("@Deprec_Codigo", Deprec_Codigo)
     OperadorDatos.Procedimiento = _Procedimiento
     bReturn = OperadorDatos.Ejecutar(Result)
     OperadorDatos.LimpiarParametros()
-    Return Result = 1
+    Return Result
   End Function
 
   Public Overridable Function Eliminar() As Boolean
     Dim bReturn As Boolean = True
-    If Not UltimoPeriodo() Then
-      Throw New Exception("Solo es posible eliminar el último periodo generado")
+    Dim ultimo As String = UltimoPeriodo()
+    If Not Deprec_esProyeccion AndAlso Not ultimo = Deprec_Codigo Then
+      Throw New Exception(String.Format("Solo es posible eliminar el último periodo generado ({0})", ultimo))
     End If
     OperadorDatos.AgregarParametro("@accion", "E")
     OperadorDatos.AgregarParametro("@Parame_FrecuenciaDepreciacion", Parame_FrecuenciaDepreciacion)

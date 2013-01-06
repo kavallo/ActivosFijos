@@ -509,9 +509,9 @@ Public Class Activo
       If Valoraciones Is Nothing OrElse Valoraciones.Count = 0 Then
         Return 0
       End If
-      Dim mvalororiginal = 0
+      Dim mvalororiginal As Decimal = 0
       For Each _valor As ActivoValor In Valoraciones
-        If _valor.Pardet_TipoValoracion = Enumerados.enumTipoValoracion.Inicial Then
+        If _valor.Pardet_TipoDepreciacion = Enumerados.enumTipoDepreciacion.Tributaria AndAlso _valor.ActVal_Activo Then
           mvalororiginal = _valor.ActVal_Costo
           Exit For
         End If
@@ -649,6 +649,21 @@ Public Class Activo
       Return Nothing
     End Get
   End Property
+
+  Public Shared Function EstaEnInventario(ByVal _OperadorDatos As OperadorDatos, ByVal _Codigo As Integer, ByVal _PeriodoInventario As WWTSParametroDet) As Boolean
+    Dim oResult As Integer = 0
+    Dim bReturn As Boolean
+    With _OperadorDatos
+      .AgregarParametro("@Accion", "FP")
+      .AgregarParametro("@Activo_Codigo", _Codigo)
+      .AgregarParametro("@Parame_PeriodoInventario", _PeriodoInventario.Parame_Codigo)
+      .AgregarParametro("@Pardet_PeriodoInventario", _PeriodoInventario.Pardet_Secuencia)
+      .Procedimiento = "proc_Activo"
+      bReturn = .Ejecutar(oResult)
+      .LimpiarParametros()
+    End With
+    Return bReturn AndAlso oResult = 1
+  End Function
 
   Public Overridable Sub MapearDataRowaObjeto(ByVal Fila As DataRow)
     Activo_Codigo = CType(Fila("Activo_Codigo"), Integer)
@@ -1020,5 +1035,6 @@ Public Class ActivoList
   '  End If
   '  Return oResult
   'End Function
+
 End Class
 #End Region

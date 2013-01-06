@@ -2,11 +2,65 @@
 <xs:schema id="dsReporteActivoDepreciacion" targetNamespace="http://tempuri.org/dsReporteActivoDepreciacion.xsd" xmlns:mstns="http://tempuri.org/dsReporteActivoDepreciacion.xsd" xmlns="http://tempuri.org/dsReporteActivoDepreciacion.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="activosfijosConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="activosfijosConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ActivosFijos.Modulo.My.MySettings.GlobalReference.Default.activosfijosConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="AF_SRI_InvGyeConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AF_SRI_InvGyeConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ActivosFijos.Modulo.My.MySettings.GlobalReference.Default.AF_SRI_InvGyeConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
-        <Tables />
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_ReporteActivoTableAdapter" GeneratorDataComponentClassName="vw_ReporteActivoTableAdapter" Name="vw_ReporteActivo" UserDataComponentName="vw_ReporteActivoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AF_SRI_InvGyeConnectionString (MySettings)" DbObjectName="AF_SRI_InvGye.dbo.vw_ReporteActivoDepreciacion" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Activo_Codigo, Activo_Serie, Grupo, Tipo, Clase, Activo_CodigoBarra, Activo_CodigoAux, Activo_Descripcion, Marca, Activo_Modelo, Activo_Observacion, Estado_Depreciacion, Estado_Activo, Activo_ResponsableMantenimiento, Activo_FechaIngreso, Activo_FechaCompra, Activo_FechaUso, Centro_Costo, Factura_Codigo, Activo_FechaBaja, TipoBajaActivo, Caracteristicas, UbicacionActual, CustodioActual, Pardet_Marca, Parame_ClaseActivo, Pardet_ClaseActivo, CostoTrib, SalvamentoTrib, DepreciadoTrib, ResiduoTrib, CostoFin, SalvamentoFin, DepreciadoFin, ResiduoFin, PeriodosFin, PeriodosTrib FROM dbo.vw_ReporteActivoDepreciacion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Activo_Codigo" DataSetColumn="Activo_Codigo" />
+              <Mapping SourceColumn="Activo_Serie" DataSetColumn="Activo_Serie" />
+              <Mapping SourceColumn="Grupo" DataSetColumn="Grupo" />
+              <Mapping SourceColumn="Tipo" DataSetColumn="Tipo" />
+              <Mapping SourceColumn="Clase" DataSetColumn="Clase" />
+              <Mapping SourceColumn="Activo_CodigoBarra" DataSetColumn="Activo_CodigoBarra" />
+              <Mapping SourceColumn="Activo_CodigoAux" DataSetColumn="Activo_CodigoAux" />
+              <Mapping SourceColumn="Activo_Descripcion" DataSetColumn="Activo_Descripcion" />
+              <Mapping SourceColumn="Marca" DataSetColumn="Marca" />
+              <Mapping SourceColumn="Activo_Modelo" DataSetColumn="Activo_Modelo" />
+              <Mapping SourceColumn="Activo_Observacion" DataSetColumn="Activo_Observacion" />
+              <Mapping SourceColumn="Estado_Depreciacion" DataSetColumn="Estado_Depreciacion" />
+              <Mapping SourceColumn="Estado_Activo" DataSetColumn="Estado_Activo" />
+              <Mapping SourceColumn="Activo_ResponsableMantenimiento" DataSetColumn="Activo_ResponsableMantenimiento" />
+              <Mapping SourceColumn="Activo_FechaIngreso" DataSetColumn="Activo_FechaIngreso" />
+              <Mapping SourceColumn="Activo_FechaCompra" DataSetColumn="Activo_FechaCompra" />
+              <Mapping SourceColumn="Activo_FechaUso" DataSetColumn="Activo_FechaUso" />
+              <Mapping SourceColumn="Centro_Costo" DataSetColumn="Centro_Costo" />
+              <Mapping SourceColumn="Factura_Codigo" DataSetColumn="Factura_Codigo" />
+              <Mapping SourceColumn="Activo_FechaBaja" DataSetColumn="Activo_FechaBaja" />
+              <Mapping SourceColumn="TipoBajaActivo" DataSetColumn="TipoBajaActivo" />
+              <Mapping SourceColumn="Caracteristicas" DataSetColumn="Caracteristicas" />
+              <Mapping SourceColumn="UbicacionActual" DataSetColumn="UbicacionActual" />
+              <Mapping SourceColumn="CustodioActual" DataSetColumn="CustodioActual" />
+              <Mapping SourceColumn="Pardet_Marca" DataSetColumn="Pardet_Marca" />
+              <Mapping SourceColumn="Parame_ClaseActivo" DataSetColumn="Parame_ClaseActivo" />
+              <Mapping SourceColumn="Pardet_ClaseActivo" DataSetColumn="Pardet_ClaseActivo" />
+              <Mapping SourceColumn="CostoTrib" DataSetColumn="CostoTrib" />
+              <Mapping SourceColumn="SalvamentoTrib" DataSetColumn="SalvamentoTrib" />
+              <Mapping SourceColumn="DepreciadoTrib" DataSetColumn="DepreciadoTrib" />
+              <Mapping SourceColumn="ResiduoTrib" DataSetColumn="ResiduoTrib" />
+              <Mapping SourceColumn="CostoFin" DataSetColumn="CostoFin" />
+              <Mapping SourceColumn="SalvamentoFin" DataSetColumn="SalvamentoFin" />
+              <Mapping SourceColumn="DepreciadoFin" DataSetColumn="DepreciadoFin" />
+              <Mapping SourceColumn="ResiduoFin" DataSetColumn="ResiduoFin" />
+              <Mapping SourceColumn="PeriodosFin" DataSetColumn="PeriodosFin" />
+              <Mapping SourceColumn="PeriodosTrib" DataSetColumn="PeriodosTrib" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
@@ -111,7 +165,7 @@
               </xs:element>
               <xs:element name="Activo_FechaIngreso" msprop:Generator_ColumnVarNameInTable="columnActivo_FechaIngreso" msprop:Generator_ColumnPropNameInRow="Activo_FechaIngreso" msprop:Generator_ColumnPropNameInTable="Activo_FechaIngresoColumn" msprop:Generator_UserColumnName="Activo_FechaIngreso" type="xs:dateTime" />
               <xs:element name="Activo_FechaCompra" msprop:Generator_ColumnVarNameInTable="columnActivo_FechaCompra" msprop:Generator_ColumnPropNameInRow="Activo_FechaCompra" msprop:Generator_ColumnPropNameInTable="Activo_FechaCompraColumn" msprop:Generator_UserColumnName="Activo_FechaCompra" type="xs:dateTime" />
-              <xs:element name="Activo_FechaUso" msprop:Generator_ColumnVarNameInTable="columnActivo_FechaUso" msprop:Generator_ColumnPropNameInRow="Activo_FechaUso" msprop:Generator_ColumnPropNameInTable="Activo_FechaUsoColumn" msprop:Generator_UserColumnName="Activo_FechaUso" type="xs:dateTime" />
+              <xs:element name="Activo_FechaUso" msprop:Generator_ColumnVarNameInTable="columnActivo_FechaUso" msprop:Generator_ColumnPropNameInRow="Activo_FechaUso" msprop:Generator_ColumnPropNameInTable="Activo_FechaUsoColumn" msprop:Generator_UserColumnName="Activo_FechaUso" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Centro_Costo" msprop:Generator_ColumnVarNameInTable="columnCentro_Costo" msprop:Generator_ColumnPropNameInRow="Centro_Costo" msprop:Generator_ColumnPropNameInTable="Centro_CostoColumn" msprop:Generator_UserColumnName="Centro_Costo">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -160,6 +214,8 @@
               <xs:element name="SalvamentoFin" msprop:Generator_ColumnVarNameInTable="columnSalvamentoFin" msprop:Generator_ColumnPropNameInRow="SalvamentoFin" msprop:Generator_ColumnPropNameInTable="SalvamentoFinColumn" msprop:Generator_UserColumnName="SalvamentoFin" type="xs:decimal" minOccurs="0" />
               <xs:element name="DepreciadoFin" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDepreciadoFin" msprop:Generator_ColumnPropNameInRow="DepreciadoFin" msprop:Generator_ColumnPropNameInTable="DepreciadoFinColumn" msprop:Generator_UserColumnName="DepreciadoFin" type="xs:decimal" minOccurs="0" />
               <xs:element name="ResiduoFin" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnResiduoFin" msprop:Generator_ColumnPropNameInRow="ResiduoFin" msprop:Generator_ColumnPropNameInTable="ResiduoFinColumn" msprop:Generator_UserColumnName="ResiduoFin" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PeriodosFin" msprop:Generator_ColumnVarNameInTable="columnPeriodosFin" msprop:Generator_ColumnPropNameInRow="PeriodosFin" msprop:Generator_ColumnPropNameInTable="PeriodosFinColumn" msprop:Generator_UserColumnName="PeriodosFin" type="xs:int" minOccurs="0" />
+              <xs:element name="PeriodosTrib" msprop:Generator_ColumnVarNameInTable="columnPeriodosTrib" msprop:Generator_ColumnPropNameInRow="PeriodosTrib" msprop:Generator_ColumnPropNameInTable="PeriodosTribColumn" msprop:Generator_UserColumnName="PeriodosTrib" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

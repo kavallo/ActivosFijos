@@ -33,6 +33,8 @@ Partial Public Class Depreciacion
 
   Private mDeprec_Observacion As String = ""
 
+  Private mDeprec_esProyeccion As Boolean = False
+
   Public Sub New()
     MyBase.New()
   End Sub
@@ -99,6 +101,17 @@ Partial Public Class Depreciacion
     End Get
     Set(value As String)
       Me.mDeprec_Observacion = value
+      EsModificado = True
+    End Set
+  End Property
+
+  <XmlAttribute()> _
+  Public Overridable Property Deprec_esProyeccion As Boolean
+    Get
+      Return Me.mDeprec_esProyeccion
+    End Get
+    Set(value As Boolean)
+      Me.mDeprec_esProyeccion = value
       EsModificado = True
     End Set
   End Property

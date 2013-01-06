@@ -64,6 +64,20 @@ Public Class FrmDepreciacion
       mDepreciacion.Deprec_Codigo = mDeprec_Codigo
     End Try
 
+    Try
+      If mDepreciacion.Deprec_esProyeccion Then
+        mDepreciacion.Eliminar()
+
+        mDepreciacion = New Depreciacion(Sistema.OperadorDatos, True)
+        mDepreciacion.PardetFrecuenciaDepreciacion = Me.cbofrecuenciadepreciacion.ParametroDet
+        mDepreciacion.PardetTipoDepreciacion = Me.cbotipodepreciacion.ParametroDet
+        mDepreciacion.Deprec_Codigo = mDeprec_Codigo
+      End If
+    Catch ex As Exception
+      MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Error")
+      Exit Sub
+    End Try
+
     bsdepreciacion.DataSource = Nothing
     Me.dgdepreciacion.DataSource = bsdepreciacion
     Me.dgdepreciacion.AutoDiscover()
@@ -160,15 +174,18 @@ Public Class FrmDepreciacion
 
     Try
       mDepreciacion = New Depreciacion(Sistema.OperadorDatos, Me.cbofrecuenciadepreciacion.ParametroDet.Parame_Codigo, Me.cbofrecuenciadepreciacion.ParametroDet.Pardet_Secuencia, Me.cbotipodepreciacion.ParametroDet.Parame_Codigo, Me.cbotipodepreciacion.ParametroDet.Pardet_Secuencia, mDeprec_Codigo)
+    Catch ex As Exception
+      MsgBox("No existe depreciación", MsgBoxStyle.Critical, "Error")
+    End Try
 
+    Try
       If mDepreciacion.Eliminar() Then
         MsgBox("Proceso terminado", MsgBoxStyle.Information, "Información")
-        Me.bsdepreciacion.datasource = Nothing
+        Me.bsdepreciacion.DataSource = Nothing
         Me.cbofrecuenciadepreciacion.Select()
       End If
     Catch ex As Exception
       MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
     End Try
-
   End Sub
 End Class

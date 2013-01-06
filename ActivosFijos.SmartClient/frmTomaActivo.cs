@@ -71,6 +71,9 @@ namespace ActivosFijos
             txtObservacion.Text = "";
             txtResponsable.Text = "";
             pnladic.Controls.Clear();
+
+            pnlBusqueda.Enabled = false;
+            btnGuardar.Enabled = true;
         }
 
         private void frmTomaActivo_Load(object sender, EventArgs e)
@@ -103,34 +106,34 @@ namespace ActivosFijos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            mActivo.Activo_CodigoBarra = txtActivo.Text;
-            mActivo.Activo_Serie = txtSerie.Text;
-            mActivo.Parame_ClaseActivo = CLASE;
-            mActivo.Pardet_ClaseActivo = (int)cboClase.SelectedValue;
-            mActivo.Activo_Descripcion = txtDescripcion.Text;
-            mActivo.Parame_Marca = MARCA;
-            mActivo.Pardet_Marca = (int) cboMarca.SelectedValue;
-            mActivo.Activo_Modelo = txtModelo.Text;
-            mActivo.Activo_Observacion = txtObservacion.Text;
-            mActivo.Parame_EstadoDepreciacion = ESTADODEPRECIACION;
-            mActivo.Pardet_EstadoDepreciacion = (int)cboDepreciacion.SelectedValue;
-            mActivo.Parame_EstadoActivo = ESTADOACTIVO;
-            mActivo.Pardet_EstadoActivo = (int)cboEstadoActivo.SelectedValue;
-            mActivo.Activo_ResponsableMantenimiento = txtResponsable.Text;
-
-            mActivo.Caracteristicas = new Caracteristica[pnladic.Controls.Count];
-            int i = 0;
-            foreach (ActivosFijos.Controles.CtlAdicional ctl in pnladic.Controls)
-            {
-                mActivo.Caracteristicas[i] = ctl.get_Catacteristica();
-                i++;
-            }
-
-            mActivo.Pardet_Ubicacion = pUbicacion.Pardet_Secuencia;
-            mActivo.Entida_Custodio = eCustodio.Emplea_Custodio;
-
             try
             {
+                mActivo.Activo_CodigoBarra = txtActivo.Text;
+                mActivo.Activo_Serie = txtSerie.Text;
+                mActivo.Parame_ClaseActivo = CLASE;
+                mActivo.Pardet_ClaseActivo = (int)cboClase.SelectedValue;
+                mActivo.Activo_Descripcion = txtDescripcion.Text;
+                mActivo.Parame_Marca = MARCA;
+                mActivo.Pardet_Marca = (int) cboMarca.SelectedValue;
+                mActivo.Activo_Modelo = txtModelo.Text;
+                mActivo.Activo_Observacion = txtObservacion.Text;
+                mActivo.Parame_EstadoDepreciacion = ESTADODEPRECIACION;
+                mActivo.Pardet_EstadoDepreciacion = (int)cboDepreciacion.SelectedValue;
+                mActivo.Parame_EstadoActivo = ESTADOACTIVO;
+                mActivo.Pardet_EstadoActivo = (int)cboEstadoActivo.SelectedValue;
+                mActivo.Activo_ResponsableMantenimiento = txtResponsable.Text;
+
+                mActivo.Caracteristicas = new Caracteristica[pnladic.Controls.Count];
+                int i = 0;
+                foreach (ActivosFijos.Controles.CtlAdicional ctl in pnladic.Controls)
+                {
+                    mActivo.Caracteristicas[i] = ctl.get_Catacteristica();
+                    i++;
+                }
+
+                mActivo.Pardet_Ubicacion = pUbicacion.Pardet_Secuencia;
+                mActivo.Entida_Custodio = eCustodio.Emplea_Custodio;
+
                 string result = cliente.GuardarInventarioDet(mUsuario, mInventario, mActivo,
                    eCustodio.Emplea_Custodio, pUbicacion.Parame_Codigo, pUbicacion.Pardet_Secuencia);
                 if (!string.IsNullOrEmpty(result))
@@ -140,6 +143,9 @@ namespace ActivosFijos
                 else
                 {
                     MessageBox.Show("Registro guardado", "Mensaje");
+                    pnlBusqueda.Enabled = true;
+                    btnGuardar.Enabled = false;
+                    txtActivo.Focus();
                 }
             }
             catch
@@ -163,12 +169,14 @@ namespace ActivosFijos
 
         private void CargarActivo()
         {
+            pnlBusqueda.Enabled = true;
             btnGuardar.Enabled = false;
             CargandoArchivo = true;
             pnladic.Controls.Clear();
             if (string.IsNullOrEmpty(txtActivo.Text) && string.IsNullOrEmpty(txtSerie1.Text))
             {
                 tabControl1.Enabled = false;
+                txtActivo.Focus();
             }
             else
             {
@@ -194,32 +202,42 @@ namespace ActivosFijos
                 }
                 else
                 {
-                    btnGuardar.Enabled = true;
-                    cboGrupo.SelectedValue = mActivo.Pardet_Grupo;
-                    cboTipo.SelectedValue = mActivo.Pardet_Tipo;
-                    if (!mActivo.esNuevo)
+                    bool inventariado = cliente.ActivoInventariado(mActivo.Activo_Codigo, mInventario.Parame_PeriodoInventario, mInventario.Pardet_PeriodoInventario);
+                    if (inventariado)
                     {
-                        foreach (Caracteristica carac in mActivo.Caracteristicas)
-                        {
-                            ActivosFijos.Controles.CtlAdicional ctl = new ActivosFijos.Controles.CtlAdicional();
-                            ctl.set_Caracteristica(carac);
-                            pnladic.Controls.Add(ctl);
-                            ctl.Dock = DockStyle.Top;
-                            ctl.SendToBack();
-                        }
+                        MessageBox.Show("El activo ya fue inventariado en este periodo", "Mensaje");
+                        tabControl1.Enabled = false;
                     }
-                    CargarCaracteristicasporTipo();
+                    else
+                    {
+                        pnlBusqueda.Enabled = false;
+                        btnGuardar.Enabled = true;
+                        cboGrupo.SelectedValue = mActivo.Pardet_Grupo;
+                        cboTipo.SelectedValue = mActivo.Pardet_Tipo;
+                        if (!mActivo.esNuevo)
+                        {
+                            foreach (Caracteristica carac in mActivo.Caracteristicas)
+                            {
+                                ActivosFijos.Controles.CtlAdicional ctl = new ActivosFijos.Controles.CtlAdicional();
+                                ctl.set_Caracteristica(carac);
+                                pnladic.Controls.Add(ctl);
+                                ctl.Dock = DockStyle.Top;
+                                ctl.SendToBack();
+                            }
+                        }
+                        CargarCaracteristicasporTipo();
 
-                    cboClase.SelectedValue = mActivo.Pardet_ClaseActivo;
-                    txtDescripcion.Text = mActivo.Activo_Descripcion;
-                    CargarUnaMarca(mActivo.Parame_Marca, mActivo.Pardet_Marca, mActivo.Parame_Marca);
-                    cboMarca.SelectedValue = mActivo.Pardet_Marca;
-                    txtModelo.Text = mActivo.Activo_Modelo;
-                    txtSerie.Text = mActivo.Activo_Serie;
-                    cboEstadoActivo.SelectedValue = mActivo.Pardet_EstadoActivo;
-                    cboDepreciacion.SelectedValue = mActivo.Pardet_EstadoDepreciacion;
-                    txtObservacion.Text = mActivo.Activo_Observacion;
-                    txtResponsable.Text = mActivo.Activo_ResponsableMantenimiento;
+                        cboClase.SelectedValue = mActivo.Pardet_ClaseActivo;
+                        txtDescripcion.Text = mActivo.Activo_Descripcion;
+                        CargarUnaMarca(mActivo.Parame_Marca, mActivo.Pardet_Marca, mActivo.Parame_Marca);
+                        cboMarca.SelectedValue = mActivo.Pardet_Marca;
+                        txtModelo.Text = mActivo.Activo_Modelo;
+                        txtSerie.Text = mActivo.Activo_Serie;
+                        cboEstadoActivo.SelectedValue = mActivo.Pardet_EstadoActivo;
+                        cboDepreciacion.SelectedValue = mActivo.Pardet_EstadoDepreciacion;
+                        txtObservacion.Text = mActivo.Activo_Observacion;
+                        txtResponsable.Text = mActivo.Activo_ResponsableMantenimiento;
+                    }
                 }
             }
             CargandoArchivo = false;
@@ -330,6 +348,11 @@ namespace ActivosFijos
         private void txtmarca_PressEnter(object sender, EventArgs e)
         {
             CargarMarca(txtmarca.Text);
+        }
+
+        private void txtSerie1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -389,7 +389,7 @@ Public Class Enumerados
 
 #Region "Tipo de Depreciacion"
   Enum enumTipoDepreciacion As Byte
-    Estandar = 1
+    Tributaria = 1
     Financiera = 2
   End Enum
 #End Region

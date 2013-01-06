@@ -294,6 +294,31 @@ Public Class InventarioList
     End If
     Return oResult
   End Function
+
+
+  Public Shared Function ObtenerUbicaciones(_OperadorDatos As OperadorDatos, _PeriodoInventario As WWTSParametroDet, Optional ByVal _filtro As String = "") As WWTSParametroDetList
+    Dim oResult As New WWTSParametroDetList
+    Dim bReturn As Boolean
+    Dim ds As DataTable = Nothing
+    With _OperadorDatos
+      .AgregarParametro("@Accion", "Fu")
+      .AgregarParametro("@Parame_PeriodoInventario", _PeriodoInventario.Parame_Codigo)
+      .AgregarParametro("@Pardet_PeriodoInventario", _PeriodoInventario.Pardet_Secuencia)
+      .AgregarParametro("@filtro", _filtro)
+      .Procedimiento = "proc_Inventario"
+      bReturn = .Ejecutar(ds)
+      .LimpiarParametros()
+    End With
+    If bReturn AndAlso Not ds Is Nothing AndAlso ds.Rows.Count > 0 Then
+      For Each _dr As DataRow In ds.Rows
+        Dim _fila As New WWTSParametroDet(_OperadorDatos, Enumerados.EnumParametros.UbicacionActivo, False)
+        _fila.MapearDataRowaObjeto(_dr)
+        oResult.Add(_fila)
+      Next
+    End If
+    Return oResult
+  End Function
+
   Public Shared Function ObtenerListaActivos(_OperadorDatos As OperadorDatos, _Ubicacion As WWTSParametroDet, _PeriodoInventario As WWTSParametroDet, Optional ByVal _filtro As String = "") As InventarioList
     Dim oResult As New InventarioList
     Dim bReturn As Boolean

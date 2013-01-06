@@ -4,7 +4,7 @@ Imports System.Data.SqlClient
 Imports System.Data.OleDb
 
 Public Class clsReporteSRIActaRecepcion
-  Public Shared Function RetornarReporteSRIActaRecepcionDS(_Custodio As Empleado, _PeriodoInventario As WWTSParametroDet) As dsSriActaRecepcion
+  Public Shared Function RetornarReporteActaRecepcionDS(_Custodio As Empleado, _PeriodoInventario As WWTSParametroDet, _Ubicacion As WWTSParametroDet, _SoloInventariados As Boolean) As dsSriActaRecepcion
     Dim bReturn As Boolean
     Dim ds As New dsSriActaRecepcion
     With _Custodio.OperadorDatos
@@ -12,6 +12,9 @@ Public Class clsReporteSRIActaRecepcion
       .AgregarParametro("@Entida_Custodio", _Custodio.Entida_Codigo)
       .AgregarParametro("@Parame_PeriodoInventario", _PeriodoInventario.Parame_Codigo)
       .AgregarParametro("@Pardet_PeriodoInventario", _PeriodoInventario.Pardet_Secuencia)
+      .AgregarParametro("@Parame_Ubicacion", _Ubicacion.Parame_Codigo)
+      .AgregarParametro("@Pardet_Ubicacion", _Ubicacion.Pardet_Secuencia)
+      .AgregarParametro("@SoloInventariados", _SoloInventariados)
       .Comando.CommandText = "proc_Activo"
 
       If .Proveedor = enumProveedorDatos.SQL Then
@@ -38,7 +41,7 @@ Public Class clsReporteSRIActaRecepcion
     Return ds
   End Function
 
-  Public Shared Function RetornarReporteSRICambioCustodioDS(_Custodio As Empleado, _PeriodoInventario As WWTSParametroDet) As dsFichaCambioCustodio
+  Public Shared Function RetornarReporteCambioCustodioDS(_Custodio As Empleado, _PeriodoInventario As WWTSParametroDet, _Ubicacion As WWTSParametroDet) As dsFichaCambioCustodio
     Dim bReturn As Boolean
     Dim ds As New dsFichaCambioCustodio
     With _Custodio.OperadorDatos
@@ -46,6 +49,8 @@ Public Class clsReporteSRIActaRecepcion
       .AgregarParametro("@Entida_Custodio", _Custodio.Entida_Codigo)
       .AgregarParametro("@Parame_PeriodoInventario", _PeriodoInventario.Parame_Codigo)
       .AgregarParametro("@Pardet_PeriodoInventario", _PeriodoInventario.Pardet_Secuencia)
+      .AgregarParametro("@Parame_Ubicacion", _Ubicacion.Parame_Codigo)
+      .AgregarParametro("@Pardet_Ubicacion", _Ubicacion.Pardet_Secuencia)
       .Comando.CommandText = "proc_Activo"
 
       If .Proveedor = enumProveedorDatos.SQL Then

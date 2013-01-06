@@ -195,6 +195,11 @@ Public Class InventarioDet
     Parame_EstadoInventario = CType(Fila("Parame_EstadoInventario"), Integer)
     Pardet_EstadoInventario = CType(Fila("Pardet_EstadoInventario"), Integer)
     InvDet_Activo = CType(Fila("InvDet_Activo"), Boolean)
+    If Not TypeOf (Fila("Usuari_CodigoPDA")) Is DBNull Then
+      Usuari_CodigoPDA = CStr(Fila("Usuari_CodigoPDA"))
+    Else
+      Usuari_CodigoPDA = String.Empty
+    End If
     mInventario = Nothing
     mActivocustodio = Nothing
     mActivoubicacion = Nothing
@@ -250,6 +255,9 @@ Public Class InventarioDet
     OperadorDatos.AgregarParametro("@Parame_EstadoInventario", Parame_EstadoInventario)
     OperadorDatos.AgregarParametro("@Pardet_EstadoInventario", Pardet_EstadoInventario)
     OperadorDatos.AgregarParametro("@InvDet_Activo", InvDet_Activo)
+    If Not String.IsNullOrWhiteSpace(Usuari_CodigoPDA) Then
+      OperadorDatos.AgregarParametro("@Usuari_CodigoPDA", Usuari_CodigoPDA)
+    End If
     OperadorDatos.Procedimiento = _Procedimiento
     bReturn = OperadorDatos.Ejecutar(Result)
     OperadorDatos.LimpiarParametros()
@@ -283,6 +291,9 @@ Public Class InventarioDet
     OperadorDatos.AgregarParametro("@Parame_EstadoInventario", Parame_EstadoInventario)
     OperadorDatos.AgregarParametro("@Pardet_EstadoInventario", Pardet_EstadoInventario)
     OperadorDatos.AgregarParametro("@InvDet_Activo", InvDet_Activo)
+    If Not String.IsNullOrWhiteSpace(Usuari_CodigoPDA) Then
+      OperadorDatos.AgregarParametro("@Usuari_CodigoPDA", Usuari_CodigoPDA)
+    End If
     OperadorDatos.Procedimiento = _Procedimiento
     bReturn = OperadorDatos.Ejecutar(Result)
     OperadorDatos.LimpiarParametros()

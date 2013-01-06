@@ -85,6 +85,23 @@ Public Class ComboBoxParametroDet
     MyBase.DataSource = mParametroDets
   End Sub
 
+  Public Sub Llenar_Datos(_ParametroDets As WWTSParametroDetList)
+    If mOp Is Nothing OrElse Parametro = -1 Then
+      Me.Items.Clear()
+      Exit Sub
+    End If
+
+    mParametroDets = _ParametroDets
+
+    If MostrarRutaCompleta Then
+      MyBase.DisplayMember = "DescripcionLarga"
+    Else
+      MyBase.DisplayMember = "Descripcion"
+    End If
+    MyBase.ValueMember = "Pardet_Secuencia"
+    MyBase.DataSource = mParametroDets
+  End Sub
+
   Private Sub ComboBoxParametroDet_ComandoActualizar(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.ComandoActualizar
     Llenar_Datos(menumtipoobjeto, mParametrodetRef)
   End Sub

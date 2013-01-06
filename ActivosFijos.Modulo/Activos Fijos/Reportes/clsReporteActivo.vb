@@ -36,16 +36,12 @@ Public Class clsReporteActivo
     Return ds
   End Function
 
-  Public Shared Function RetornarActaEntregaCustodioDS(_Custodio As Empleado, _PeriodoInventario As WWTSParametroDet) As dsReporteActivos
+  Public Shared Function RetornarActaEntregaCustodioDS(_Custodio As Empleado) As dsReporteActivos
     Dim bReturn As Boolean
     Dim ds As New dsReporteActivos
     With _Custodio.OperadorDatos
       .AgregarParametro("@Accion", "RAC")
       .AgregarParametro("@Entida_Custodio", _Custodio.Entida_Codigo)
-      If _PeriodoInventario IsNot Nothing Then
-        .AgregarParametro("@Parame_PeriodoInventario", _PeriodoInventario.Parame_Codigo)
-        .AgregarParametro("@Pardet_PeriodoInventario", _PeriodoInventario.Pardet_Secuencia)
-      End If
       .Comando.CommandText = "proc_Activo"
 
       If .Proveedor = enumProveedorDatos.SQL Then

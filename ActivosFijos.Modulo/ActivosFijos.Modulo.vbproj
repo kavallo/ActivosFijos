@@ -217,7 +217,7 @@
     <Compile Include="Activos Fijos\Reportes\clsReporteResumenDepreciacion.vb" />
     <Compile Include="Activos Fijos\Reportes\clsResumenDepreciacionPorTipo.vb" />
     <Compile Include="Activos Fijos\Reportes\clsReporteSRIActaRecepcion.vb" />
-    <Compile Include="Activos Fijos\Reportes\crpSriActaRecepcion1.vb">
+    <Compile Include="Activos Fijos\Reportes\crpSriActaRecepcion.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crpSriActaRecepcion.rpt</DependentUpon>
@@ -732,7 +732,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Activos Fijos\Reportes\crpSriActaRecepcion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crpSriActaRecepcion1.vb</LastGenOutput>
+      <LastGenOutput>crpSriActaRecepcion.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Activos Fijos\Reportes\FrmResumenDepreciacionPorTipo.resx">
       <DependentUpon>FrmResumenDepreciacionPorTipo.vb</DependentUpon>

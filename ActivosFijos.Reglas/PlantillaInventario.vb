@@ -1,6 +1,6 @@
 ﻿Imports Infoware.Datos
 
-Public Class PlantillaActivo
+Public Class PlantillaInventario
   Private mOperadorDatos As OperadorDatos = Nothing
   Public Property OperadorDatos As OperadorDatos
     Get
@@ -22,6 +22,116 @@ Public Class PlantillaActivo
     End Get
     Set(value As String)
       mErrores = value
+    End Set
+  End Property
+
+  Private mUbicacion As String = ""
+  <Infoware.Reportes.CampoReporteAtributo("Ubicacion", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
+  Public Property Ubicacion As String
+    Get
+      Return mUbicacion
+    End Get
+    Set(value As String)
+      mUbicacion = value
+    End Set
+  End Property
+
+  Private mPeriodoInventario As String = ""
+  <Infoware.Reportes.CampoReporteAtributo("PeriodoInventario", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
+  Public Property PeriodoInventario As String
+    Get
+      Return mPeriodoInventario
+    End Get
+    Set(value As String)
+      mPeriodoInventario = value
+    End Set
+  End Property
+
+  Private mInvent_Descripcion As String = ""
+  <Infoware.Reportes.CampoReporteAtributo("Invent_Descripcion", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
+  Public Property Invent_Descripcion As String
+    Get
+      Return mInvent_Descripcion
+    End Get
+    Set(value As String)
+      mInvent_Descripcion = value
+    End Set
+  End Property
+
+  Private mInvent_Fecha As String = Nothing
+  <Infoware.Reportes.CampoReporteAtributo("Invent_Fecha", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Fecha, 80, True)> _
+  Public Property Invent_Fecha As Date
+    Get
+      Return mInvent_Fecha
+    End Get
+    Set(value As Date)
+      mInvent_Fecha = value
+    End Set
+  End Property
+
+  Private mEstadoInventario As String = ""
+  <Infoware.Reportes.CampoReporteAtributo("EstadoInventario", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
+  Public Property EstadoInventario As String
+    Get
+      Return mEstadoInventario
+    End Get
+    Set(value As String)
+      mEstadoInventario = value
+    End Set
+  End Property
+
+  Private mInvDet_Observacion As String = ""
+  <Infoware.Reportes.CampoReporteAtributo("InvDet_Observacion", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
+  Public Property InvDet_Observacion As String
+    Get
+      Return mInvDet_Observacion
+    End Get
+    Set(value As String)
+      mInvDet_Observacion = value
+    End Set
+  End Property
+
+  Private mUbicacionActual As String = ""
+  <Infoware.Reportes.CampoReporteAtributo("UbicacionActual", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
+  Public Property UbicacionActual As String
+    Get
+      Return mUbicacionActual
+    End Get
+    Set(value As String)
+      mUbicacionActual = value
+    End Set
+  End Property
+
+  Private mCustodioActual As String = ""
+  <Infoware.Reportes.CampoReporteAtributo("CustodioActual", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
+  Public Property CustodioActual As String
+    Get
+      Return mCustodioActual
+    End Get
+    Set(value As String)
+      mCustodioActual = value
+    End Set
+  End Property
+
+  Private mEstadoInventarioDet As String = ""
+  <Infoware.Reportes.CampoReporteAtributo("EstadoInventarioDet", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
+  Public Property EstadoInventarioDet As String
+    Get
+      Return mEstadoInventarioDet
+    End Get
+    Set(value As String)
+      mEstadoInventarioDet = value
+    End Set
+  End Property
+
+  Private mUsuari_CodigoPDA As String = ""
+  <Infoware.Reportes.CampoReporteAtributo("Usuari_CodigoPDA", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
+  Public Property Usuari_CodigoPDA As String
+    Get
+      Return mUsuari_CodigoPDA
+    End Get
+    Set(value As String)
+      mUsuari_CodigoPDA = value
     End Set
   End Property
 
@@ -61,28 +171,6 @@ Public Class PlantillaActivo
       End If
     End Set
   End Property
-
-  'Private mGrupo As String = ""
-  '<Infoware.Reportes.CampoReporteAtributo("Grupo", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
-  'Public Property Grupo As String
-  '  Get
-  '    Return mGrupo
-  '  End Get
-  '  Set(value As String)
-  '    mGrupo = value
-  '  End Set
-  'End Property
-
-  'Private mTipo As String = ""
-  '<Infoware.Reportes.CampoReporteAtributo("Tipo", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
-  'Public Property Tipo As String
-  '  Get
-  '    Return mTipo
-  '  End Get
-  '  Set(value As String)
-  '    mTipo = value
-  '  End Set
-  'End Property
 
   Private mClase As String = ""
   <Infoware.Reportes.CampoReporteAtributo("Clase", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 200, True)> _
@@ -248,21 +336,6 @@ Public Class PlantillaActivo
     End Set
   End Property
 
-  Private mUbicacion As String = ""
-  <Infoware.Reportes.CampoReporteAtributo("Ubicacion", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 180, True)> _
-  Public Property Ubicacion As String
-    Get
-      Return mUbicacion
-    End Get
-    Set(value As String)
-      If String.IsNullOrWhiteSpace(value) Then
-        mUbicacion = String.Empty
-      Else
-        mUbicacion = value
-      End If
-    End Set
-  End Property
-
   Private mCentroCostos As String = ""
   <Infoware.Reportes.CampoReporteAtributo("CentroCostos", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
   Public Property CentroCostos As String
@@ -274,69 +347,6 @@ Public Class PlantillaActivo
         mCentroCostos = String.Empty
       Else
         mCentroCostos = value
-      End If
-    End Set
-  End Property
-
-  Private mCustodio As String = ""
-  <Infoware.Reportes.CampoReporteAtributo("Custodio", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
-  Public Property Custodio As String
-    Get
-      Return mCustodio
-    End Get
-    Set(value As String)
-      If String.IsNullOrWhiteSpace(value) Then
-        mCustodio = String.Empty
-      Else
-        mCustodio = value
-      End If
-    End Set
-  End Property
-
-  Private mCosto As Decimal = 0
-  <Infoware.Reportes.CampoReporteAtributo("Costo", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Decimales, 80, True)> _
-  Public Property Costo As Decimal
-    Get
-      Return mCosto
-    End Get
-    Set(value As Decimal)
-      mCosto = value
-    End Set
-  End Property
-
-  Private mSalvamento As Decimal = 0
-  <Infoware.Reportes.CampoReporteAtributo("Salvamento", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Decimales, 80, True)> _
-  Public Property Salvamento As Decimal
-    Get
-      Return mSalvamento
-    End Get
-    Set(value As Decimal)
-      mSalvamento = value
-    End Set
-  End Property
-
-  Private mPeriodosDepreciablesMeses As Integer = 0
-  <Infoware.Reportes.CampoReporteAtributo("PeriodosDepreciablesMeses", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Numero, 80, True)> _
-  Public Property PeriodosDepreciablesMeses As Integer
-    Get
-      Return mPeriodosDepreciablesMeses
-    End Get
-    Set(value As Integer)
-      mPeriodosDepreciablesMeses = value
-    End Set
-  End Property
-
-  Private mFrecuenciaDepreciacion As String = ""
-  <Infoware.Reportes.CampoReporteAtributo("FrecuenciaDepreciacion", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Texto, 80, True)> _
-  Public Property FrecuenciaDepreciacion As String
-    Get
-      Return mFrecuenciaDepreciacion
-    End Get
-    Set(value As String)
-      If String.IsNullOrWhiteSpace(value) Then
-        mFrecuenciaDepreciacion = String.Empty
-      Else
-        mFrecuenciaDepreciacion = value
       End If
     End Set
   End Property
@@ -401,28 +411,6 @@ Public Class PlantillaActivo
     End Set
   End Property
 
-  Private mFechaCambioUbcacionCustodio As Date = Nothing
-  <Infoware.Reportes.CampoReporteAtributo("FechaCambioUbcacionCustodio", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Fecha, 150, True)> _
-  Public Property FechaCambioUbcacionCustodio As Date
-    Get
-      Return mFechaCambioUbcacionCustodio
-    End Get
-    Set(value As Date)
-      mFechaCambioUbcacionCustodio = value
-    End Set
-  End Property
-
-  Private mForzar As Boolean = False
-  <Infoware.Reportes.CampoReporteAtributo("Forzar", Infoware.Reportes.CampoReporteAtributo.EnumTipoDato.Logico, 50, True)> _
-  Public Property Forzar As Boolean
-    Get
-      Return mForzar
-    End Get
-    Set(value As Boolean)
-      mForzar = value
-    End Set
-  End Property
-
   Public Function Validar() As Boolean
     mErrores = ""
     If String.IsNullOrWhiteSpace(CodigoBarras) Then
@@ -457,11 +445,19 @@ Public Class PlantillaActivo
       _comenzotransaccion = True
     End If
 
+    OperadorDatos.AgregarParametro("@Ubicacion", Ubicacion)
+    OperadorDatos.AgregarParametro("@PeriodoInventario", PeriodoInventario)
+    OperadorDatos.AgregarParametro("@Invent_Descripcion", Invent_Descripcion)
+    OperadorDatos.AgregarParametro("@Invent_Fecha", Invent_Fecha)
+    OperadorDatos.AgregarParametro("@EstadoInventario", EstadoInventario)
+    OperadorDatos.AgregarParametro("@InvDet_Observacion", InvDet_Observacion)
+    OperadorDatos.AgregarParametro("@UbicacionActual", UbicacionActual)
+    OperadorDatos.AgregarParametro("@CustodioActual", CustodioActual)
+    OperadorDatos.AgregarParametro("@EstadoInventarioDet", EstadoInventarioDet)
+    OperadorDatos.AgregarParametro("@Usuari_CodigoPDA", Usuari_CodigoPDA)
     OperadorDatos.AgregarParametro("@CodigoBarras", CodigoBarras)
     OperadorDatos.AgregarParametro("@CodigoAux", CodigoAux)
     OperadorDatos.AgregarParametro("@Serie", Serie)
-    'OperadorDatos.AgregarParametro("@Grupo", Grupo)
-    'OperadorDatos.AgregarParametro("@Tipo", Tipo)
     OperadorDatos.AgregarParametro("@Clase", Clase)
     OperadorDatos.AgregarParametro("@Descripcion", Descripcion)
     OperadorDatos.AgregarParametro("@Marca", Marca)
@@ -476,21 +472,13 @@ Public Class PlantillaActivo
     If Not FechaBaja = Nothing Then
       OperadorDatos.AgregarParametro("@FechaBaja", FechaBaja)
     End If
-    OperadorDatos.AgregarParametro("@Ubicacion", Ubicacion)
     OperadorDatos.AgregarParametro("@CentroCostos", CentroCostos)
-    OperadorDatos.AgregarParametro("@Custodio", Custodio)
-    OperadorDatos.AgregarParametro("@Costo", Costo)
-    OperadorDatos.AgregarParametro("@Salvamento", Salvamento)
-    OperadorDatos.AgregarParametro("@PeriodosDepreciablesMeses", PeriodosDepreciablesMeses)
-    OperadorDatos.AgregarParametro("@FrecuenciaDepreciacion", FrecuenciaDepreciacion)
     OperadorDatos.AgregarParametro("@Proveedor", Proveedor)
     OperadorDatos.AgregarParametro("@Factura", Factura)
     OperadorDatos.AgregarParametro("@TipoBajaActivo", TipoBajaActivo)
     OperadorDatos.AgregarParametro("@Caracteristicas", Caracteristicas)
-    OperadorDatos.AgregarParametro("@Fecha_Cambio_UbicacionCustodio", FechaCambioUbcacionCustodio)
-    OperadorDatos.AgregarParametro("@Forzar", Forzar)
 
-    OperadorDatos.Procedimiento = "proc_PlantillaActivo"
+    OperadorDatos.Procedimiento = "proc_PlantillaInventario"
     bReturn = OperadorDatos.Ejecutar(Result)
     OperadorDatos.LimpiarParametros()
     If bReturn Then
@@ -512,10 +500,79 @@ Public Class PlantillaActivo
     End If
     Return bReturn
   End Function
+
+  Public Overridable Sub MapearDataRowaObjeto(ByVal Fila As DataRow)
+    Ubicacion = CStr(Fila("Ubicacion"))
+    PeriodoInventario = CStr(Fila("PeriodoInventario"))
+    Invent_Descripcion = CStr(Fila("Invent_Descripcion"))
+    Invent_Fecha = CDate(Fila("Invent_Fecha"))
+    EstadoInventario = CStr(Fila("EstadoInventario"))
+    InvDet_Observacion = CStr(Fila("InvDet_Observacion"))
+    UbicacionActual = CStr(Fila("UbicacionActual"))
+    CustodioActual = CStr(Fila("CustodioActual"))
+    EstadoInventarioDet = CStr(Fila("EstadoInventarioDet"))
+    If TypeOf Fila("Usuari_CodigoPDA") Is dbnull Then
+      Usuari_CodigoPDA = ""
+    Else
+      Usuari_CodigoPDA = CStr(Fila("Usuari_CodigoPDA"))
+    End If
+    CodigoBarras = CStr(Fila("CodigoBarras"))
+    CodigoAux = CStr(Fila("Activo_CodigoAux"))
+    Serie = CStr(Fila("Activo_Serie"))
+    Clase = CStr(Fila("ClaseActivo"))
+    Descripcion = CStr(Fila("Activo_Descripcion"))
+    Marca = CStr(Fila("Marca"))
+    Modelo = CStr(Fila("Activo_Modelo"))
+    Observacion = CStr(Fila("Activo_Observacion"))
+    EstadoDepreciacion = CStr(Fila("EstadoDepreciacion"))
+    EstadoActivo = CStr(Fila("EstadoActivo"))
+    ResponsableMantenimiento = CStr(Fila("Activo_ResponsableMantenimiento"))
+    FechaIngreso = CDate(Fila("Activo_FechaIngreso"))
+    FechaCompra = CDate(Fila("Activo_FechaCompra"))
+    If TypeOf Fila("Activo_FechaUso") Is dbnull Then
+      FechaUso = Nothing
+    Else
+      FechaUso = CDate(Fila("Activo_FechaUso"))
+    End If
+    CentroCostos = CStr(Fila("CentroCosto"))
+    Proveedor = CStr(Fila("Proveedor"))
+    Factura = CStr(Fila("Factura"))
+    If TypeOf Fila("Activo_FechaBaja") Is dbnull Then
+      fechabaja = Nothing
+    Else
+      FechaBaja = CDate(Fila("Activo_FechaBaja"))
+    End If
+    TipoBajaActivo = CStr(Fila("TipoBajaActivo"))
+    Caracteristicas = CStr(Fila("Caracteristicas"))
+  End Sub
 End Class
 
-#Region "PlantillaActivoList"
-Public Class PlantillaActivoList
-  Inherits System.ComponentModel.BindingList(Of PlantillaActivo)
+#Region "PlantillaInventarioList"
+Public Class PlantillaInventarioList
+  Inherits System.ComponentModel.BindingList(Of PlantillaInventario)
+
+  Public Shared Function ObtenerLista(_Inventario As Inventario) As PlantillaInventarioList
+    Dim oResult As New PlantillaInventarioList
+    Dim bReturn As Boolean
+    Dim ds As DataTable = Nothing
+    With _Inventario.OperadorDatos
+      .AgregarParametro("@Accion", "xp")
+      .AgregarParametro("@Parame_Ubicacion", _Inventario.Parame_Ubicacion)
+      .AgregarParametro("@Pardet_Ubicacion", _Inventario.Pardet_Ubicacion)
+      .AgregarParametro("@Parame_PeriodoInventario", _Inventario.Parame_PeriodoInventario)
+      .AgregarParametro("@Pardet_PeriodoInventario", _Inventario.Pardet_PeriodoInventario)
+      .Procedimiento = "proc_Inventario"
+      bReturn = .Ejecutar(ds)
+      .LimpiarParametros()
+    End With
+    If bReturn AndAlso Not ds Is Nothing AndAlso ds.Rows.Count > 0 Then
+      For Each _dr As DataRow In ds.Rows
+        Dim _fila As New PlantillaInventario(_Inventario.OperadorDatos)
+        _fila.MapearDataRowaObjeto(_dr)
+        oResult.Add(_fila)
+      Next
+    End If
+    Return oResult
+  End Function
 End Class
 #End Region

@@ -11,8 +11,8 @@ using Infoware.Datos;
 using ActivosFijos.Reglas;
 using System.Reflection;
 using System.Web;
-using ActivosFijosService.Properties;
 using Infoware.Reglas.General;
+using ActivosFijos.WebService.Properties;
 
 namespace ActivosFijosServices
 {
@@ -45,13 +45,25 @@ namespace ActivosFijosServices
             }
         }
 
+        public bool ActivoInventariado(int mCodigo, int mParame_PeriodoInventario, int mPardet_PeriodoInventario)
+        {
+            return ActivosFijos.Reglas.Activo.EstaEnInventario(this.mOperadorDatosList[0], mCodigo, new WWTSParametroDet(this.mOperadorDatosList[0], mParame_PeriodoInventario, mPardet_PeriodoInventario));
+        }
+
         public Activo CargarActivo(string mCodigoBarra, string mSerie)
         {
             ActivosFijos.Reglas.Activo activo;
             try
             {
-                activo = ActivoList.ObtenerLista(this.mOperadorDatosList[0], mCodigoBarra, "", mSerie, 
-                    "", null, null, "", null, null, null, null, null, true, -1, DateTime.Now, DateTime.Now, null)[0];
+                if (string.IsNullOrWhiteSpace(mCodigoBarra))
+                {
+                    activo = ActivoList.ObtenerLista(this.mOperadorDatosList[0], "", "", mSerie,
+                        "", null, null, "", null, null, null, null, null, true, -1, DateTime.Now, DateTime.Now, null)[0];
+                }
+                else
+                {
+                    activo = new ActivosFijos.Reglas.Activo(this.mOperadorDatosList[0], mCodigoBarra);
+                }
             }
             catch
             {
@@ -213,6 +225,8 @@ namespace ActivosFijosServices
                 }
                 det.Parame_EstadoInventario = (int)Enumerados.EnumParametros.EstadoInventarioActivo;
                 det.Pardet_EstadoInventario = estadoinventario;
+                det.Usuari_CodigoPDA = mUsuario;
+                
                 bool esNuevo = det.EsNuevo;
                 flag = det.Guardar(mCustodio, mParame_Ubicacion, mPardet_Ubicacion);
                 if (flag)
